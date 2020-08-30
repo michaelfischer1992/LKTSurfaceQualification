@@ -11,13 +11,12 @@ labeledImage = bwlabel(thisImage, 8);
 [h, ~] = size(labeledImage);
 if labeledImage(h,1) == 0
     LabelMaterial = labeledImage(h,1);
-    disp('ggfs. noch was implementieren');
+%     disp('ggfs. noch was implementieren');
 end
 %% calculations
-quantLabels = max(unique(labeledImage));
-colors = [0,0,0; rand(quantLabels, 3)];
-coloredLabels = label2rgb(labeledImage, colors);
 blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+quantLabels = length(blobMeasurements);
+colors = [0,0,0; rand(quantLabels, 3)];
 allBlobs = zeros(quantLabels,4);
 for k = 1 : quantLabels
     thisBlob = blobMeasurements(k);
@@ -30,15 +29,22 @@ for k = 1 : quantLabels
     allBlobs(k,4) = thisBlobHeight;
 end
 allBlobsSorted = sortrows(allBlobs, 2, 'descend');
-overallArea = sum(allBlobsSorted(:,2));
+overallArea = sum(allBlobsSorted(2:end,2));
 [h, w] = size(thisImage);
 VerhaeltnisFlaeche = overallArea / (h*w);
 %% Plot
 if handles.doPlot
+    coloredLabels = label2rgb(labeledImage, colors);
     sqrtBlobs = sqrt(quantLabels);
     prozent = 0.5;
-    WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
-    WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    if sqrtBlobs > 10
+        WertInBreite = 10;
+        WertInHoehe = 6;
+        quantLabels = 61;
+    else
+        WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
+        WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    end
     textFontSize = 8;	% Used to control size of "blob number" labels put atop the image.
     h3 = figure;	% Create a new figure window.
     set(h3, 'WindowState', 'maximized', 'InvertHardCopy', 'off');
@@ -61,7 +67,6 @@ end
 outputArg.labeledImage = labeledImage;
 outputArg.blobMeasurements = blobMeasurements;
 outputArg.allBlobs = allBlobs;
-outputArg.coloredLabels = coloredLabels;
-disp(['Zum Kennwert "', parameterType, '" wurden ' num2str(quantLabels), ' Elemente gefunden.'])
-disp(['Verhältnis zur Gesamtfläche: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
-disp(['Ergebnisse als "', [datestr8601, 'reducedFieldData.mat'], '" abgespeichert.'])
+% outputArg.coloredLabels = coloredLabels;
+disp(['For parameter "', parameterType, '" ' num2str(quantLabels), ' objects were found.'])
+disp(['Ratio to image area: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
