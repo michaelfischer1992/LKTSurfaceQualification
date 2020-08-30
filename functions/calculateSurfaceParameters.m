@@ -8,15 +8,23 @@ if isequal(filterCriteria, 'pores')
 end
 labeledImage = bwlabel(thisImage, 8);
 %% unten links eine Pore? (--> Wert = 0 )
-[h, ~] = size(labeledImage);
+[height, width] = size(labeledImage);
 if labeledImage(h,1) == 0
     LabelMaterial = labeledImage(h,1);
 %     disp('ggfs. noch was implementieren');
 end
 %% calculations
+
+if nnz(labeledImage == 1) > (0.2*height*width)
+    labeledImage(labeledImage == 1) = 0;
+elseif nnz(labeledImage == 2) > (0.2*height*width)
+    labeledImage(labeledImage == 2) = 0;
+end
+
+    
 blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
 quantLabels = length(blobMeasurements);
-colors = [0,0,0; rand(quantLabels, 3)];
+colors = rand(quantLabels, 3);
 allBlobs = zeros(quantLabels,4);
 for k = 1 : quantLabels
     thisBlob = blobMeasurements(k);
@@ -29,9 +37,8 @@ for k = 1 : quantLabels
     allBlobs(k,4) = thisBlobHeight;
 end
 allBlobsSorted = sortrows(allBlobs, 2, 'descend');
-overallArea = sum(allBlobsSorted(2:end,2));
-[h, w] = size(thisImage);
-VerhaeltnisFlaeche = overallArea / (h*w);
+overallArea = sum(allBlobsSorted(:,2));
+VerhaeltnisFlaeche = overallArea / (height*width);
 %% Plot
 if handles.doPlot
     coloredLabels = label2rgb(labeledImage, colors);
@@ -45,11 +52,8 @@ if handles.doPlot
         WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
         WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
     end
-    textFontSize = 8;	% Used to control size of "blob number" labels put atop the image.
-    h3 = figure;	% Create a new figure window.
-    set(h3, 'WindowState', 'maximized', 'InvertHardCopy', 'off');
-    for k = 2 : quantLabels
-        %% plot image
+    figure
+    for k = 1 : quantLabels
         currentBlob = allBlobsSorted(k, 1);
         thisBlob = blobMeasurements(currentBlob);
         thisBlobsBoundingBox = thisBlob.BoundingBox;
@@ -60,13 +64,13 @@ if handles.doPlot
         formatSpec = '#%d, Flaeche %d px\nBreite %d px\nHoehe %d px';
         caption = sprintf(formatSpec,k, allBlobsSorted(k, 2), ...
             allBlobsSorted(k, 3), allBlobsSorted(k, 4));
-        title(caption, 'FontSize', textFontSize);
+        title(caption, 'FontSize', 8);
     end
+    outputArg.coloredLabels = coloredLabels;
 end
 %% output
 outputArg.labeledImage = labeledImage;
 outputArg.blobMeasurements = blobMeasurements;
 outputArg.allBlobs = allBlobs;
-% outputArg.coloredLabels = coloredLabels;
 disp(['For parameter "', parameterType, '" ' num2str(quantLabels), ' objects were found.'])
 disp(['Ratio to image area: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
