@@ -9,10 +9,10 @@ end
 labeledImage = bwlabel(thisImage, 8);
 %% unten links eine Pore? (--> Wert = 0 )
 [height, width] = size(labeledImage);
-if labeledImage(h,1) == 0
-    LabelMaterial = labeledImage(h,1);
-%     disp('ggfs. noch was implementieren');
-end
+% if labeledImage(h,1) == 0
+%     LabelMaterial = labeledImage(h,1);
+% %     disp('ggfs. noch was implementieren');
+% end
 %% calculations
 
 if nnz(labeledImage == 1) > (0.2*height*width)
