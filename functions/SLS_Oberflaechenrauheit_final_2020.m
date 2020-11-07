@@ -4,13 +4,17 @@ app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
 
 %% parameters
 app.doPlot = 0;
-app.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.programMode = 'single images'; % 'single image', 'multiple images'
 app.LengthScaleEditField = 50; % mycrometer - Massstab 
 app.MassstabLaenge = 50; % mycrometer - Massstab 
 app.erosionType = 'diamond';
 app.erosionValue = 2;
 app.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code 
 app.SurfaceRoughnessSections = 50; % surface Roughness
+desiredWidth = 400; 
+maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+fastMode = 1; % scaling down, if image is too big 
+
 LKTPATH        = 'C:\git\LKTSurfaceQualification';
 try
     cd(LKTPATH)
@@ -87,6 +91,11 @@ try
     %% load image
     imgPath = [app.BildPfad app.BildNamePlusExtention];
     app.imgOriginal = imread(imgPath);
+    %% scale image down 
+    if fastMode 
+       scaleDownFactor = maxSizeOfImage / (size(app.imgOriginal, 2) * size(app.imgOriginal, 1)); 
+    end
+    app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
     %% plot original image
     plotImageWindowsized(app, app.imgOriginal)
     %% plot figure into GUI
