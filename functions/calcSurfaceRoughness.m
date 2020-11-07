@@ -1,6 +1,6 @@
 function [roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated)
 [width] = size(undercutsEliminated, 2);
-faktor = get(handles.NumberofsectionsalongpicturewidthEditField, 'Value');
+faktor = handles.SurfaceRoughnessSections;
 aufteilung = width/faktor;
 boundary = realeKontur(~undercutsEliminated);
 roughnessImage = ~undercutsEliminated;

@@ -9,8 +9,8 @@ end
 labeledImage = bwlabel(thisImage, 8);
 %% unten links eine Pore? (--> Wert = 0 )
 [height, width] = size(labeledImage);
-if labeledImage(h,1) == 0
-    LabelMaterial = labeledImage(h,1);
+if labeledImage(height, 1) == 0
+    LabelMaterial = labeledImage(height, 1);
 %     disp('ggfs. noch was implementieren');
 end
 %% calculations
@@ -23,8 +23,11 @@ end
 
     
 blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+colors = rand(length(blobMeasurements), 3);
+emptyIndex = find(arrayfun(@(blobMeasurements) isempty(blobMeasurements.PixelList), blobMeasurements));
+blobMeasurements(emptyIndex) = []; 
+
 quantLabels = length(blobMeasurements);
-colors = rand(quantLabels, 3);
 allBlobs = zeros(quantLabels,4);
 for k = 1 : quantLabels
     thisBlob = blobMeasurements(k);
