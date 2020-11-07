@@ -4,7 +4,7 @@ app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
 
 %% parameters
 app.doPlot = 0;
-app.programMode = 'single images'; % 'single image', 'multiple images'
+app.programMode = 'multiple images'; % 'single image', 'multiple images'
 app.LengthScaleEditField = 50; % mycrometer - Massstab 
 app.MassstabLaenge = 50; % mycrometer - Massstab 
 app.erosionType = 'diamond';
@@ -47,8 +47,9 @@ try
         % --> do this, even before the user clicks on load image.
         % Load image afterwards starts automatically - the user
         % only has to "scale" and "rectangle"
-        PathName = app.ImportpathEditField.Value;
-        S = dir(fullfile(PathName,'*.jpg')); % pattern to match filenames.
+        
+        importPath = 'C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren'; 
+        S = dir(fullfile(importPath, '*.jpg')); % pattern to match filenames.
         if numel(S) > 1
             %% everything alright
             disp([num2str(numel(S)), ' images found.'])
@@ -57,7 +58,7 @@ try
             keyboard
         end
         for k = 1:numel(S)
-            info = imfinfo(fullfile(PathName,S(k).name));
+            info = imfinfo(fullfile(importPath,S(k).name));
             [ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
             Imagesdata(k).height = info.Height;
             Imagesdata(k).width = info.Width;
@@ -78,7 +79,7 @@ try
         %% read first image with scale bar
         message = ('Select your start image. IMPORTANT: The image has to show a scale!');
         msgbox(message, 'Important Notice','warn');
-        userSelectsImageInExplorer(app)
+        app = userSelectsImageInExplorer(app);
         app.ImagesData = S_tmp;
     else
         app = userSelectsImageInExplorer(app);
@@ -104,29 +105,29 @@ if strcmp(app.programMode, 'multiple images')
     %% remove scale for 1st image
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% calculate scale and read out SI value
-    calculateScaleFromPreviousUserSelection(app)
+    app = calculateScaleFromPreviousUserSelection(app);
     
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% Part I: Image preparation
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% calculate threshold
-    calcGrayscaleThresholdInImage(app)
+    app = calcGrayscaleThresholdInImage(app);
     %% grayscale to binary image
-    convertGrayscaleToBinaryImage(app)
+    app = convertGrayscaleToBinaryImage(app);
     %% eliminate scale through user interaction: User has to draw a rectangle around the scale
-    elimateScaleThroughUserDrawingRectangle(app)
+    app = elimateScaleThroughUserDrawingRectangle(app);
     %% prepare image (erode, dilate, etc.)
-    prepareImageWithBWAreaOpenOpenCloseCtc(app)
+    app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
     %% align image horizontally, cut off edges
-    alignImageHorizontally(app)
+    app = alignImageHorizontally(app);
     %% plot contours
-    plotContoursInImage(app)
+    app = plotContoursInImage(app);
     
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% Part II: Calculate parameters and export
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    runAllQualityParametersWithGivenParameters(app)
-    exportAllResultsToMatFile(app, app.ImagesData(1).name) %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+    app = runAllQualityParametersWithGivenParameters(app);
+    exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
     
     for i = 2 : numel(app.ImagesData)
         
@@ -135,35 +136,34 @@ if strcmp(app.programMode, 'multiple images')
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         imgPath = app.ImagesData(i).filename;
         app.imgOriginal = imread(imgPath);
-        showFigureInGUI(app)
+%         showFigureInGUI(app)
         
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% Part I: Image preparation
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% calculate threshold
-        calcGrayscaleThresholdInImage(app)
+        app = calcGrayscaleThresholdInImage(app);
         %% grayscale to binary image
-        convertGrayscaleToBinaryImage(app)
+        app = convertGrayscaleToBinaryImage(app);
         %% remove scale
-        app.imgBWnoScale = app.imgBW;
+        app.imgBWnoScale = app.imgBW; 
         app.imgBWnoScale(app.yValsRectScale, app.xValsRectScale) = 1;
         %% prepare image (erode, dilate, etc.)
-        prepareImageWithBWAreaOpenOpenCloseCtc(app)
+        app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
         %% align image horizontally, cut off edges
-        alignImageHorizontally(app)
+        app = alignImageHorizontally(app);
         %% plot contours
-        plotContoursInImage(app)
+        app = plotContoursInImage(app);
         
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% Part II: Calculate parameters and export
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        runAllQualityParametersWithGivenParameters(app)
+        app = runAllQualityParametersWithGivenParameters(app);
         disp('-')
         disp('-')
         disp('--------------------------------------------------------------------------------------------------------------------------')
         disp(['Image ', app.ImagesData(i).name])
         exportAllResultsToMatFile(app, app.ImagesData(i).name)
-        
     end
     
 else
@@ -217,7 +217,7 @@ app.BildNamePlusExtention = [name, ext];
 end
 
 %% userChooseScaleRectangle
-function [choice, imgBw_tmp] = userChooseScaleRectangle(app)
+function [choice, imgBw_tmp, app] = userChooseScaleRectangle(app)
 imshow(app.imgBW)
 options = {'Yes','No - Try Again'};
 text(200, 1800, ['Please draw a rectangle', newline, 'around the scale bar', newline, 'incl. the scale value'], ...
@@ -291,10 +291,10 @@ end
 %% elimateScaleThroughUserDrawingRectangle
 function app = elimateScaleThroughUserDrawingRectangle(app)
 figure
-[choice, imgBw_tmp] = userChooseScaleRectangle(app);
+[choice, imgBw_tmp, app] = userChooseScaleRectangle(app);
 while choice == 2
     %% try again
-    [choice, imgBw_tmp] = userChooseScaleRectangle(app);
+    [choice, imgBw_tmp, app] = userChooseScaleRectangle(app);
 end
 text(200, 1800, ['Looks good!', newline, 'Thanks :)'], ...
     "FontSize", 20, "Color", '#1ba843', "FontWeight","bold")
