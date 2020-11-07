@@ -1,0 +1,72 @@
+%% switch to another Tab 
+app.TabGroup.SelectedTab = app.SettingsTab;
+
+%% open the current working directory
+eval(['!explorer /e,' cd])
+
+%% save file as mat file 
+filename = fullfile(app.ExportpathEditField.Value, [datestr8601, '_overallResults.mat']); 
+overallResults = app.overallResults; 
+save(filename, 'overallResults') 
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.ExportpathEditField.Value, '"'])
+
+%% making an easy pop-up window with MESSAGEBOX 
+message = sprintf('When the b/w-threshold is calculated, the software automatically grabs grayscale information from the upper and lower part of the image. Choose the size of this pixel area by this parameter.');
+msgbox(message, 'Parameter Explained', 'help');
+https://de.mathworks.com/help/matlab/ref/uialert.html
+https://de.mathworks.com/help/matlab/ref/msgbox.html
+
+
+%% Bild vom Explorer einlesen 
+[pathstr, name, ext] = userSelectsImageInExplorer(app); 
+
+%%
+info = imfinfo(...);
+info.Height
+info.Width
+
+%% Punkte zeichnen lassen von User auf Image 
+[x,y] = getpts
+https://de.mathworks.com/help/images/ref/getpts.html
+
+%% read images from a path 
+S = dir(fullfile(PathName,'*.jpg')); % pattern to match filenames.
+                for k = 1:numel(S)
+                    info = imfinfo(fullfile(PathName,S(k).name));
+                    [ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
+                    Imagesdata(k).height = info.Height;
+                    Imagesdata(k).width = info.Width;
+                    Imagesdata(k).filename = info.Filename;
+                end
+
+%% Specify rectangle with mouse
+getrect
+
+%% Generate linearly spaced vector
+linspace(FirstValue, LastValue, #Values)
+linspace(-5,5,7)
+
+%%%%%%%%%%%%%%%%%%%%%%% 
+Parameters in GUI: 
+
+Parameters Threshold Calc
+pxW = 5; 
+
+
+%% create a Startup-Function 
+Code-View --> right side --> right-click on app.UIFigure --> Callbacks --> Add StartUp-Function 
+https://www.youtube.com/watch?v=kCX8-0q12l4
+
+%% write a plot into an axis 
+--> einfach bei jedem Befehl als erstes Input-Arguement app.UIAxes_X_ geben. 
+im App Designer kann man kein figure mit gcf oder gca ansprechen. -- HandleVisibility ist grundsätzlich auf OFF 
+
+%% X-Achse, y-axis ausblenden 
+set(gca,'XColor', 'none','YColor','none')
+
+%% change title of the app 
+--> programm is not allowed to run --> property window --> Identifiers --> Name 
+
+%% read excel table 
+[tachyPointName, X1, Y1, Z1, pointName, x1, x2] = readvars(pathToTachyData);
+tachyData = readcell(pathToTachyData, 'delimiter', ',');

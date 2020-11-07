@@ -1,0 +1,36 @@
+Number of .mat-files: 117
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+Elapsed time is 6.691181 seconds.
+bwareaopen: Of 11431 objects (< 10px) 7158 have been eliminated (current size: 10)
+bwareaopen: Of 11431 objects (< 10px) 7551 have been eliminated (current size: 11)
+After imclose: 1691 objects remain. (2189 deleted)
+After imopen: 1103 objects remain. (588 deleted)
+Overall reduction of objects 92.8%
+Reduction in area 47.4%
+real contour length: Inf µm / 86990.8697 px.
+picture width: Inf µm / 28605 px.
+ratio: 3
+For parameter "Material Islands" 1103 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 1.705736 seconds.
+For parameter "Undercuts" 1208 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 26.444731 seconds.
+For parameter "Pores" 2272 objects were found.
+Ratio to image area: 2%.
+Elapsed time is 3.275658 seconds.
+For parameter "Roughness" 572 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 41.019710 seconds.
+For parameter "Space behind material islands" 1029 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 709 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 46.247449 seconds.
+[Warning: Variable 'overallResults' was not saved. For
+variables larger than 2GB use MAT-file version 7.3 or
+later.] 
+Results saved as "20200831T101156_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-

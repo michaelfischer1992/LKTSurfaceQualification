@@ -1,0 +1,74 @@
+Program mode: multiple images
+Program mode: single image 
+Program mode: multiple images
+Program mode: single image 
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 1.074475 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7334.7685 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+{Unrecognized function or variable 'h'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calculateSurfaceParameters', 'C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m', 12)" style="font-weight:bold">calculateSurfaceParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m',12,0)">line 12</a>)
+if labeledImage(h,1) == 0
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam1', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 225)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam1</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',225,0)">line 225</a>)
+            [results] =
+            calculateSurfaceParameters(app,
+            app.imgEroded, 'matIslands',
+            parameterType);
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 176)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',176,0)">line 176</a>)
+            CalcQualityParam1(app);
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 895)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',895,0)">line 895</a>)
+                runAllQualityParametersWithGivenParameters(app)} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.controller.ComponentController/executeUserCallback', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m', 382)" style="font-weight:bold">matlab.ui.control.internal.controller.ComponentController/executeUserCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m',382,0)">line 382</a>)
+Error while evaluating Button PrivateButtonPushedFcn.
+
+opentoline('C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m',12,0)
+Elapsed time is 0.512544 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7334.7685 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+For parameter "Material Islands" 23 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.211867 seconds.
+For parameter "Undercuts" 55 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.281026 seconds.
+For parameter "Pores" 43 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.220722 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.112451 seconds.
+For parameter "Space behind material islands" 23 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 21 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.274374 seconds.
+Results saved as "20200831T100344_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
