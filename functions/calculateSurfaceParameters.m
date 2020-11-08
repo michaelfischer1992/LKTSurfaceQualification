@@ -1,32 +1,36 @@
-function [outputArg] = calculateSurfaceParameters(handles, thisImage, ...
+function [outputArg] = calculateSurfaceParameters(app, thisImage, ...
     filterCriteria, parameterType, varargin)
+%% calculateSurfaceParameters
+
+%% Script Description
+%
+% Michael Fischer, 08.11.2020
+
+%% Parameters
+%
+
 %% invert originalImage
 if isequal(filterCriteria, 'pores')
     originalImageIdx = thisImage == 1;
     originalImageIdxInverted = ~originalImageIdx;
     thisImage = 1*originalImageIdxInverted;
 end
-labeledImage = bwlabel(thisImage, 8);
-%% unten links eine Pore? (--> Wert = 0 )
-[height, width] = size(labeledImage);
-if labeledImage(height, 1) == 0
-    LabelMaterial = labeledImage(height, 1);
-%     disp('ggfs. noch was implementieren');
+
+[height, width] = size(thisImage);
+
+if ~strcmp(class(thisImage), 'logical')
+thisImage = thisImage > 0; 
 end
 %% calculations
-
-if nnz(labeledImage == 1) > (0.2*height*width)
-    labeledImage(labeledImage == 1) = 0;
-elseif nnz(labeledImage == 2) > (0.2*height*width)
-    labeledImage(labeledImage == 2) = 0;
-end
-
-    
-blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+blobMeasurements = regionprops(thisImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
 colors = rand(length(blobMeasurements), 3);
 emptyIndex = find(arrayfun(@(blobMeasurements) isempty(blobMeasurements.PixelList), blobMeasurements));
-blobMeasurements(emptyIndex) = []; 
+blobMeasurements(emptyIndex) = [];
+% [~, ab, ~] = intersect(vertcat(blobMeasurements(:).Area), max(vertcat(blobMeasurements(:).Area)));
+% blobMeasurements(ab) = [];
 
+% calculate width and height of blob and write it in array (actually not
+% necessary) 
 quantLabels = length(blobMeasurements);
 allBlobs = zeros(quantLabels,4);
 for k = 1 : quantLabels
@@ -39,11 +43,25 @@ for k = 1 : quantLabels
     allBlobs(k,3) = thisBlobWidth;
     allBlobs(k,4) = thisBlobHeight;
 end
+% delete largest Blob
+deleteIdx = allBlobs(:, 2) == max(allBlobs(:, 2));
+allBlobs = allBlobs(~deleteIdx, :);
+
+% sort all blobs so we have them in correct order when plotting
 allBlobsSorted = sortrows(allBlobs, 2, 'descend');
 overallArea = sum(allBlobsSorted(:,2));
 VerhaeltnisFlaeche = overallArea / (height*width);
+
+% labelled image (pretty fast)
+labeledImage = bwlabel(thisImage, 8);
+if nnz(labeledImage == 1) > (0.2*height*width)
+    labeledImage(labeledImage == 1) = 0;
+elseif nnz(labeledImage == 2) > (0.2*height*width)
+    labeledImage(labeledImage == 2) = 0;
+end
+
 %% Plot
-if handles.doPlot
+if app.doPlot
     coloredLabels = label2rgb(labeledImage, colors);
     sqrtBlobs = sqrt(quantLabels);
     prozent = 0.5;
@@ -57,6 +75,7 @@ if handles.doPlot
     end
     figure
     for k = 1 : quantLabels
+        % plot blobs in subplot 
         currentBlob = allBlobsSorted(k, 1);
         thisBlob = blobMeasurements(currentBlob);
         thisBlobsBoundingBox = thisBlob.BoundingBox;
@@ -70,6 +89,21 @@ if handles.doPlot
         title(caption, 'FontSize', 8);
     end
     outputArg.coloredLabels = coloredLabels;
+end
+%% plot overlay image with colored blobs 
+if app.doPlot
+    imOrig = app.imgOriginal;
+    for j = 1 : length(allBlobsSorted)
+        currentBlob = allBlobsSorted(j, 1);
+        thisBlob = blobMeasurements(currentBlob);
+        for i = 1 : size(thisBlob.PixelList, 1)
+            imOrig(thisBlob.PixelList(i, 2), thisBlob.PixelList(i, 1), :) =  colors(j, :)*255;
+        end
+    end
+    figure
+    imshow(imOrig)
+    ax = gca;
+    ax.Clipping = 'off';
 end
 %% output
 outputArg.labeledImage = labeledImage;

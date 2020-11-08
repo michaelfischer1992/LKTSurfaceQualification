@@ -1,22 +1,23 @@
-function handles = runAllQualityParametersWithGivenParameters(handles)
+function app = runAllQualityParametersWithGivenParameters(app)
 tic
-[handles] = CalcQualityParam1(handles);
+[app] = CalcQualityParam1(app);
 disp('calculating surface quality parameter 1 took ')
 toc
+
 tic
-[handles] = CalcQualityParam2(handles);
+[app] = CalcQualityParam2(app);
 disp('calculating surface quality parameter 2 took ')
 toc
 tic
-[handles] = CalcQualityParam3(handles);
+[app] = CalcQualityParam3(app);
 disp('calculating surface quality parameter 3 took ')
 toc
 tic
-[handles] = CalcQualityParam4(handles);
+[app] = CalcQualityParam4(app);
 disp('calculating surface quality parameter 4 took ')
 toc
 tic
-[handles] = CalcQualityParam5(handles);
+[app] = CalcQualityParam5(app);
 disp('calculating surface quality parameter 5 took ')
 toc
 end

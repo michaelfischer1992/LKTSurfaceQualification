@@ -1,15 +1,33 @@
 function [originalImageNoMatIslands] = eliminateBlobsFromImage(thisImage)
-labeledImage = bwlabel(thisImage, 8);
-blobMeasurements = regionprops(labeledImage, 'PixelList', 'Area');
+%% eliminateBlobsFromImage
+
+%% Script Description
+% this function eliminates all searched regions (e.g. material islands)
+% Michael Fischer, 08.11.2020
+
+%% Parameters
+%
+
+thisImage_tmp = thisImage; 
+% declare regionprops -- previously always used bwlabel, but this is not
+% necessary. You can directly use the logical image, which is the input
+% of this function already. 
+% PERFORMANCE - ISSUE - but there's no alternative to regionprops
+% with 'PixelList': 3,2 sec - without: 0,8 sec
+blobMeasurements = regionprops(thisImage_tmp, 'Area', 'PixelList');
+% eliminate largest area (actual material, which was detected as regionprop) 
 [~, ab, ~] = intersect(vertcat(blobMeasurements(:).Area), max(vertcat(blobMeasurements(:).Area)));
 blobMeasurements(ab) = [];
-for i = 1 : length(blobMeasurements)
-    thisBlobInfo = vertcat(blobMeasurements(i).PixelList);
-    for j = 1 : size(thisBlobInfo, 1)
-        x = thisBlobInfo(j, 1);
-        y = thisBlobInfo(j, 2);
-        thisImage(y, x) = 0;
-    end 
+
+% eliminate material islands
+% PERFORMANCE - NO ISSUE
+allPoints = vertcat(blobMeasurements(:).PixelList);
+for i = 1 : length(allPoints)
+    thisImage_tmp(allPoints(i, 2), allPoints(i, 1)) = 0;
 end
-originalImageNoMatIslands = thisImage; 
+% output
+originalImageNoMatIslands = thisImage_tmp; 
+%% 
+%% EOF 
+%%
 end
