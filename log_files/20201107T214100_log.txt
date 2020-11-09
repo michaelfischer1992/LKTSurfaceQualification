@@ -1,0 +1,57 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',724,1)">724 </a>while length(x) ~= 2 
+length(x) ~= 2
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+[x,y] = getpts;
+length(x) ~= 2
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+warning('You have to select two points!')
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 724)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',724,0)">line 724</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[x,y] = getpts;
+length(x) ~= 2
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+if system_dependent('IsDebugMode')==1, dbcont; end
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 725)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,0)">line 725</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 725)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,0)">line 725</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 725)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,0)">line 725</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 725)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,0)">line 725</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 725)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,0)">line 725</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',729,1)">729 </a>hold on
+if system_dependent('IsDebugMode')==1, dbquit; end
+runAllQualityParametersWithGivenParameters2

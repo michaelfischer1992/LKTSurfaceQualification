@@ -1,0 +1,43 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,1)">725 </a>hold on
+[x,y] = getpts;
+[x,y] = getpts;
+x
+
+x =
+
+   1.0e+03 *
+
+    0.8057
+    1.5404
+    1.8553
+    1.2255
+    0.6827
+    0.0680
+
+y
+
+y =
+
+   1.0e+03 *
+
+    1.2494
+    1.3994
+    0.9885
+    0.7426
+    0.5927
+    0.0529
+
+[x,y] = getpts;
+[x,y] = getpts;
+[x,y]
+
+ans =
+
+   1.0e+03 *
+
+    0.0110    0.0139
+    2.7070    2.0261
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+runAllQualityParametersWithGivenParameters2

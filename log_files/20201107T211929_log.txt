@@ -1,0 +1,5 @@
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',37,1)">37  </a>app = userSelectsImageInExplorer(app);
+app = userSelectsImageInExplorer(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

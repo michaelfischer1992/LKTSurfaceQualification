@@ -1,0 +1,41 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',94,1)">94  </a>    app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+if system_dependent('IsDebugMode')==1, dbcont; end
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 578)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',578,0)">line 578</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 556)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',556,0)">line 556</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 100)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',100,0)">line 100</a>)] 
+Elapsed time is 0.038660 seconds.
+After imclose: 1 objects remain. (0 deleted)
+After imopen: 1 objects remain. (0 deleted)
+Overall reduction of objects 0%
+Reduction in area NaN%
+real contour length: 363 µm / 471.3158 px.
+picture width: 307 µm / 399 px.
+ratio: 1.2
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.013520 seconds.
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+calculating surface quality parameter 2 took 
+Elapsed time is 0.126816 seconds.
+For parameter "Materialinseln" 6 objects were found.
+Ratio to image area: 3%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.005308 seconds.
+For parameter "Roughness Areas" 8 objects were found.
+Ratio to image area: 30%.
+calculating surface quality parameter 4 took 
+Elapsed time is 0.098323 seconds.
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+calculating surface quality parameter 5 took 
+Elapsed time is 0.164945 seconds.
+Results saved as "20201107T231618_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-

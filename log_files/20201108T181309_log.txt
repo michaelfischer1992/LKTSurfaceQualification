@@ -1,0 +1,179 @@
+diary on
+app = selectImageAndDoFirstImageAdjustments(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',3,1)">3   </a>    if strcmp(app.programMode, 'multiple images')
+strcmp(app.ConfigParams.programMode, 'multiple images')
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+app.ConfigParams.programMode = 'single image'; % 'single image', 'multiple images'
+app = selectImageAndDoFirstImageAdjustments(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',3,1)">3   </a>    if strcmp(app.programMode, 'multiple images')
+strcmp(app.ConfigParams.programMode, 'multiple images')
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+app = userSelectsImageInExplorer(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+{Unrecognized property 'BildPfad' for class 'app1'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('selectImageAndDoFirstImageAdjustments>userSelectsImageInExplorer', 'C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m', 83)" style="font-weight:bold">selectImageAndDoFirstImageAdjustments>userSelectsImageInExplorer</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',83,0)">line 83</a>)
+app.BildPfad = [pathstr '\'];
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+app = selectImageAndDoFirstImageAdjustments(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',3,1)">3   </a>    if strcmp(app.ConfigParams.programMode, 'multiple images')
+app = userSelectsImageInExplorer(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+if system_dependent('IsDebugMode')==1, dbquit; end
+app = selectImageAndDoFirstImageAdjustments(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+no image selected.
+app = selectImageAndDoFirstImageAdjustments(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',46,1)">46  </a>    imgPath = [app.BildPfad app.BildNamePlusExtention];
+imgPath = [app.Data.BildPfad app.Data.BildNamePlusExtention];
+app.Data.imgOriginal = imread(imgPath);
+fastMode
+{Unrecognized function or variable 'fastMode'.
+} 
+app.ConfigParams.fastMode
+
+ans =
+
+     0
+
+scaleDownFactor = 1;
+app.Data.imgOriginal = imresize(app.Data.imgOriginal, scaleDownFactor);
+plotImageWindowsized(app.Data.imgOriginal)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\plotImageWindowsized.m',12,1)">12  </a>figure
+figure
+imshow(image)
+ax = gca;
+ax.Clipping = 'off';    % turn clipping off
+set(gcf, 'WindowState', 'maximized', 'InvertHardCopy', 'off', 'Name', 'Original Image');
+set(gcf, 'Name', 'Original Image');
+if system_dependent('IsDebugMode')==1, dbquit; end
+plotImageWindowsized(app.Data.imgOriginal)
+plotImageWindowsized(app.Data.imgOriginal)
+plotImageWindowsized(app.Data.imgOriginal)
+[app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getpts', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m', 174)" style="font-weight:bold">getpts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m',174,0)">line 174</a>)
+Interruption during mouse point selection.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getScaleValues>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\getScaleValues.m', 34)" style="font-weight:bold">getScaleValues>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\getScaleValues.m',34,0)">line 34</a>)
+[x,y] = getpts;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getScaleValues', 'C:\git\LKTSurfaceQualification\functions\getScaleValues.m', 13)" style="font-weight:bold">getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\getScaleValues.m',13,0)">line 13</a>)
+[choice, x, y] = letUserDrawEdgesOfScale(app);
+} 
+plotImageWindowsized(app.Data.imgOriginal)
+[app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+{Unrecognized property 'MassstabXVals' for class 'app1'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+app.ConfigParams.workingDirectory = [];
+app.ConfigParams.importDirectory = [];
+app.ConfigParams.savingDirectory = [];
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+addpath(app.ConfigParams.logfiles);
+addpath(app.ConfigParams.guiImagesPath);
+addpath(app.ConfigParams.functionPath);
+addpath(app.ConfigParams.functionPath2017);
+addpath(app.ConfigParams.imagePath);
+
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.captionFontSize = 14;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'single image'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0; 
+app.ConfigParams.erosionType = []; 
+app.ConfigParams.erosionValue = []; 
+% colors
+app.ConfigParams.gruen=[0.78 0.88 0.58];
+app.ConfigParams.hellgruen=[0.73	0.88	0.48];
+app.ConfigParams.dunkelrot=[0.64	0.08	0.18];
+app.ConfigParams.hellrot=[0.93	0.41	0.50];
+app.ConfigParams.grau=[0.50	0.50	0.50];
+app.ConfigParams.schwarz=[0	0	0];
+app.ConfigParams.rosa=[1.00	0.80	0.80];
+% iamge
+app.Data.BildPfad = [];
+app.Data.BildName = 0;
+app.Data.BildNamePlusExtention = 0;
+app.Data.imgBW = 0;
+app.Data.imgBWnoScale = 0;
+app.Data.imgEroded = 0;
+app.Data.imgErod = 0; % ausgerichtetes Erodiertes Bild
+app.Data.imgOriginal = 0;
+app.Data.imgOrig = 0; % ausgerichtetes Originalbild
+app.Data.overallResults = [];
+app.Data.hintergrundwert = [];
+app.Data.materialwert = [];
+app.Data.schwellwert = [];
+app.Data.imageWidth = [];
+app.Data.imageHeight = [];
+app.Data.yValsRectScale = [];
+app.Data.xValsRectScale = [];
+app.Data.MassstabYVals = [];
+app.Data.MassstabXVals = [];
+
+% surface
+app.Data.realeKonturX = 0;
+app.Data.realeKonturY = 0;
+app.Data.aufKontur = 0;
+app.Data.FlaecheHinterschneidung = 0;
+app.Data.Pz_Wert = 0;
+% scale
+app.Data.MassstabLinksPosX = 0;
+app.Data.MassstabLinksPosY = 0;
+app.Data.MassstabRechtsPosX = 0;
+app.Data.MassstabRechtsPosY = 0;
+app.Data.MassstabWert = 1;
+app.Data.MassstabEinheit = 'px';
+app = selectImageAndDoFirstImageAdjustments(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\selectImageAndDoFirstImageAdjustments.m',46,1)">46  </a>    imgPath = [app.Data.BildPfad app.Data.BildNamePlusExtention];
+imgPath = [app.Data.BildPfad app.Data.BildNamePlusExtention];
+    app.Data.imgOriginal = imread(imgPath);
+    %% scale image down
+    if app.ConfigParams.fastMode
+        scaleDownFactor = maxSizeOfImage / (size(app.imgOriginal, 2) * size(app.imgOriginal, 1));
+    else
+        scaleDownFactor = 1;
+    end
+    app.Data.imgOriginal = imresize(app.Data.imgOriginal, scaleDownFactor);
+    %% plot original image
+    plotImageWindowsized(app.Data.imgOriginal)
+    %% plot figure into GUI
+    %     showFigureInGUI(app)
+    %% let user draw two points to get the scale bar
+    [app.Data.MassstabXVals, app.Data.MassstabYVals] = getScaleValues(app);
+plotImageWindowsized(app.Data.imgOriginal)
+plotImageWindowsized(app.Data.imgOriginal)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\plotImageWindowsized.m',18,1)">18  </a>set(gcf, 'Position', get(0, 'Screensize'));
+if system_dependent('IsDebugMode')==1, dbquit all; end

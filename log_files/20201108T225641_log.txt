@@ -1,0 +1,220 @@
+{Unrecognized method, property, or field 'icon_settings1' for class 'SLS_Oberflaechenrauheit_final_App_new'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/startupFcn', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 771)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',771,0)">line 771</a>)
+            app.icon_settings1.ImageSource = ([app.guiImagesPath, '\settings.png']);
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+Error while evaluating GraphicsCallbackProxy CallbackFcn.
+
+{Children may only be set to a permutation of itself.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 243)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',243,0)">line
+243</a>)
+            obj.Model.Children = arrangeChildren;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppChildModelFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppChildModelFactory.m', 17)" style="font-weight:bold">appdesigner.internal.model.AppChildModelFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppChildModelFactory.m',17,0)">line 17</a>)
+                        factory.createModel(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.controller.AppController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+controller\AppController.m', 26)" style="font-weight:bold">appdesigner.internal.controller.AppController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+controller\AppController.m',26,0)">line 26</a>)
+            populateView@appdesservices.internal.interfaces.controller.AppDesignerParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel/createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 773)" style="font-weight:bold">appdesigner.internal.model.AppModel/createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',773,0)">line 773</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 116)" style="font-weight:bold">appdesigner.internal.model.AppModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',116,0)">line 116</a>)
+            obj.createController(obj.AppDesignerModel.Controller, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppDesignerChildModelFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppDesignerChildModelFactory.m', 29)" style="font-weight:bold">appdesigner.internal.model.AppDesignerChildModelFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppDesignerChildModelFactory.m',29,0)">line 29</a>)
+                    model = appdesigner.internal.model.AppModel(parentModel, proxyView, uifigure);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeAdded', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 287)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeAdded</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',287,0)">line 287</a>)
+                obj.processClientCreatedPeerNode(peerNode);
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeAdded(varargin{:})', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 145)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeAdded(varargin{:})</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',145,0)">line 145</a>)
+            obj.ChildAddedListener =
+            appdesservices.internal.viewmodel.ViewModelManagerFactory.addEventListener(obj.ProxyView.PeerNode,'childAdded',
+            @obj.handlePeerNodeAdded);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('hgfeval', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m', 62)" style="font-weight:bold">hgfeval</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m',62,0)">line 62</a>)
+        feval(fcn{1},varargin{:},fcn{2:end});
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>cbBridge', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 52)" style="font-weight:bold">javaaddlistener>cbBridge</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',52,0)">line 52</a>)
+    hgfeval(response, java(o), e.JavaEvent)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>@(o,e)cbBridge(o,e,response)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 47)" style="font-weight:bold">javaaddlistener>@(o,e)cbBridge(o,e,response)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',47,0)">line 47</a>)
+                          @(o,e) cbBridge(o,e,response));
+} 
+[Warning: Error occurred while evaluating listener callback.] 
+app = calculateScaleFromPreviousUserSelection(app);
+{Check for missing argument or incorrect argument data type in call to function
+'calculateScaleFromPreviousUserSelection'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+            app = prepareImageAndcalculateAllParameters(app); 
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',2,1)">2   </a>if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Unrecognized method, property, or field 'MassstabXVals' for class 'app1'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('prepareImageAndcalculateAllParameters>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m', 92)" style="font-weight:bold">prepareImageAndcalculateAllParameters>calculateScaleFromPreviousUserSelection</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',92,0)">line 92</a>)
+rx = app.MassstabXVals;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('prepareImageAndcalculateAllParameters', 'C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m', 65)" style="font-weight:bold">prepareImageAndcalculateAllParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',65,0)">line 65</a>)
+    app = calculateScaleFromPreviousUserSelection(app);
+} 
+            app = prepareImageAndcalculateAllParameters(app); 
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',2,1)">2   </a>if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+app = calculateScaleFromPreviousUserSelection(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',92,1)">92  </a>rx = app.Data.MassstabXVals;
+app.Data.MassstabXVals
+
+ans =
+
+   1.0e+03 *
+
+    2.1657
+    2.6541
+
+rx = app.Data.MassstabXVals;
+app.MassstabWert = app.MassstabLaenge/abs(rx(1) - (rx(2)));
+{Unrecognized method, property, or field 'MassstabLaenge' for class 'app1'.
+} 
+app.MassstabWert = app.Data.MassstabLaenge/abs(rx(1) - (rx(2)));
+{Reference to non-existent field 'MassstabLaenge'.
+} 
+app.MassstabWert = app.ConfigParams.MassstabLaenge/abs(rx(1) - (rx(2)));
+{Unrecognized property 'MassstabWert' for class 'app1'.
+} 
+rx(1) - (rx(2)
+ rx(1) - (rx(2)
+               ↑
+{Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for
+mismatched delimiters.
+} 
+abs(rx(1) - (rx(2))
+ abs(rx(1) - (rx(2))
+                    ↑
+{Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for
+mismatched delimiters.
+} 
+abs(rx(1) - (rx(2)))
+
+ans =
+
+  488.4250
+
+app.ConfigParams.MassstabLaenge
+
+ans =
+
+    50
+
+app.ConfigParams.MassstabWert = app.ConfigParams.MassstabLaenge/abs(rx(1) - (rx(2)));
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+            app = prepareImageAndcalculateAllParameters(app); 
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',2,1)">2   </a>if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+app = calculateScaleFromPreviousUserSelection(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',92,1)">92  </a>rx = app.Data.MassstabXVals;
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Reference to non-existent field 'MassstabLaenge'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('prepareImageAndcalculateAllParameters>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m', 93)" style="font-weight:bold">prepareImageAndcalculateAllParameters>calculateScaleFromPreviousUserSelection</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageAndcalculateAllParameters.m',93,0)">line 93</a>)
+app.Data.MassstabWert = app.Data.MassstabLaenge/abs(rx(1) - (rx(2)));
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+[Warning: <a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',152,18)">File: app1.mlapp Line: 152 Column: 18</a>
+'AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeButtonPushed' exceeds the MATLAB maximum name length of 63
+characters and will be truncated to 'AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeButtonPush'.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+[Warning: <a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',653,119)">File: app1.mlapp Line: 653 Column: 119</a>
+'AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeButtonPushed' exceeds the MATLAB maximum name length of 63
+characters and will be truncated to 'AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeButtonPush'.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 

@@ -1,0 +1,73 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',94,1)">94  </a>    app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+figure, imshow(app.imgOriginal)
+%% plot original image
+    plotImageWindowsized(app, app.imgOriginal)
+    %% plot figure into GUI
+%     showFigureInGUI(app)
+    %% let user draw two points to get the scale bar
+    [app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+app = calculateScaleFromPreviousUserSelection(app);
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Part I: Image preparation
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% calculate threshold
+    app = calcGrayscaleThresholdInImage(app);
+    %% grayscale to binary image
+    app = convertGrayscaleToBinaryImage(app);
+    %% eliminate scale through user interaction: User has to draw a rectangle around the scale
+    app = elimateScaleThroughUserDrawingRectangle(app);
+    %% prepare image (erode, dilate, etc.)
+    app = prepareImageWithBWAreaOpenOpenCloseCtc(app); 
+Elapsed time is 0.032906 seconds.
+bwareaopen: Of 3 objects (< 3px) -10 have been eliminated (current size: 1)
+bwareaopen: Of 3 objects (< 3px) -8 have been eliminated (current size: 2)
+After imclose: 7 objects remain. (4 deleted)
+After imopen: 6 objects remain. (1 deleted)
+Overall reduction of objects 53.8%
+Reduction in area 65.8%
+    %% align image horizontally, cut off edges
+    app = alignImageHorizontally(app); 
+    %% plot contours
+    app = plotContoursInImage(app);
+real contour length: 567 µm / 782.9453 px.
+picture width: 289 µm / 399 px.
+ratio: 2
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Part II: Calculate parameters and export
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.018695 seconds.
+For parameter "Materialinseln" 14 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 0.156417 seconds.
+For parameter "Materialinseln" 6 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.008314 seconds.
+For parameter "Roughness Areas" 7 objects were found.
+Ratio to image area: 4%.
+calculating surface quality parameter 4 took 
+Elapsed time is 0.141946 seconds.
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 0.314646 seconds.
+    exportAllResultsToMatFile(app, app.BildName)
+Results saved as "20201107T231420_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+uiimport('C:\git\LKTSurfaceQualification\export\20201107T231420_11565_0011_overallResults.mat',1)
+figure
+imshow(app.overallResults.Kennwert1.labeledImage  )
+figure, imshow(app.imgEroded  )
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

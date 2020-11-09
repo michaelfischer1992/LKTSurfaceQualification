@@ -1,0 +1,15 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',89,1)">89  </a>    getScaleValues(app)
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',709,1)">709 </a>while choice == 2
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Reference to non-existent field 'imgEroded'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 95)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',95,0)">line 95</a>)
+[app.overallResults.imgEroded] = app.imgEroded;
+} 
+opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',95,0)
+runAllQualityParametersWithGivenParameters2

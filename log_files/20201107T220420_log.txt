@@ -1,0 +1,588 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.284345 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',185,1)">185 </a>    app = plotContoursInImage(app);
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+real contour length: 746 µm / 7334.7685 px.
+picture width: 276 µm / 2710 px.
+ratio: 2.7
+app = runAllQualityParametersWithGivenParameters(app);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters')" style="font-weight:bold">runAllQualityParametersWithGivenParameters</a>
+Too many output arguments.
+} 
+app = runAllQualityParametersWithGivenParameters(app);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters')" style="font-weight:bold">runAllQualityParametersWithGivenParameters</a>
+Too many output arguments.
+} 
+app = runAllQualityParametersWithGivenParameters(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',2,1)">2   </a>tic
+tic
+[handles] = CalcQualityParam1(handles);
+{Unrecognized function or variable 'h'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calculateSurfaceParameters', 'C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m', 12)" style="font-weight:bold">calculateSurfaceParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m',12,0)">line 12</a>)
+if labeledImage(h,1) == 0
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters>CalcQualityParam1', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m', 25)" style="font-weight:bold">runAllQualityParametersWithGivenParameters>CalcQualityParam1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',25,0)">line
+25</a>)
+[results] = calculateSurfaceParameters(handles, handles.imgEroded,
+'matIslands', 'Materialinseln');
+} 
+opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',25,0)
+[handles] = CalcQualityParam1(handles);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',25,1)">25  </a>[results] = calculateSurfaceParameters(handles, handles.imgEroded, 'matIslands', 'Materialinseln');
+[results] = calculateSurfaceParameters(handles, handles.imgEroded, 'matIslands', 'Materialinseln');
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m',4,1)">4   </a>if isequal(filterCriteria, 'pores')
+filterCriteria
+
+filterCriteria =
+
+    'matIslands'
+
+if isequal(filterCriteria, 'pores')
+    originalImageIdx = thisImage == 1;
+    originalImageIdxInverted = ~originalImageIdx;
+    thisImage = 1*originalImageIdxInverted;
+end
+labeledImage = bwlabel(thisImage, 8);
+%% unten links eine Pore? (--> Wert = 0 )
+[height, width] = size(labeledImage);
+if labeledImage(h,1) == 0
+    LabelMaterial = labeledImage(h,1);
+%     disp('ggfs. noch was implementieren');
+end
+{Unrecognized function or variable 'h'.
+} 
+h
+{Unrecognized function or variable 'h'.
+} 
+if isequal(filterCriteria, 'pores')
+    originalImageIdx = thisImage == 1;
+    originalImageIdxInverted = ~originalImageIdx;
+    thisImage = 1*originalImageIdxInverted;
+end
+labeledImage = bwlabel(thisImage, 8);
+%% unten links eine Pore? (--> Wert = 0 )
+[height, width] = size(labeledImage);
+if labeledImage(height, 1) == 0
+    LabelMaterial = labeledImage(height, 1);
+%     disp('ggfs. noch was implementieren');
+end
+%% calculatio
+if nnz(labeledImage == 1) > (0.2*height*width)
+    labeledImage(labeledImage == 1) = 0;
+elseif nnz(labeledImage == 2) > (0.2*height*width)
+    labeledImage(labeledImage == 2) = 0;
+end
+blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+quantLabels = length(blobMeasurements);
+colors = rand(quantLabels, 3);
+allBlobs = zeros(quantLabels,4);
+for k = 1 : quantLabels
+    thisBlob = blobMeasurements(k);
+    thisBlobArea = thisBlob.Area;
+    [~,thisBlobWidth] = size(thisBlob.SubarrayIdx{1, 2});
+    [~,thisBlobHeight] = size(thisBlob.SubarrayIdx{1, 1});
+    allBlobs(k,1) = k;
+    allBlobs(k,2) = thisBlobArea;
+    allBlobs(k,3) = thisBlobWidth;
+    allBlobs(k,4) = thisBlobHeight;
+end
+allBlobsSorted = sortrows(allBlobs, 2, 'descend');
+overallArea = sum(allBlobsSorted(:,2));
+VerhaeltnisFlaeche = overallArea / (height*width);
+%% Plot
+if handles.doPlot
+    coloredLabels = label2rgb(labeledImage, colors);
+    sqrtBlobs = sqrt(quantLabels);
+    prozent = 0.5;
+    if sqrtBlobs > 10
+        WertInBreite = 10;
+        WertInHoehe = 6;
+        quantLabels = 61;
+    else
+        WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
+        WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    end
+    figure
+    for k = 1 : quantLabels
+        currentBlob = allBlobsSorted(k, 1);
+        thisBlob = blobMeasurements(currentBlob);
+        thisBlobsBoundingBox = thisBlob.BoundingBox;
+        subImage = imcrop(coloredLabels, thisBlobsBoundingBox);
+        subplot(WertInHoehe, WertInBreite, k);
+        imshow(subImage);
+        %% title
+        formatSpec = '#%d, Flaeche %d px\nBreite %d px\nHoehe %d px';
+        caption = sprintf(formatSpec,k, allBlobsSorted(k, 2), ...
+            allBlobsSorted(k, 3), allBlobsSorted(k, 4));
+        title(caption, 'FontSize', 8);
+    end
+    outputArg.coloredLabels = coloredLabels;
+end
+coloredLabels = label2rgb(labeledImage, colors);
+    sqrtBlobs = sqrt(quantLabels);
+    prozent = 0.5;
+    if sqrtBlobs > 10
+        WertInBreite = 10;
+        WertInHoehe = 6;
+        quantLabels = 61;
+    else
+        WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
+        WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    end
+    figure
+    for k = 1 : quantLabels
+        currentBlob = allBlobsSorted(k, 1);
+        thisBlob = blobMeasurements(currentBlob);
+        thisBlobsBoundingBox = thisBlob.BoundingBox;
+        subImage = imcrop(coloredLabels, thisBlobsBoundingBox);
+        subplot(WertInHoehe, WertInBreite, k);
+        imshow(subImage);
+        %% title
+        formatSpec = '#%d, Flaeche %d px\nBreite %d px\nHoehe %d px';
+        caption = sprintf(formatSpec,k, allBlobsSorted(k, 2), ...
+            allBlobsSorted(k, 3), allBlobsSorted(k, 4));
+        title(caption, 'FontSize', 8);
+    end
+    outputArg.coloredLabels = coloredLabels;
+%% output
+outputArg.labeledImage = labeledImage;
+outputArg.blobMeasurements = blobMeasurements;
+outputArg.allBlobs = allBlobs;
+disp(['For parameter "', parameterType, '" ' num2str(quantLabels), ' objects were found.'])
+For parameter "Materialinseln" 23 objects were found.
+disp(['Ratio to image area: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
+Ratio to image area: 1%.
+allBlobs
+
+allBlobs =
+
+           1           0           0           0
+           2         134          19           9
+           3          29           8           6
+           4       15228         218         126
+           5          45           9           9
+           6         427          22          26
+           7          89          11          11
+           8         449          31          22
+           9        1217          48          39
+          10        2799          81          59
+          11          13           5           5
+          12        1095          44          39
+          13         221          22          19
+          14        1879          62          52
+          15         514          29          29
+          16          58           9          11
+          17        1581          49          49
+          18         243          22          19
+          19          57          12           9
+          20        2589          54          80
+          21         103          12          11
+          22         228          18          21
+          23          13           5           5
+
+allBlobs = zeros(quantLabels,4);
+allBlobs
+
+allBlobs =
+
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+
+k = 1
+
+k =
+
+     1
+
+thisBlob = blobMeasurements(k);
+thisBlob
+
+thisBlob = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+           Area: 0
+    BoundingBox: [0.5000 0.5000 0 0]
+    SubarrayIdx: {[1×0 double]  [1×0 double]}
+      PixelList: [0×2 double]
+
+blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+emptyIndex = find(arrayfun(@(blobMeasurements) isempty(blobMeasurements.Area), blobMeasurements));
+emptyIndex
+
+emptyIndex =
+
+  0×1 empty <a href="matlab:helpPopup double" style="font-weight:bold">double</a> column vector
+
+emptyIndex = find(arrayfun(@(blobMeasurements) isempty(blobMeasurements.PixelList), blobMeasurements));
+emptyIndex
+
+emptyIndex =
+
+     1
+
+blobMeasurements(emptyIndex) = [];
+quantLabels = length(blobMeasurements);
+colors = rand(quantLabels, 3);
+allBlobs = zeros(quantLabels,4);
+for k = 1 : quantLabels
+    thisBlob = blobMeasurements(k);
+    thisBlobArea = thisBlob.Area;
+    [~,thisBlobWidth] = size(thisBlob.SubarrayIdx{1, 2});
+    [~,thisBlobHeight] = size(thisBlob.SubarrayIdx{1, 1});
+    allBlobs(k,1) = k;
+    allBlobs(k,2) = thisBlobArea;
+    allBlobs(k,3) = thisBlobWidth;
+    allBlobs(k,4) = thisBlobHeight;
+end
+allBlobsSorted = sortrows(allBlobs, 2, 'descend');
+overallArea = sum(allBlobsSorted(:,2));
+VerhaeltnisFlaeche = overallArea / (height*width);
+%% Plot
+if handles.doPlot
+    coloredLabels = label2rgb(labeledImage, colors);
+    sqrtBlobs = sqrt(quantLabels);
+    prozent = 0.5;
+    if sqrtBlobs > 10
+        WertInBreite = 10;
+        WertInHoehe = 6;
+        quantLabels = 61;
+    else
+        WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
+        WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    end
+    figure
+    for k = 1 : quantLabels
+        currentBlob = allBlobsSorted(k, 1);
+        thisBlob = blobMeasurements(currentBlob);
+        thisBlobsBoundingBox = thisBlob.BoundingBox;
+        subImage = imcrop(coloredLabels, thisBlobsBoundingBox);
+        subplot(WertInHoehe, WertInBreite, k);
+        imshow(subImage);
+        %% title
+        formatSpec = '#%d, Flaeche %d px\nBreite %d px\nHoehe %d px';
+        caption = sprintf(formatSpec,k, allBlobsSorted(k, 2), ...
+            allBlobsSorted(k, 3), allBlobsSorted(k, 4));
+        title(caption, 'FontSize', 8);
+    end
+    outputArg.coloredLabels = coloredLabels;
+end
+%% output
+outputArg.labeledImage = labeledImage;
+outputArg.blobMeasurements = blobMeasurements;
+outputArg.allBlobs = allBlobs;
+disp(['For parameter "', parameterType, '" ' num2str(quantLabels), ' objects were found.'])
+For parameter "Materialinseln" 22 objects were found.
+disp(['Ratio to image area: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
+Ratio to image area: 1%.
+coloredLabels = label2rgb(labeledImage, colors);
+{Index in position 1 exceeds array bounds (must not exceed 22).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('label2rgb', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m', 110)" style="font-weight:bold">label2rgb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m',110,0)">line 110</a>)
+  if isequal(zerocolor,cmap(i,:))
+} 
+coloredLabels = label2rgb(labeledImage, colors);
+{Index in position 1 exceeds array bounds (must not exceed 22).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('label2rgb', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m', 110)" style="font-weight:bold">label2rgb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m',110,0)">line 110</a>)
+  if isequal(zerocolor,cmap(i,:))
+} 
+coloredLabels = label2rgb(labeledImage, colors);
+{Index in position 1 exceeds array bounds (must not exceed 22).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('label2rgb', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m', 110)" style="font-weight:bold">label2rgb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\label2rgb.m',110,0)">line 110</a>)
+  if isequal(zerocolor,cmap(i,:))
+} 
+blobMeasurements = regionprops(labeledImage, 'Area', 'SubarrayIdx', 'PixelList', 'BoundingBox');
+colors = rand(length(blobMeasurements), 3);
+emptyIndex = find(arrayfun(@(blobMeasurements) isempty(blobMeasurements.PixelList), blobMeasurements));
+blobMeasurements(emptyIndex) = []; 
+
+quantLabels = length(blobMeasurements);
+allBlobs = zeros(quantLabels,4);
+for k = 1 : quantLabels
+    thisBlob = blobMeasurements(k);
+    thisBlobArea = thisBlob.Area;
+    [~,thisBlobWidth] = size(thisBlob.SubarrayIdx{1, 2});
+    [~,thisBlobHeight] = size(thisBlob.SubarrayIdx{1, 1});
+    allBlobs(k,1) = k;
+    allBlobs(k,2) = thisBlobArea;
+    allBlobs(k,3) = thisBlobWidth;
+    allBlobs(k,4) = thisBlobHeight;
+end
+allBlobsSorted = sortrows(allBlobs, 2, 'descend');
+overallArea = sum(allBlobsSorted(:,2));
+VerhaeltnisFlaeche = overallArea / (height*width);
+coloredLabels = label2rgb(labeledImage, colors);
+    sqrtBlobs = sqrt(quantLabels);
+    prozent = 0.5;
+    if sqrtBlobs > 10
+        WertInBreite = 10;
+        WertInHoehe = 6;
+        quantLabels = 61;
+    else
+        WertInBreite = ceil(sqrtBlobs + (prozent+0.11)*sqrtBlobs);
+        WertInHoehe = ceil(sqrtBlobs - (prozent-0.11)*sqrtBlobs);
+    end
+    figure
+for k = 1 : quantLabels
+        currentBlob = allBlobsSorted(k, 1);
+        thisBlob = blobMeasurements(currentBlob);
+        thisBlobsBoundingBox = thisBlob.BoundingBox;
+        subImage = imcrop(coloredLabels, thisBlobsBoundingBox);
+        subplot(WertInHoehe, WertInBreite, k);
+        imshow(subImage);
+        %% title
+        formatSpec = '#%d, Flaeche %d px\nBreite %d px\nHoehe %d px';
+        caption = sprintf(formatSpec,k, allBlobsSorted(k, 2), ...
+            allBlobsSorted(k, 3), allBlobsSorted(k, 4));
+        title(caption, 'FontSize', 8);
+    end
+    outputArg.coloredLabels = coloredLabels;
+%% output
+outputArg.labeledImage = labeledImage;
+outputArg.blobMeasurements = blobMeasurements;
+outputArg.allBlobs = allBlobs;
+disp(['For parameter "', parameterType, '" ' num2str(quantLabels), ' objects were found.'])
+For parameter "Materialinseln" 22 objects were found.
+disp(['Ratio to image area: ', num2str(ceil(VerhaeltnisFlaeche*100)), '%.'])
+Ratio to image area: 1%.
+if system_dependent('IsDebugMode')==1, dbquit; end
+[results] = calculateSurfaceParameters(handles, handles.imgEroded, 'matIslands', 'Materialinseln');
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+results
+
+results = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+        labeledImage: [2048×2720 double]
+    blobMeasurements: [22×1 struct]
+            allBlobs: [22×4 double]
+
+[handles.overallResults.Kennwert1] = results;
+visualUpdateOfGUIAfterFirstParameter(handles)
+{Reference to non-existent field 'dunkelrot'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('visualUpdateOfGUIAfterFirstParameter', 'C:\git\LKTSurfaceQualification\functions\visualUpdateOfGUIAfterFirstParameter.m', 3)" style="font-weight:bold">visualUpdateOfGUIAfterFirstParameter</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\visualUpdateOfGUIAfterFirstParameter.m',3,0)">line 3</a>)
+dunkelrot=handles.dunkelrot;
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+[handles] = CalcQualityParam2(handles);
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+[handles] = CalcQualityParam3(handles);
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+[handles] = CalcQualityParam4(handles);
+{Reference to non-existent field
+'NumberofsectionsalongpicturewidthEditField'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calcSurfaceRoughness', 'C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m', 3)" style="font-weight:bold">calcSurfaceRoughness</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',3,0)">line 3</a>)
+faktor = get(handles.NumberofsectionsalongpicturewidthEditField,
+'Value');
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters>CalcQualityParam4', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m', 79)" style="font-weight:bold">runAllQualityParametersWithGivenParameters>CalcQualityParam4</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',79,0)">line
+79</a>)
+[roughnessImage] = calcSurfaceRoughness(handles,
+undercutsEliminated);
+} 
+[handles] = CalcQualityParam4(handles);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',71,1)">71  </a>[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+[originalImageBothEliminated] = eliminateBlobsFromImage(~originalImageNoMatIslands);
+[vertLinesForUndercuts] = drawVerticalLinesForUndercuts(~originalImageBothEliminated);
+[undercutsEliminated] = eliminateBlobsFromImage(~vertLinesForUndercuts);
+[roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated);
+{Reference to non-existent field
+'NumberofsectionsalongpicturewidthEditField'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calcSurfaceRoughness', 'C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m', 3)" style="font-weight:bold">calcSurfaceRoughness</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',3,0)">line 3</a>)
+faktor = get(handles.NumberofsectionsalongpicturewidthEditField,
+'Value');
+} 
+[roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',2,1)">2   </a>[width] = size(undercutsEliminated, 2);
+opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',3,0)
+handles.NumberofsectionsalongpicturewidthEditField = 50
+
+handles = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+                           ImportpathEditField: [1×1 struct]
+                                        doPlot: 0
+                                   programMode: 'single images'
+                          LengthScaleEditField: 50
+                                MassstabLaenge: 50
+                                   erosionType: 'diamond'
+                                  erosionValue: 2
+                        pixelsWidthCheckIfPore: 40
+                                 currentFolder: 'C:\git\LKTSurfaceQualification'
+                                 guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                                      logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                                    exportPath: 'C:\git\LKTSurfaceQualification\export'
+                                  functionPath: 'C:\git\LKTSurfaceQualification\functions'
+                              functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                                     imagePath: 'C:\git\LKTSurfaceQualification\images'
+                                      BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                                      BildName: '11565_0011'
+                         BildNamePlusExtention: '11565_0011.jpg'
+                                   imgOriginal: [2048×2720 uint8]
+                                 MassstabXVals: [2×1 double]
+                                 MassstabYVals: [2×1 double]
+                                  MassstabWert: 0.1017
+                                   imageHeight: 2048
+                                    imageWidth: 2720
+                               hintergrundwert: 33.6364
+                                  materialwert: 189.0331
+                                   schwellwert: 111.3347
+                                         imgBW: [2048×2720 logical]
+                                  imgBWnoScale: [2048×2720 logical]
+                                     imgEroded: [2048×2720 logical]
+                                       imgErod: [2036×2710 logical]
+                                       imgOrig: [2048×2710 uint8]
+                                  realeKonturY: [6171×1 double]
+                                  realeKonturX: [6171×1 double]
+                                     aufKontur: [2944×2 double]
+                                overallResults: [1×1 struct]
+    NumberofsectionsalongpicturewidthEditField: 50
+
+handles.SurfaceRoughnessSections = 50
+
+handles = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+                           ImportpathEditField: [1×1 struct]
+                                        doPlot: 0
+                                   programMode: 'single images'
+                          LengthScaleEditField: 50
+                                MassstabLaenge: 50
+                                   erosionType: 'diamond'
+                                  erosionValue: 2
+                        pixelsWidthCheckIfPore: 40
+                                 currentFolder: 'C:\git\LKTSurfaceQualification'
+                                 guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                                      logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                                    exportPath: 'C:\git\LKTSurfaceQualification\export'
+                                  functionPath: 'C:\git\LKTSurfaceQualification\functions'
+                              functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                                     imagePath: 'C:\git\LKTSurfaceQualification\images'
+                                      BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                                      BildName: '11565_0011'
+                         BildNamePlusExtention: '11565_0011.jpg'
+                                   imgOriginal: [2048×2720 uint8]
+                                 MassstabXVals: [2×1 double]
+                                 MassstabYVals: [2×1 double]
+                                  MassstabWert: 0.1017
+                                   imageHeight: 2048
+                                    imageWidth: 2720
+                               hintergrundwert: 33.6364
+                                  materialwert: 189.0331
+                                   schwellwert: 111.3347
+                                         imgBW: [2048×2720 logical]
+                                  imgBWnoScale: [2048×2720 logical]
+                                     imgEroded: [2048×2720 logical]
+                                       imgErod: [2036×2710 logical]
+                                       imgOrig: [2048×2710 uint8]
+                                  realeKonturY: [6171×1 double]
+                                  realeKonturX: [6171×1 double]
+                                     aufKontur: [2944×2 double]
+                                overallResults: [1×1 struct]
+    NumberofsectionsalongpicturewidthEditField: 50
+                      SurfaceRoughnessSections: 50
+
+faktor = get(handles.SurfaceRoughnessSections, 'Value');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('handle.handle/get')" style="font-weight:bold">handle.handle/get</a>
+Invalid or deleted object.
+} 
+[width] = size(undercutsEliminated, 2);
+faktor = get(handles.SurfaceRoughnessSections, 'Value');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('handle.handle/get')" style="font-weight:bold">handle.handle/get</a>
+Invalid or deleted object.
+} 
+faktor = handles.SurfaceRoughnessSections;
+aufteilung = width/faktor;
+boundary = realeKontur(~undercutsEliminated);
+roughnessImage = ~undercutsEliminated;
+faktorArray = round(linspace(1,width,aufteilung));
+[~, ab, ~] = intersect(boundary(:, 2), faktorArray);
+for i = 1 : length(ab) - 1
+    MinSection = max(boundary(ab(i):ab(i+1),1));
+    MaxSection = min(boundary(ab(i):ab(i+1),1));
+    punktLinie = MaxSection - 2; % 1-pixel Abstand zum Max.
+    roughnessImage(punktLinie, faktorArray(i):faktorArray(i+1)) = 1;
+    roughnessImage(punktLinie:(MinSection + 1), faktorArray(i+1)) = 1;
+    roughnessImage(punktLinie:(MinSection + 1), faktorArray(i)) = 1;
+end
+figure
+    imshow(roughnessImage)
+    hold on
+    lineCam2Helio = drawPoint(boundary(:,2), boundary(:,1));
+    set(lineCam2Helio, ...
+        'Color'         ,   '#bf4204', ...
+        'LineWidth'     ,    2       , ...
+        'LineStyle'     ,   '-'      ,...
+        'marker'          , 'o'         , ...
+        'MarkerSize'      , .5           , ...
+        'Color' , '#bf4204'      , ...
+        'MarkerEdgeColor' , '#bf4204'      , ...
+        'DisplayName' , 'Legend Entry'      , ...
+        'MarkerFaceColor' , '#bf4204'  );
+if system_dependent('IsDebugMode')==1, dbquit; end
+[roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated);
+{Reference to non-existent field 'SurfaceRoughnessSections'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calcSurfaceRoughness', 'C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m', 3)" style="font-weight:bold">calcSurfaceRoughness</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',3,0)">line 3</a>)
+faktor = handles.SurfaceRoughnessSections;
+} 
+[undercutsEliminated] = eliminateBlobsFromImage(~vertLinesForUndercuts);
+[roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated);
+{Reference to non-existent field 'SurfaceRoughnessSections'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calcSurfaceRoughness', 'C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m', 3)" style="font-weight:bold">calcSurfaceRoughness</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcSurfaceRoughness.m',3,0)">line 3</a>)
+faktor = handles.SurfaceRoughnessSections;
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+[handles] = CalcQualityParam5(handles);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

@@ -1,0 +1,50 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',175,1)">175 </a>    app = convertGrayscaleToBinaryImage(app);
+app = convertGrayscaleToBinaryImage(app);
+app = elimateScaleThroughUserDrawingRectangle(app);
+app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',464,1)">464 </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < 1.5
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale);
+toc
+Elapsed time is 0.603326 seconds.
+quantInit = length(initialRegionProps);
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 10;
+    P = 10;
+end
+%% Remove small objects from binary image
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = regionprops(BW_tmp);
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    initialRegionProps_tmp = regionprops(BW_tmp);
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 1;
+end
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+app.erosionType = get(app.TypDropDown, 'Value');
+{Reference to non-existent field 'TypDropDown'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

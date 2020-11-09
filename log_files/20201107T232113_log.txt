@@ -1,0 +1,67 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',95,1)">95  </a>    if fastMode 
+if system_dependent('IsDebugMode')==1, dbcont; end
+app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+%% plot original image
+    plotImageWindowsized(app, app.imgOriginal)
+    %% plot figure into GUI
+%     showFigureInGUI(app)
+    %% let user draw two points to get the scale bar
+    [app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% remove scale for 1st image
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% calculate scale and read out SI value
+    app = calculateScaleFromPreviousUserSelection(app);
+    
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Part I: Image preparation
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% calculate threshold
+    app = calcGrayscaleThresholdInImage(app);
+    %% grayscale to binary image
+    app = convertGrayscaleToBinaryImage(app);
+    %% eliminate scale through user interaction: User has to draw a rectangle around the scale
+    app = elimateScaleThroughUserDrawingRectangle(app);
+    %% prepare image (erode, dilate, etc.)
+    app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+Elapsed time is 0.031809 seconds.
+bwareaopen: Of 95 objects (< 10px) 77 have been eliminated (current size: 10)
+After imclose: 1 objects remain. (17 deleted)
+After imopen: 3 objects remain. (-2 deleted)
+Overall reduction of objects 97.3%
+Reduction in area 93.5%
+    %% align image horizontally, cut off edges
+    app = alignImageHorizontally(app);
+    %% plot contours
+    app = plotContoursInImage(app);
+real contour length: 432 µm / 2824.5264 px.
+picture width: 299 µm / 1953 px.
+ratio: 1.4
+app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 2 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.040264 seconds.
+For parameter "Materialinseln" 33 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 0.504211 seconds.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.011002 seconds.
+For parameter "Roughness Areas" 38 objects were found.
+Ratio to image area: 6%.
+calculating surface quality parameter 4 took 
+Elapsed time is 0.411551 seconds.
+For parameter "Materialinseln" 2 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 1 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 0.800181 seconds.
+exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+{Reference to non-existent field 'ImagesData'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end

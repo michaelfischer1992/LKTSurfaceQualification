@@ -1,0 +1,48 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',82,1)">82  </a>    imgPath = [app.BildPfad app.BildNamePlusExtention];
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',89,1)">89  </a>    getScaleValues(app)
+getScaleValues(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',708,1)">708 </a>choice = letUserDrawEdgesOfScale(app);
+if system_dependent('IsDebugMode')==1, dbcont; end
+delete(findall(gcf,'type','text'))
+delete(findall(gcf,'type','line'))
+text(200, 1800, ['Please make two points on each side of scale bar. ', newline, 'Make second point by double-click'], ...
+    "FontSize", 20, "Color", '#b02e4a', "FontWeight","bold")
+[x,y] = getpts;
+x
+
+x =
+
+   1.0e+03 *
+
+    2.1672
+    2.6440
+
+scaleVerification = drawPoint(x,y);
+set(scaleVerification, ...
+    'marker'          , '+'         , ...
+    'MarkerSize'      , 50           , ...
+    'Color' , '#bf4204'      , ...
+    'MarkerEdgeColor' , '#bf4204'      , ...
+    'DisplayName' , 'Legend Entry'      , ...
+    'MarkerFaceColor' , '#bf4204'  );
+options = {'Yes','No - Try Again'};
+choice = menu('Are the points laying nicely on both ends of the scale bar?', options);
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',709,1)">709 </a>while choice == 2
+choice == 2
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+delete(findall(gcf,'type','text'))
+text(200, 1800, ['Looks good!', newline, 'Thanks :)'], ...
+    "FontSize", 20, "Color", '#1ba843', "FontWeight","bold")
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+close all
+runAllQualityParametersWithGivenParameters2

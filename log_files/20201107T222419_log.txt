@@ -1,0 +1,56 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+Elapsed time is 4.115516 seconds.
+bwareaopen: Of 11431 objects (< 10px) 7158 have been eliminated (current size: 10)
+bwareaopen: Of 11431 objects (< 10px) 7551 have been eliminated (current size: 11)
+After imclose: 1691 objects remain. (2189 deleted)
+After imopen: 1103 objects remain. (588 deleted)
+Overall reduction of objects 92.8%
+Reduction in area 47.4%
+real contour length: 925 µm / 86990.8697 px.
+picture width: 304 µm / 28605 px.
+ratio: 3
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',189,1)">189 </a>    app = runAllQualityParametersWithGivenParameters(app);
+app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 1102 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 1.327182 seconds.
+For parameter "Materialinseln" 1207 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 18.627255 seconds.
+For parameter "Materialinseln" 2269 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 3 took 
+Elapsed time is 1.589327 seconds.
+For parameter "Roughness Areas" 571 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 19.285075 seconds.
+For parameter "Materialinseln" 1028 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 708 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 28.852520 seconds.
+exportAllResultsToMatFile(app, app.BildName)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',531,1)">531 </a>filename = fullfile(app.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
+filename = fullfile(app.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
+overallResults = app.overallResults;
+save(filename, 'overallResults')
+[Warning: Variable 'overallResults' was not saved. For variables
+larger than 2GB use MAT-file version 7.3 or later.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>exportAllResultsToMatFile', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 531)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>exportAllResultsToMatFile</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',531,0)">line 531</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 189)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',189,0)">line 189</a>)] 
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.exportPath, '"'])
+Results saved as "20201107T222637_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+disp('--------------------------------------------------------------------------------------------------------------------------')
+--------------------------------------------------------------------------------------------------------------------------
+disp('-')
+-
+disp('-')
+-
+winopen(app.exportPath);
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

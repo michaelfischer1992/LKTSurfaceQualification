@@ -1,0 +1,13 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m',10,1)">10  </a>pxW = 5;
+if system_dependent('IsDebugMode')==1, dbcont; end
+(imageHeight - critHeight) > 0
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

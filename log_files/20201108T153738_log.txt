@@ -1,0 +1,13 @@
+114 images found.
+all images the same
+114 images remaining.
+no image selected.
+{Reference to non-existent field 'MassstabXVals'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 270)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>calculateScaleFromPreviousUserSelection</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',270,0)">line 270</a>)
+rx = app.MassstabXVals;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 122)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',122,0)">line 122</a>)
+    app = calculateScaleFromPreviousUserSelection(app);
+} 
+SLS_Oberflaechenrauheit_final_2020

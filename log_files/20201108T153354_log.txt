@@ -1,0 +1,55 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+Background area at the bottom filled with ones (area: 390793 px, width: 25914 px).
+Elapsed time is 1.016656 seconds.
+Elapsed time is 2.020211 seconds.
+Elapsed time is 1.050868 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 2.100011 seconds.
+Elapsed time is 0.935748 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.945465 seconds.
+Elapsed time is 0.901528 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.801952 seconds.
+Elapsed time is 0.901501 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+Elapsed time is 2.777628 seconds.
+Elapsed time is 0.863318 seconds.
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+Elapsed time is 0.054610 seconds.
+Elapsed time is 0.149298 seconds.
+Overall reduction of objects 85.5%
+Reduction in area 8.3%
+real contour length: 1030 µm / 96910.6812 px.
+picture width: 304 µm / 28604 px.
+ratio: 3.4
+For parameter "Materialinseln" 644 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 5.249635 seconds.
+For parameter "Materialinseln" 809 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 22.924062 seconds.
+For parameter "Materialinseln" 568 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 4.031681 seconds.
+For parameter "Roughness Areas" 573 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 26.185769 seconds.
+For parameter "Materialinseln" 630 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 433 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 5 took 
+Elapsed time is 72.394762 seconds.
+[Warning: Variable 'overallResults' was not saved. For variables larger than 2GB use MAT-file version 7.3 or later.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 299)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',299,0)">line 299</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 198)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',198,0)">line 198</a>)] 
+Results saved as "20201108T153659_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-

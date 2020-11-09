@@ -1,0 +1,192 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',5,1)">5   </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+widthHeightRatio
+
+widthHeightRatio =
+
+   13.9678
+
+widthHeightRatio < 1.5
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+aspectRatioTS = 1.5;
+%% decide weather it's a normal or panorama image
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+imageType
+
+imageType =
+
+    'panorama'
+
+tic
+initialRegionProps = regionprops(app.imgBWnoScale);
+toc
+Elapsed time is 3.789174 seconds.
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.838622 seconds.
+quantInit = length(initialRegionProps);
+strcmp(imageType, 'normal')
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+filterTS = 10;
+    P = 10;
+%% Parameters
+aspectRatioTS = 1.5; 
+
+%% decide weather it's a normal or panorama image
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 10;
+    P = 10;
+end
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.854266 seconds.
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+areaAll
+
+areaAll =
+
+      240780
+
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.853777 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects from binary image
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+areaAll
+
+areaAll =
+
+      203846
+
+%% Remove small objects from binary image
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = regionprops(BW_tmp);
+%% Parameters
+aspectRatioTS = 1.5; 
+
+%% decide weather it's a normal or panorama image
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 10;
+    P = 10;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.852531 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects from binary image
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+areaAll
+
+areaAll =
+
+      240780
+
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+initialAreasSmallerTS
+
+initialAreasSmallerTS =
+
+       11431
+
+BW_tmp = app.imgBWnoScale;
+initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+%% Remove small objects from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+tic
+initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+toc
+Elapsed time is 0.906009 seconds.
+initialRegionProps_tmp = initialRegionProps;
+initialRegionProps_tmp = initialRegionProps;
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+       11431
+
+BW_tmp = bwareaopen(BW_tmp, P);
+figure, imshow(BW_tmp)
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

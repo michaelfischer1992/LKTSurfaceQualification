@@ -1,0 +1,18 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',100,1)">100 </a>if strcmp(app.programMode, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+calculateScaleFromPreviousUserSelection(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',438,1)">438 </a>massstablaenge = get(app.LengthScaleEditField, 'Value');
+massstablaenge = get(app.LengthScaleEditField, 'Value');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('handle.handle/get')" style="font-weight:bold">handle.handle/get</a>
+Invalid or deleted object.
+} 
+app.LengthScaleEditField
+
+ans =
+
+    50
+
+massstablaenge = app.LengthScaleEditField;
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

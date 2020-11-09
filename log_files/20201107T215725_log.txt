@@ -1,0 +1,69 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.321902 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',183,1)">183 </a>    alignImageHorizontally(app)
+alignImageHorizontally(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',541,1)">541 </a>boundary = realeKontur(app.imgEroded);
+if system_dependent('IsDebugMode')==1, dbcont; end
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+       ImportpathEditField: [1×1 struct]
+                    doPlot: 0
+               programMode: 'single images'
+      LengthScaleEditField: 50
+            MassstabLaenge: 50
+               erosionType: 'diamond'
+              erosionValue: 2
+    pixelsWidthCheckIfPore: 40
+             currentFolder: 'C:\git\LKTSurfaceQualification'
+             guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                  logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                exportPath: 'C:\git\LKTSurfaceQualification\export'
+              functionPath: 'C:\git\LKTSurfaceQualification\functions'
+          functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                 imagePath: 'C:\git\LKTSurfaceQualification\images'
+                  BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                  BildName: '11565_0011'
+     BildNamePlusExtention: '11565_0011.jpg'
+               imgOriginal: [2048×2720 uint8]
+             MassstabXVals: [2×1 double]
+             MassstabYVals: [2×1 double]
+              MassstabWert: 0.1036
+               imageHeight: 2048
+                imageWidth: 2720
+           hintergrundwert: 33.6364
+              materialwert: 189.0331
+               schwellwert: 111.3347
+                     imgBW: [2048×2720 logical]
+              imgBWnoScale: [2048×2720 logical]
+                 imgEroded: [2048×2720 logical]
+                   imgErod: [2036×2710 logical]
+                   imgOrig: [2048×2710 uint8]
+
+plotContoursInImage(app)
+real contour length: 759 µm / 7328.3127 px.
+picture width: 282 µm / 2720 px.
+ratio: 2.7
+{Reference to non-existent field 'imgOrig'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>plotContoursInImage', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 673)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>plotContoursInImage</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',673,0)">line 673</a>)
+imshow(app.imgOrig, 'Parent', app.UIAxes_2);
+} 
+app = plotContoursInImage(app);
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>plotContoursInImage')" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>plotContoursInImage</a>
+Too many output arguments.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

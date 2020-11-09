@@ -1,0 +1,79 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',98,1)">98  </a>if strcmp(app.programMode, 'multiple images')
+app
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+      ImportpathEditField: [1×1 struct]
+                   doPlot: 0
+              programMode: 'single images'
+     LengthScaleEditField: 50
+            currentFolder: 'C:\git\LKTSurfaceQualification'
+            guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                 logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+               exportPath: 'C:\git\LKTSurfaceQualification\export'
+             functionPath: 'C:\git\LKTSurfaceQualification\functions'
+         functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                imagePath: 'C:\git\LKTSurfaceQualification\images'
+                 BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                 BildName: '11565_0011'
+    BildNamePlusExtention: '11565_0011.jpg'
+              imgOriginal: [2048×2720 uint8]
+       MassstabRechtsPosX: [2×1 double]
+        MassstabLinksPosX: [2×1 double]
+
+app.MassstabRechtsPosX, app.MassstabLinksPosX
+
+ans =
+
+   1.0e+03 *
+
+    2.1792
+    2.6590
+
+
+ans =
+
+   1.0e+03 *
+
+    2.0021
+    1.9991
+
+if system_dependent('IsDebugMode')==1, dbcont; end
+calculateScaleFromPreviousUserSelection(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',436,1)">436 </a>rx = app.MassstabRechtsPosX;
+rx = app.MassstabRechtsPosX;
+lx = app.MassstabLinksPosX;
+rx
+
+rx =
+
+   1.0e+03 *
+
+    2.1792
+    2.6590
+
+lx
+
+lx =
+
+   1.0e+03 *
+
+    2.0021
+    1.9991
+
+abs(rx - lx)
+
+ans =
+
+  177.0584
+  659.8809
+
+app.MassstabLaenge
+{Reference to non-existent field 'MassstabLaenge'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+close all
+runAllQualityParametersWithGivenParameters2

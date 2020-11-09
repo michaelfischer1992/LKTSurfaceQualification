@@ -1,0 +1,20 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.292556 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',541,1)">541 </a>boundary = realeKontur(app.imgEroded);
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>plotContoursInImage')" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>plotContoursInImage</a>
+Too many output arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 185)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',185,0)">line 185</a>)
+    app = plotContoursInImage(app);
+} 
+runAllQualityParametersWithGivenParameters2

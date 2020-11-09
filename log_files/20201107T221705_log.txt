@@ -1,0 +1,147 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.297656 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: 764 µm / 7334.7685 px.
+picture width: 282 µm / 2710 px.
+ratio: 2.7
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',189,1)">189 </a>    app = runAllQualityParametersWithGivenParameters(app);
+app = runAllQualityParametersWithGivenParameters(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',2,1)">2   </a>tic
+tic
+[handles] = CalcQualityParam1(handles);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+disp('calculating surface quality parameter 1 took ')
+calculating surface quality parameter 1 took 
+toc
+Elapsed time is 0.158365 seconds.
+tic
+[handles] = CalcQualityParam2(handles);
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+disp('calculating surface quality parameter 2 took ')
+calculating surface quality parameter 2 took 
+toc
+Elapsed time is 1.555178 seconds.
+tic
+[handles] = CalcQualityParam3(handles);
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+disp('calculating surface quality parameter 3 took ')
+calculating surface quality parameter 3 took 
+toc
+Elapsed time is 0.163199 seconds.
+tic
+[handles] = CalcQualityParam4(handles);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',71,1)">71  </a>[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+if system_dependent('IsDebugMode')==1, dbcont; end
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+disp('calculating surface quality parameter 4 took ')
+calculating surface quality parameter 4 took 
+toc
+Elapsed time is 4.082147 seconds.
+tic
+[handles] = CalcQualityParam5(handles);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+disp('calculating surface quality parameter 5 took ')
+calculating surface quality parameter 5 took 
+toc
+Elapsed time is 3.029878 seconds.
+[handles] = CalcQualityParam5(handles);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',88,1)">88  </a>[poresEliminated] = eliminateBlobsFromImage(~handles.imgEroded);
+handles.doPlot = 1
+
+handles = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 1
+                 programMode: 'single images'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 2
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                    BildName: '11565_0011'
+       BildNamePlusExtention: '11565_0011.jpg'
+                 imgOriginal: [2048×2720 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.1042
+                 imageHeight: 2048
+                  imageWidth: 2720
+             hintergrundwert: 33.6364
+                materialwert: 189.0331
+                 schwellwert: 111.3347
+                       imgBW: [2048×2720 logical]
+                imgBWnoScale: [2048×2720 logical]
+                   imgEroded: [2048×2720 logical]
+                     imgErod: [2036×2710 logical]
+                     imgOrig: [2048×2710 uint8]
+                realeKonturY: [6171×1 double]
+                realeKonturX: [6171×1 double]
+                   aufKontur: [2944×2 double]
+              overallResults: [1×1 struct]
+
+[poresEliminated] = eliminateBlobsFromImage(~handles.imgEroded);
+[resultsMatIslands] = calculateSurfaceParameters(handles, ~poresEliminated, 'matIslands', 'Materialinseln');
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+[matIslandsEliminated] = eliminateBlobsFromImage(~poresEliminated);
+[vertLinesForUndercuts] = drawVerticalLinesForUndercuts(matIslandsEliminated);
+[undercutsEliminated] = eliminateBlobsFromImage(~vertLinesForUndercuts);
+againWithMatIslands = undercutsEliminated;
+for i = 2 : length(resultsMatIslands.blobMeasurements)
+    thisMatIsland = vertcat(resultsMatIslands.blobMeasurements(i).PixelList); 
+    for j = 1 : size(thisMatIsland, 1)
+        x = thisMatIsland(j, 2);
+        y = thisMatIsland(j, 1);
+        againWithMatIslands(x, y) = 0;
+    end
+end
+[imageUndercutsBehindMatIslands] = drawVerticalLinesForUndercuts(~againWithMatIslands);
+[results] = calculateSurfaceParameters(handles, imageUndercutsBehindMatIslands, 'pores', 'Materialinseln');
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+[handles.overallResults.Kennwert5] = results;
+figure
+imshow(handles.overallResults.Kennwert5.labeledImage  )
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.137903 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.858384 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.157060 seconds.
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',71,1)">71  </a>[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+runAllQualityParametersWithGivenParameters2

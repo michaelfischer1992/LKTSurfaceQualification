@@ -1,0 +1,18 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',725,1)">725 </a>hold on
+[x,y] = getpts;
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',100,1)">100 </a>if strcmp(app.programMode, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Reference to non-existent field 'MassstabRechtsPosX'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 438)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',438,0)">line 438</a>)
+rx = app.MassstabRechtsPosX;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 168)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',168,0)">line 168</a>)
+    calculateScaleFromPreviousUserSelection(app)
+} 
+runAllQualityParametersWithGivenParameters2

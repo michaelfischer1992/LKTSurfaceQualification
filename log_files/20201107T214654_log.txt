@@ -1,0 +1,21 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',173,1)">173 </a>    calcGrayscaleThresholdInImage(app)
+calcGrayscaleThresholdInImage(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',395,1)">395 </a>[app.imageHeight, app.imageWidth, ~] = size(app.imgOriginal);
+[app.imageHeight, app.imageWidth, ~] = size(app.imgOriginal);
+app.imageHeight
+
+ans =
+
+        2048
+
+pxW = 5;
+centeredValues = (round(app.imageWidth/2)-pxW):(round(app.imageWidth/2)+pxW);
+upperFractionOfImage = app.imgOriginal(pxW:1:(pxW+10),centeredValues);
+lowerFractionOfImage = app.imgOriginal((app.imageHeight-(3*pxW)):(app.imageHeight-pxW),centeredValues);
+app.hintergrundwert =  mean2(upperFractionOfImage);
+app.materialwert = mean2(lowerFractionOfImage);
+app.schwellwert = (app.hintergrundwert + app.materialwert)/2;
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

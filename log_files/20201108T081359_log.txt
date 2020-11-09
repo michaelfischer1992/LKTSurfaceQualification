@@ -1,0 +1,17 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+Elapsed time is 0.253168 seconds.
+bwareaopen: Of 95 objects (< 10px) 77 have been eliminated (current size: 10)
+After imclose: 1 objects remain. (17 deleted)
+After imopen: 3 objects remain. (-2 deleted)
+Overall reduction of objects 97.3%
+Reduction in area 93.5%
+real contour length: 436 µm / 2824.5264 px.
+picture width: 301 µm / 1953 px.
+ratio: 1.4
+For parameter "Materialinseln" 2 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.070818 seconds.
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\eliminateBlobsFromImage.m',2,1)">2   </a>labeledImage = bwlabel(thisImage, 8);
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

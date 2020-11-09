@@ -1,0 +1,35 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+Background area at the bottom filled with ones (area: 390793 px, width: 25914 px).
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',15,1)">15  </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+if system_dependent('IsDebugMode')==1, dbcont; end
+Elapsed time is 0.779516 seconds.
+Elapsed time is 1.529695 seconds.
+Elapsed time is 0.741358 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 1.489156 seconds.
+Elapsed time is 0.744352 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.499155 seconds.
+Elapsed time is 0.735969 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.470623 seconds.
+Elapsed time is 0.730140 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+Elapsed time is 2.100758 seconds.
+Elapsed time is 0.713233 seconds.
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+Elapsed time is 0.054270 seconds.
+Elapsed time is 0.146345 seconds.
+{Unrecognized function or variable 'i2_tmp'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('prepareImageWithBWAreaOpenOpenCloseCtc', 'C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m', 134)" style="font-weight:bold">prepareImageWithBWAreaOpenOpenCloseCtc</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',134,0)">line 134</a>)
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 186)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',186,0)">line 186</a>)
+    app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+} 
+opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',134,0)
+opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',186,0)
+opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',134,0)
+SLS_Oberflaechenrauheit_final_2020

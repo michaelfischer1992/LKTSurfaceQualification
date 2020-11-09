@@ -1,0 +1,64 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',95,1)">95  </a>    if fastMode 
+scaleDownFactor = size(app.imgOriginal, 2) * size(app.imgOriginal, 1) / maxSizeOfImage;
+fastMode
+
+fastMode =
+
+     1
+
+scaleDownFactor
+
+scaleDownFactor =
+
+    1.3926
+
+scaleDownFactor = maxSizeOfImage / size(app.imgOriginal, 2) * size(app.imgOriginal, 1);
+app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+{Requested 6168094118x1 (46.0GB) array exceeds maximum array size
+preference. Creation of arrays greater than this limit may take a
+long time and cause MATLAB to become unresponsive.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.images.internal.resize.contributions', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\images\+matlab\+images\+internal\+resize\contributions.m', 21)" style="font-weight:bold">matlab.images.internal.resize.contributions</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\images\+matlab\+images\+internal\+resize\contributions.m',21,0)">line 21</a>)
+x = (1:out_length)';
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('imresize', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\images\imresize.m', 166)" style="font-weight:bold">imresize</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\images\imresize.m',166,0)">line 166</a>)
+    [weights{k}, indices{k}] =
+    matlab.images.internal.resize.contributions( ...
+
+<a href="matlab:helpview('matlab','error_array_SizeLimitExceeded')" style="font-weight:bold">Related documentation</a>
+} 
+scaleDownFactor = maxSizeOfImage / size(app.imgOriginal, 2) * size(app.imgOriginal, 1);
+scaleDownFactor
+
+scaleDownFactor =
+
+   3.0118e+06
+
+scaleDownFactor = maxSizeOfImage / (size(app.imgOriginal, 2) * size(app.imgOriginal, 1));
+scaleDownFactor
+
+scaleDownFactor =
+
+    0.7181
+
+app.imgOriginal = imresize(app.imgOriginal, scaleDownFactor);
+%% plot original image
+    plotImageWindowsized(app, app.imgOriginal)
+    %% plot figure into GUI
+%     showFigureInGUI(app)
+    %% let user draw two points to get the scale bar
+    [app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getpts', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m', 174)" style="font-weight:bold">getpts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m',174,0)">line 174</a>)
+Interruption during mouse point selection.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 580)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>letUserDrawEdgesOfScale</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',580,0)">line 580</a>)
+[x,y] = getpts;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 561)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',561,0)">line
+561</a>)
+[choice, x, y] = letUserDrawEdgesOfScale(app);
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

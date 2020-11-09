@@ -1,0 +1,83 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.336520 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7334.7685 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+{Unrecognized function or variable 'h'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calculateSurfaceParameters', 'C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m', 12)" style="font-weight:bold">calculateSurfaceParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calculateSurfaceParameters.m',12,0)">line 12</a>)
+if labeledImage(h,1) == 0
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam1', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 228)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',228,0)">line 228</a>)
+            [results] = calculateSurfaceParameters(app, app.imgEroded, 'matIslands', parameterType);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 179)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',179,0)">line 179</a>)
+            CalcQualityParam1(app);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 898)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',898,0)">line 898</a>)
+                runAllQualityParametersWithGivenParameters(app)
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.controller.ComponentController/executeUserCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m', 386)" style="font-weight:bold">matlab.ui.control.internal.controller.ComponentController/executeUserCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m',386,0)">line 386</a>)
+Error while evaluating Button PrivateButtonPushedFcn.
+
+{Invalid field name: ''.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.application.getDescendantsMapWithCodeName', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+application\getDescendantsMapWithCodeName.m', 14)" style="font-weight:bold">appdesigner.internal.application.getDescendantsMapWithCodeName</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+application\getDescendantsMapWithCodeName.m',14,0)">line 14</a>)
+            childrenMap.(codeName) = childrenList(ix);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/findChildByPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 117)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/findChildByPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',117,0)">line 117</a>)
+            childrenListMap = appdesigner.internal.application.getDescendantsMapWithCodeName(model);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientDeletedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 263)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientDeletedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',263,0)">line 263</a>)
+                child = obj.findChildByPeerNode(peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeRemoved', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 299)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeRemoved</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',299,0)">line 299</a>)
+                obj.processClientDeletedPeerNode(peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeRemoved(varargin{:})', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 146)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeRemoved(varargin{:})</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',146,0)">line 146</a>)
+            obj.ChildRemovedListener = appdesservices.internal.viewmodel.ViewModelManagerFactory.addEventListener(obj.ProxyView.PeerNode,'childRemoved', @obj.handlePeerNodeRemoved);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('hgfeval', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m', 62)" style="font-weight:bold">hgfeval</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m',62,0)">line 62</a>)
+        feval(fcn{1},varargin{:},fcn{2:end});
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>cbBridge', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 52)" style="font-weight:bold">javaaddlistener>cbBridge</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',52,0)">line 52</a>)
+    hgfeval(response, java(o), e.JavaEvent)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>@(o,e)cbBridge(o,e,response)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 47)" style="font-weight:bold">javaaddlistener>@(o,e)cbBridge(o,e,response)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',47,0)">line 47</a>)
+                          @(o,e) cbBridge(o,e,response));
+} 
+[Warning: Error occurred while evaluating listener callback.] 
+{Invalid field name: ''.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.application.getDescendantsMapWithCodeName', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+application\getDescendantsMapWithCodeName.m', 14)" style="font-weight:bold">appdesigner.internal.application.getDescendantsMapWithCodeName</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+application\getDescendantsMapWithCodeName.m',14,0)">line 14</a>)
+            childrenMap.(codeName) = childrenList(ix);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/findChildByPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 117)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/findChildByPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',117,0)">line 117</a>)
+            childrenListMap = appdesigner.internal.application.getDescendantsMapWithCodeName(model);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientDeletedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 263)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientDeletedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',263,0)">line 263</a>)
+                child = obj.findChildByPeerNode(peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeRemoved', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 299)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeRemoved</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',299,0)">line 299</a>)
+                obj.processClientDeletedPeerNode(peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeRemoved(varargin{:})', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 146)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeRemoved(varargin{:})</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',146,0)">line 146</a>)
+            obj.ChildRemovedListener = appdesservices.internal.viewmodel.ViewModelManagerFactory.addEventListener(obj.ProxyView.PeerNode,'childRemoved', @obj.handlePeerNodeRemoved);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('hgfeval', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m', 62)" style="font-weight:bold">hgfeval</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m',62,0)">line 62</a>)
+        feval(fcn{1},varargin{:},fcn{2:end});
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>cbBridge', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 52)" style="font-weight:bold">javaaddlistener>cbBridge</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',52,0)">line 52</a>)
+    hgfeval(response, java(o), e.JavaEvent)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>@(o,e)cbBridge(o,e,response)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 47)" style="font-weight:bold">javaaddlistener>@(o,e)cbBridge(o,e,response)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',47,0)">line 47</a>)
+                          @(o,e) cbBridge(o,e,response));
+} 
+[Warning: Error occurred while evaluating listener callback.] 

@@ -1,0 +1,108 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.291477 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: 769 µm / 7334.7685 px.
+picture width: 284 µm / 2710 px.
+ratio: 2.7
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',189,1)">189 </a>    app = runAllQualityParametersWithGivenParameters(app);
+app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.133832 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.567155 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.153249 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.840310 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.705644 seconds.
+exportAllResultsToMatFile(app, app.BildName)
+{Reference to non-existent field 'ExportpathEditField'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>exportAllResultsToMatFile', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 531)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>exportAllResultsToMatFile</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',531,0)">line 531</a>)
+filename = fullfile(app.ExportpathEditField.Value, [datestr8601,
+'_', imgName, '_overallResults.mat']);
+} 
+exportAllResultsToMatFile(app, app.BildName)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',531,1)">531 </a>filename = fullfile(app.ExportpathEditField.Value, [datestr8601, '_', imgName, '_overallResults.mat']);
+filename = fullfile(app.ExportpathEditField.Value, [datestr8601, '_', imgName, '_overallResults.mat']);
+{Reference to non-existent field 'ExportpathEditField'.
+} 
+imgName
+
+imgName =
+
+    '11565_0011'
+
+filename = fullfile(app.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
+filename
+
+filename =
+
+    'C:\git\LKTSurfaceQualification\export\20201107T222303_11565_0011_overallResults.mat'
+
+overallResults = app.overallResults;
+save(filename, 'overallResults')
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.ExportpathEditField.Value, '"'])
+{Reference to non-existent field 'ExportpathEditField'.
+} 
+disp('--------------------------------------------------------------------------------------------------------------------------')
+--------------------------------------------------------------------------------------------------------------------------
+disp('-')
+-
+disp('-')
+-
+winopen(app.ExportpathEditField.Value);
+{Reference to non-existent field 'ExportpathEditField'.
+} 
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.ExportpathEditField.Value, '"'])
+{Reference to non-existent field 'ExportpathEditField'.
+} 
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.exportPath, '"'])
+Results saved as "20201107T222323_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+disp('--------------------------------------------------------------------------------------------------------------------------')
+--------------------------------------------------------------------------------------------------------------------------
+disp('-')
+-
+disp('-')
+-
+winopen(app.ExportpathEditField.Value);
+{Reference to non-existent field 'ExportpathEditField'.
+} 
+winopen(app.exportPath);
+uiimport('C:\git\LKTSurfaceQualification\export\20201107T222303_11565_0011_overallResults.mat',1)
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+uiimport('C:\git\LKTSurfaceQualification\export\20201107T222303_11565_0011_overallResults.mat',1)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uiimport', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\codetools\uiimport.m', 74)" style="font-weight:bold">uiimport</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\codetools\uiimport.m',74,0)">line 74</a>)
+Cannot open the Import Wizard on a file while the Import Wizard is
+open.
+} 
+try open('overallResults'); catch edit('overallResults'); end
+runAllQualityParametersWithGivenParameters
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m', 3)" style="font-weight:bold">runAllQualityParametersWithGivenParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',3,0)">line 3</a>)
+[handles] = CalcQualityParam1(handles);
+} 
+runAllQualityParametersWithGivenParameters2

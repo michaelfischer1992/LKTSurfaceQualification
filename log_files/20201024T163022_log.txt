@@ -1,0 +1,419 @@
+Program mode: multiple images
+Program mode: single image 
+Program mode: multiple images
+Program mode: single image 
+Program mode: multiple images
+114 images found.
+all images the same
+114 images remaining.
+User selected C:\Users\micha\Documents\Master ME\Masterarbeit\bilder\Latex\MA stuff\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\00_startBild_11565_0011.jpg
+Elapsed time is 0.482665 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7334.7685 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+For parameter "Material Islands" 23 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.130825 seconds.
+For parameter "Undercuts" 55 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.565572 seconds.
+For parameter "Pores" 43 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.264170 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.503855 seconds.
+For parameter "Space behind material islands" 23 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 21 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.502877 seconds.
+Results saved as "20201024T163409_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.279077 seconds.
+bwareaopen: Of 134 objects (< 3px) -54 have been eliminated (current size: 1)
+bwareaopen: Of 134 objects (< 3px) 79 have been eliminated (current size: 2)
+After imclose: 49 objects remain. (6 deleted)
+After imopen: 36 objects remain. (13 deleted)
+Overall reduction of objects 80.9%
+Reduction in area 0.4%
+real contour length: Inf µm / 8805.4939 px.
+picture width: Inf µm / 2650 px.
+ratio: 3.3
+For parameter "Material Islands" 36 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.123539 seconds.
+For parameter "Undercuts" 50 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.033743 seconds.
+For parameter "Pores" 58 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.248441 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 2%.
+Elapsed time is 2.573713 seconds.
+For parameter "Space behind material islands" 36 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 30 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.166665 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0008
+Results saved as "20201024T163425_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.263853 seconds.
+bwareaopen: Of 137 objects (< 3px) -54 have been eliminated (current size: 1)
+bwareaopen: Of 137 objects (< 3px) 81 have been eliminated (current size: 2)
+bwareaopen: Of 137 objects (< 3px) 82 have been eliminated (current size: 3)
+After imclose: 49 objects remain. (6 deleted)
+After imopen: 36 objects remain. (13 deleted)
+Overall reduction of objects 81.2%
+Reduction in area 0.4%
+real contour length: Inf µm / 8808.3639 px.
+picture width: Inf µm / 2650 px.
+ratio: 3.3
+For parameter "Material Islands" 36 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.132093 seconds.
+For parameter "Undercuts" 50 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.027600 seconds.
+For parameter "Pores" 57 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.281776 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 2%.
+Elapsed time is 4.779534 seconds.
+For parameter "Space behind material islands" 36 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 30 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 5.974905 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0008_inkl_massstab
+Results saved as "20201024T163446_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.419053 seconds.
+bwareaopen: Of 7 objects (< 3px) -33 have been eliminated (current size: 1)
+bwareaopen: Of 7 objects (< 3px) -28 have been eliminated (current size: 2)
+bwareaopen: Of 7 objects (< 3px) -27 have been eliminated (current size: 3)
+After imclose: 21 objects remain. (13 deleted)
+After imopen: 13 objects remain. (8 deleted)
+Overall reduction of objects 67.5%
+Reduction in area 26.1%
+real contour length: Inf µm / 7319.0053 px.
+picture width: Inf µm / 2602 px.
+ratio: 2.8
+For parameter "Material Islands" 13 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.237557 seconds.
+For parameter "Undercuts" 69 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.805974 seconds.
+For parameter "Pores" 112 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.607220 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 2%.
+Elapsed time is 8.128254 seconds.
+For parameter "Space behind material islands" 13 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 13 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 6.446302 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0009
+Results saved as "20201024T163516_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.285436 seconds.
+bwareaopen: Of 4 objects (< 3px) -18 have been eliminated (current size: 1)
+bwareaopen: Of 4 objects (< 3px) -17 have been eliminated (current size: 2)
+bwareaopen: Of 4 objects (< 3px) -16 have been eliminated (current size: 3)
+bwareaopen: Of 4 objects (< 3px) -14 have been eliminated (current size: 4)
+After imclose: 14 objects remain. (4 deleted)
+After imopen: 11 objects remain. (3 deleted)
+Overall reduction of objects 50%
+Reduction in area 3.4%
+real contour length: Inf µm / 7405.6558 px.
+picture width: Inf µm / 2712 px.
+ratio: 2.7
+For parameter "Material Islands" 11 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.156655 seconds.
+For parameter "Undercuts" 32 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.631945 seconds.
+For parameter "Pores" 79 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.320994 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.045688 seconds.
+For parameter "Space behind material islands" 11 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 13 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.782514 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0010
+Results saved as "20201024T163536_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.405908 seconds.
+bwareaopen: Of 25 objects (< 3px) -33 have been eliminated (current size: 1)
+bwareaopen: Of 25 objects (< 3px) -16 have been eliminated (current size: 2)
+bwareaopen: Of 25 objects (< 3px) -12 have been eliminated (current size: 3)
+bwareaopen: Of 25 objects (< 3px) -8 have been eliminated (current size: 4)
+After imclose: 27 objects remain. (6 deleted)
+After imopen: 23 objects remain. (4 deleted)
+Overall reduction of objects 60.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7320.2 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+For parameter "Material Islands" 23 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.247160 seconds.
+For parameter "Undercuts" 53 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.583679 seconds.
+For parameter "Pores" 43 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.593277 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.438990 seconds.
+For parameter "Space behind material islands" 23 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 21 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.717216 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0011
+Results saved as "20201024T163601_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.384107 seconds.
+bwareaopen: Of 80 objects (< 3px) -47 have been eliminated (current size: 1)
+bwareaopen: Of 80 objects (< 3px) 16 have been eliminated (current size: 2)
+bwareaopen: Of 80 objects (< 3px) 29 have been eliminated (current size: 3)
+bwareaopen: Of 80 objects (< 3px) 33 have been eliminated (current size: 4)
+After imclose: 33 objects remain. (14 deleted)
+After imopen: 32 objects remain. (1 deleted)
+Overall reduction of objects 74.8%
+Reduction in area 51.3%
+real contour length: Inf µm / 12286.7769 px.
+picture width: Inf µm / 2590 px.
+ratio: 4.7
+For parameter "Material Islands" 32 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.194382 seconds.
+For parameter "Undercuts" 63 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.848676 seconds.
+For parameter "Pores" 56 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.364527 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 2%.
+Elapsed time is 4.947952 seconds.
+For parameter "Space behind material islands" 31 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 32 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 8.263014 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0012
+Results saved as "20201024T163628_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.339507 seconds.
+bwareaopen: Of 13 objects (< 3px) -21 have been eliminated (current size: 1)
+bwareaopen: Of 13 objects (< 3px) -9 have been eliminated (current size: 2)
+After imclose: 13 objects remain. (9 deleted)
+After imopen: 11 objects remain. (2 deleted)
+Overall reduction of objects 67.6%
+Reduction in area 18.1%
+real contour length: Inf µm / 6339.2597 px.
+picture width: Inf µm / 2570 px.
+ratio: 2.5
+For parameter "Material Islands" 11 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.183724 seconds.
+For parameter "Undercuts" 33 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.856605 seconds.
+For parameter "Pores" 32 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.444889 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.536648 seconds.
+For parameter "Space behind material islands" 10 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 10 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 5.444130 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0013
+Results saved as "20201024T163650_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.409202 seconds.
+bwareaopen: Of 92 objects (< 3px) -29 have been eliminated (current size: 1)
+bwareaopen: Of 92 objects (< 3px) 49 have been eliminated (current size: 2)
+bwareaopen: Of 92 objects (< 3px) 60 have been eliminated (current size: 3)
+bwareaopen: Of 92 objects (< 3px) 63 have been eliminated (current size: 4)
+After imclose: 17 objects remain. (12 deleted)
+After imopen: 12 objects remain. (5 deleted)
+Overall reduction of objects 90.1%
+Reduction in area 7.7%
+real contour length: Inf µm / 6212.0852 px.
+picture width: Inf µm / 2658 px.
+ratio: 2.3
+For parameter "Material Islands" 12 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.186411 seconds.
+For parameter "Undercuts" 59 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.683117 seconds.
+For parameter "Pores" 44 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.237100 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.183142 seconds.
+For parameter "Space behind material islands" 9 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 15 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.549285 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0014
+Results saved as "20201024T163709_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.344549 seconds.
+bwareaopen: Of 83 objects (< 3px) -39 have been eliminated (current size: 1)
+bwareaopen: Of 83 objects (< 3px) 13 have been eliminated (current size: 2)
+bwareaopen: Of 83 objects (< 3px) 36 have been eliminated (current size: 3)
+bwareaopen: Of 83 objects (< 3px) 44 have been eliminated (current size: 4)
+After imclose: 26 objects remain. (13 deleted)
+After imopen: 24 objects remain. (2 deleted)
+Overall reduction of objects 80.3%
+Reduction in area 35.7%
+real contour length: Inf µm / 8551.8703 px.
+picture width: Inf µm / 2604 px.
+ratio: 3.3
+For parameter "Material Islands" 24 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.151354 seconds.
+For parameter "Undercuts" 55 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.571187 seconds.
+For parameter "Pores" 41 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.248303 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.032787 seconds.
+For parameter "Space behind material islands" 23 objects were found.
+Ratio to image area: 1%.
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('intersect>intersectR2012a', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\ops\intersect.m', 220)" style="font-weight:bold">intersect>intersectR2012a</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\ops\intersect.m',220,0)">line 220</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('intersect', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\ops\intersect.m', 111)" style="font-weight:bold">intersect</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\ops\intersect.m',111,0)">line 111</a>)
+    [varargout{1:nlhs}] = intersectR2012a(varargin{:});
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('drawVerticalLinesForUndercuts', 'C:\git\LKTSurfaceQualification\functions\drawVerticalLinesForUndercuts.m', 6)" style="font-weight:bold">drawVerticalLinesForUndercuts</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\drawVerticalLinesForUndercuts.m',6,0)">line 6</a>)
+    [~, thisRow, ~] = intersect(thisRowIdx, 1);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam5', 'C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp', 313)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalcQualityParam5</a> (<a href="matlab: opentoline('C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp',313,0)">line 313</a>)
+            [imageUndercutsBehindMatIslands] = drawVerticalLinesForUndercuts(~againWithMatIslands);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters', 'C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp', 192)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/runAllQualityParametersWithGivenParameters</a> (<a href="matlab: opentoline('C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp',192,0)">line 192</a>)
+            CalcQualityParam5(app);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2', 'C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp', 866)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/CalculateButtonPushed2</a> (<a href="matlab: opentoline('C:\Users\micha\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\SLS_Oberflaechenrauheit_final_App_new\SLS_Oberflaechenrauheit_final_App_new.mlapp',866,0)">line 866</a>)
+                    runAllQualityParametersWithGivenParameters(app)
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 362)" style="font-weight:bold">appdesigner.internal.service.AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',362,0)">line 362</a>)
+                    callback(app, event);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.AppBase>@(source,event)tryCallback(appdesigner.internal.service.AppManagementService.instance(),app,callback,requiresEventData,event)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 37)" style="font-weight:bold">matlab.apps.AppBase>@(source,event)tryCallback(appdesigner.internal.service.AppManagementService.instance(),app,callback,requiresEventData,event)</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',37,0)">line 37</a>)
+            newCallback = @(source, event)tryCallback(appdesigner.internal.service.AppManagementService.instance(), ...
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.controller.ComponentController/executeUserCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m', 386)" style="font-weight:bold">matlab.ui.control.internal.controller.ComponentController/executeUserCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+controller\ComponentController.m',386,0)">line 386</a>)
+Interrupt while evaluating Button PrivateButtonPushedFcn.
+
+Program mode: single image 
+User selected C:\Users\micha\Documents\Master ME\Masterarbeit\bilder\Latex\MA stuff\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\00_startBild_11565_0011.jpg
+Elapsed time is 0.480555 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: Inf µm / 7334.7685 px.
+picture width: Inf µm / 2710 px.
+ratio: 2.7
+For parameter "Material Islands" 23 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.184860 seconds.
+For parameter "Undercuts" 55 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 2.848572 seconds.
+For parameter "Pores" 43 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 0.248530 seconds.
+For parameter "Roughness" 54 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 3.304390 seconds.
+For parameter "Space behind material islands" 23 objects were found.
+Ratio to image area: 1%.
+For parameter "Space behind material islands" 21 objects were found.
+Ratio to image area: 1%.
+Elapsed time is 4.526112 seconds.
+Results saved as "20201024T163926_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-

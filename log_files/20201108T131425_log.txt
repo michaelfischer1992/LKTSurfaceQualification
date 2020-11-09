@@ -1,0 +1,13 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m',10,1)">10  </a>pxW = 5;
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Unrecognized function or variable 'imgBW_tmp'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('calcGrayscaleThresholdInImage', 'C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m', 94)" style="font-weight:bold">calcGrayscaleThresholdInImage</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m',94,0)">line 94</a>)
+app.imgBW = imgBW_tmp;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 182)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',182,0)">line 182</a>)
+    app = calcGrayscaleThresholdInImage(app);
+} 
+SLS_Oberflaechenrauheit_final_2020

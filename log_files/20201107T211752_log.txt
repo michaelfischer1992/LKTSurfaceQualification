@@ -1,0 +1,15 @@
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',37,1)">37  </a>try
+strcmp(programMode, 'multiple images')
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+updatePathUserChoosen(app)
+{Check for missing argument or incorrect argument data type in call
+to function 'updatePathUserChoosen'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

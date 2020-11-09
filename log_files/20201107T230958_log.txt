@@ -1,0 +1,12 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',92,1)">92  </a>    app.imgOriginal = imresize(app.imgOriginal, app.scaleDownFactor);
+app.scaleDownFactor
+
+ans =
+
+    10
+
+app.imgOriginal = imresize(app.imgOriginal, app.scaleDownFactor);
+figure, imshow(app.imgOriginal)
+if system_dependent('IsDebugMode')==1, dbquit all; end
+SLS_Oberflaechenrauheit_final_2020

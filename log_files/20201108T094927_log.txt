@@ -1,0 +1,8 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m',10,1)">10  </a>pxW = 5;
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+Background area at the bottom filled with ones (area: 390793 px, width: 25914 px).
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',15,1)">15  </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

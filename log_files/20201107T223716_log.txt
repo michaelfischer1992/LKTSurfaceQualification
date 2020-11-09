@@ -1,0 +1,722 @@
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',50,1)">50  </a>        PathName = app.ImportpathEditField.Value;
+PathName = app.ImportpathEditField;
+S = dir(fullfile(PathName,'*.jpg')); % pattern to match filenames.
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fullfile', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m', 67)" style="font-weight:bold">fullfile</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m',67,0)">line 67</a>)
+All inputs must be strings, character vectors, or cell arrays of
+character vectors.
+} 
+PathName = app.ImportpathEditField;
+fullfile(PathName,'*.jpg')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fullfile', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m', 67)" style="font-weight:bold">fullfile</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m',67,0)">line 67</a>)
+All inputs must be strings, character vectors, or cell arrays of
+character vectors.
+} 
+dir(PathName)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dir')" style="font-weight:bold">dir</a>
+Name must be a text scalar.
+} 
+PathName = app.ImportpathEditField;
+PathName
+
+PathName = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    Value: 'C:\git\LKTSurfaceQualification\images'
+
+helpPopup struct
+dir(app.ImportpathEditField9
+ dir(app.ImportpathEditField9
+                             ↑
+{Error: Invalid expression. When calling a function or indexing a
+variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+dir(app.ImportpathEditField9)
+{Reference to non-existent field 'ImportpathEditField9'.
+} 
+dir(app.ImportpathEditField)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dir')" style="font-weight:bold">dir</a>
+Name must be a text scalar.
+} 
+files = dir(fullfile(PathName, '*.jpg'));
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fullfile', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m', 67)" style="font-weight:bold">fullfile</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m',67,0)">line 67</a>)
+All inputs must be strings, character vectors, or cell arrays of
+character vectors.
+} 
+d = uigetdir(PathName, 'Select a folder');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uigetdir_helper/checkString', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m', 87)" style="font-weight:bold">uigetdir_helper/checkString</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m',87,0)">line 87</a>)
+Pathname must be a character vector or a string scalar.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uigetdir_helper/parseArguments', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m', 65)" style="font-weight:bold">uigetdir_helper/parseArguments</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m',65,0)">line 65</a>)
+            dialog_pathname = checkString(pathname, 'Pathname');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uigetdir_helper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m', 23)" style="font-weight:bold">uigetdir_helper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\uigetdir_helper.m',23,0)">line 23</a>)
+    [dialog_title, dialog_pathname] = parseArguments();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uigetdir', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uigetdir.m', 61)" style="font-weight:bold">uigetdir</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uigetdir.m',61,0)">line 61</a>)
+[directoryname] = uigetdir_helper(varargin{:});
+} 
+PathName
+
+PathName = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    Value: 'C:\git\LKTSurfaceQualification\images'
+
+d = uigetdir('C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren', 'Select a folder');
+files = dir(fullfile(d, '*.jpg'));
+importPath = 'C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren';
+S = dir(fullfile(importPath, '*.jpg')); % pattern to match filenames.
+numel(S)
+
+ans =
+
+   114
+
+disp([num2str(numel(S)), ' images found.'])
+114 images found.
+for k = 1:numel(S)
+            info = imfinfo(fullfile(PathName,S(k).name));
+            [ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
+            Imagesdata(k).height = info.Height;
+            Imagesdata(k).width = info.Width;
+            Imagesdata(k).filename = info.Filename;
+        end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fullfile', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m', 67)" style="font-weight:bold">fullfile</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m',67,0)">line 67</a>)
+All inputs must be strings, character vectors, or cell arrays of
+character vectors.
+} 
+numel(S)
+
+ans =
+
+   114
+
+k = 1
+
+k =
+
+     1
+
+info = imfinfo(fullfile(PathName,S(k).name));
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fullfile', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m', 67)" style="font-weight:bold">fullfile</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fullfile.m',67,0)">line 67</a>)
+All inputs must be strings, character vectors, or cell arrays of
+character vectors.
+} 
+S(k).name)
+ S(k).name)
+          ↑
+{Error: Invalid expression. When calling a function or indexing a
+variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+S(k).name
+
+ans =
+
+    '00_startBild_11565_0011.jpg'
+
+info = imfinfo(fullfile(importPath,S(k).name));
+info
+
+info = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+                     Filename: 'C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\00_startBild_11565_0011.jpg'
+                  FileModDate: '12-Aug-2017 17:34:22'
+                     FileSize: 2172018
+                       Format: 'jpg'
+                FormatVersion: ''
+                        Width: 2720
+                       Height: 2048
+                     BitDepth: 8
+                    ColorType: 'grayscale'
+              FormatSignature: ''
+              NumberOfSamples: 1
+                 CodingMethod: 'Huffman'
+                CodingProcess: 'Sequential'
+                      Comment: {}
+                BitsPerSample: [8 8 8 8]
+    PhotometricInterpretation: 'BlackIsZero'
+                  Orientation: 1
+              SamplesPerPixel: 4
+                  XResolution: 72
+                  YResolution: 72
+               ResolutionUnit: 'Inch'
+                     Software: 'Adobe Photoshop CC 2017 (Windows)'
+                     DateTime: '2017:08:12 22:34:06'
+                DigitalCamera: [1×1 struct]
+                ExifThumbnail: [1×1 struct]
+
+[ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
+Imagesdata(k).height = info.Height;
+            Imagesdata(k).width = info.Width;
+            Imagesdata(k).filename = info.Filename;
+for k = 1:numel(S)
+            info = imfinfo(fullfile(importPath,S(k).name));
+            [ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
+            Imagesdata(k).height = info.Height;
+            Imagesdata(k).width = info.Width;
+            Imagesdata(k).filename = info.Filename;
+        end
+Imagesdata(1:numel(S)) = [];
+Imagesdata(1:numel(S)) = []; 
+{Matrix index is out of range for deletion.
+} 
+for k = 1:numel(S)
+            info = imfinfo(fullfile(importPath,S(k).name));
+            [ ~ , Imagesdata(k).name , ~ ] = fileparts(info.Filename);
+            Imagesdata(k).height = info.Height;
+            Imagesdata(k).width = info.Width;
+            Imagesdata(k).filename = info.Filename;
+        end
+S_tmp = Imagesdata;
+allImagesHeight = vertcat(Imagesdata(:).height);
+allImagesWidth = vertcat(Imagesdata(:).width);
+allImagesHeight
+
+allImagesHeight =
+
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+        2048
+
+allImagesWidth
+
+allImagesWidth =
+
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+        2720
+
+length(unique([allImagesHeight, allImagesWidth])) == 2
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+disp('all images the same')
+all images the same
+[idxOmitted1] = throwOutImagesWithDifferenAspectRation(app, allImagesWidth, S_tmp);
+the following images have a different aspect ratio and are therefore omitted: 
+            [idxOmitted2] = throwOutImagesWithDifferenAspectRation(app, allImagesHeight, S_tmp);
+the following images have a different aspect ratio and are therefore omitted: 
+            idxOmitted = and(~idxOmitted1, ~idxOmitted2);
+            S_tmp = S_tmp(idxOmitted);
+disp([num2str(numel(S_tmp)), ' images remaining.'])
+114 images remaining.
+message = ('Select your start image. IMPORTANT: The image has to show a scale!');
+msgbox(message, 'Important Notice','warn');
+userSelectsImageInExplorer(app)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fileparts', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fileparts.m', 58)" style="font-weight:bold">fileparts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fileparts.m',58,0)">line 58</a>)
+Input must be a row vector of characters, or a string scalar, or a
+cellstr, or a string matrix.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>userSelectsImageInExplorer', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 208)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>userSelectsImageInExplorer</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',208,0)">line
+208</a>)
+[pathstr, name, ext] = fileparts(filename);
+} 
+userSelectsImageInExplorer(app)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fileparts', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fileparts.m', 58)" style="font-weight:bold">fileparts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\iofun\fileparts.m',58,0)">line 58</a>)
+Input must be a row vector of characters, or a string scalar, or a
+cellstr, or a string matrix.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>userSelectsImageInExplorer', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 208)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>userSelectsImageInExplorer</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',208,0)">line
+208</a>)
+[pathstr, name, ext] = fileparts(filename);
+} 
+userSelectsImageInExplorer(app)
+User selected C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\00_startBild_11565_0011.jpg
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'multiple images'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 2
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\'
+                    BildName: '00_startBild_11565_0011'
+       BildNamePlusExtention: '00_startBild_11565_0011.jpg'
+
+app.ImagesData = S_tmp;
+%% load image
+    imgPath = [app.BildPfad app.BildNamePlusExtention];
+{Reference to non-existent field 'BildPfad'.
+} 
+app.BildPfad
+{Reference to non-existent field 'BildPfad'.
+} 
+app = userSelectsImageInExplorer(app);
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+app = userSelectsImageInExplorer(app);
+User selected C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\00_startBild_11565_0011.jpg
+app.ImagesData = S_tmp;
+%% load image
+    imgPath = [app.BildPfad app.BildNamePlusExtention];
+    app.imgOriginal = imread(imgPath);
+    %% plot original image
+    plotImageWindowsized(app, app.imgOriginal)
+    %% plot figure into GUI
+%     showFigureInGUI(app)
+    %% let user draw two points to get the scale bar
+    [app.MassstabXVals, app.MassstabYVals] = getScaleValues(app);
+strcmp(app.programMode, 'multiple images')
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+calculateScaleFromPreviousUserSelection(app)
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'multiple images'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 2
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                  ImagesData: [1×114 struct]
+                    BildPfad: 'C:\Users\micha\Documents\Master ME\Oberflaechenrauheit-LKT\PA_repaired\bilder_PA\Mikroskopiebilder\funktionieren\'
+                    BildName: '00_startBild_11565_0011'
+       BildNamePlusExtention: '00_startBild_11565_0011.jpg'
+                 imgOriginal: [2048×2720 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.0998
+
+app = calculateScaleFromPreviousUserSelection(app);
+    
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Part I: Image preparation
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% calculate threshold
+    app = calcGrayscaleThresholdInImage(app);
+    %% grayscale to binary image
+    app = convertGrayscaleToBinaryImage(app);
+    %% eliminate scale through user interaction: User has to draw a rectangle around the scale
+    app = elimateScaleThroughUserDrawingRectangle(app);
+    %% prepare image (erode, dilate, etc.)
+    app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+Elapsed time is 0.291863 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+    %% align image horizontally, cut off edges
+    app = alignImageHorizontally(app);
+    %% plot contours
+    app = plotContoursInImage(app);
+real contour length: 732 µm / 7334.7685 px.
+picture width: 271 µm / 2710 px.
+ratio: 2.7
+    
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Part II: Calculate parameters and export
+    %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.123121 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.858901 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.158307 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.883004 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.716126 seconds.
+    app = exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile')" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile</a>
+Too many output arguments.
+} 
+app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.138093 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.535842 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.155139 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.865278 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.670818 seconds.
+app = exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile')" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile</a>
+Too many output arguments.
+} 
+app.ImagesData(1).name
+
+ans =
+
+    '00_startBild_11565_0011'
+
+app = exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile')" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile</a>
+Too many output arguments.
+} 
+exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+Results saved as "20201107T225234_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+i = 2
+
+i =
+
+     2
+
+imgPath = app.ImagesData(i).filename;
+        app.imgOriginal = imread(imgPath);
+%         showFigureInGUI(app)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part I: Image preparation
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% calculate threshold
+        app = calcGrayscaleThresholdInImage(app);
+        %% grayscale to binary image
+        app = convertGrayscaleToBinaryImage(app);
+        %% remove scale
+        app.imgBWnoScale = app.imgBW;
+        app.imgBWnoScale(app.yValsRectScale, app.xValsRectScale) = 1;
+{Reference to non-existent field 'yValsRectScale'.
+} 
+imgPath = app.ImagesData(i).filename;
+        app.imgOriginal = imread(imgPath);
+%         showFigureInGUI(app)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part I: Image preparation
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% calculate threshold
+        app = calcGrayscaleThresholdInImage(app);
+        %% grayscale to binary image
+        app = convertGrayscaleToBinaryImage(app);
+        %% remove scale
+        app.imgBWnoScale = app.imgBW;
+app.imgBWnoScale(app.MassstabYVals, app.MassstabXVals) = 1;
+{Index in position 1 is invalid. Array indices must be positive
+integers or logical values.
+} 
+app.imgBWnoScale(app.MassstabXVals, app.MassstabYVals) = 1;
+{Index in position 1 is invalid. Array indices must be positive
+integers or logical values.
+} 
+app.MassstabXVals, app.MassstabYVals
+
+ans =
+
+   1.0e+03 *
+
+    2.1702
+    2.6710
+
+
+ans =
+
+   1.0e+03 *
+
+    1.9931
+    1.9931
+
+app.MassstabXVals
+
+ans =
+
+   1.0e+03 *
+
+    2.1702
+    2.6710
+
+app.yValsRectScale
+{Reference to non-existent field 'yValsRectScale'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+SLS_Oberflaechenrauheit_final_2020

@@ -1,0 +1,104 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.340977 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',182,1)">182 </a>    alignImageHorizontally(app)
+alignImageHorizontally(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',540,1)">540 </a>boundary = realeKontur(app.imgEroded);
+boundary = realeKontur(app.imgEroded);
+width = app.imageWidth;
+height = app.imageHeight;
+Start(1,2) = 1;
+Start(1,1) = polyval(polyfit(boundary(:,2),boundary(:,1),1),Start(1,2));
+Ende(1,2) = width;
+Ende(1,1) = polyval(polyfit(boundary(:,2),boundary(:,1),1),Ende(1,2));
+diffLR = Ende(1,1)-Start(1,1); % Unterschied der y-Komponenten
+winkel = atand(diffLR/(width/2));
+imgBWDreh = imrotate(app.imgEroded,winkel,'nearest','crop');
+imgOrigDreh = imrotate(app.imgOriginal, winkel,'nearest','crop');
+%% cut off black lines at corners. ceil: so don't cut off too less
+linkeGrenze=abs(ceil(height/2 * diffLR/(width/2)));
+if linkeGrenze <= 0
+    linkeGrenze = 1;
+end
+rechteGrenze=width-floor(height/2 * diffLR/(width/2));
+if rechteGrenze >= width
+    rechteGrenze = width-1;
+end
+untereGrenze = ceil(height * tan(deg2rad(winkel)));
+imgBWSchnitt = imgBWDreh(1:(height - abs(untereGrenze)), linkeGrenze:rechteGrenze);
+imgOrigSchnitt = imgOrigDreh(:,linkeGrenze:rechteGrenze);
+app.imgErod = imgBWSchnitt;
+app.imgOrig = imgOrigSchnitt;
+if app.doPlot
+    app.hfig = imshow(app.imgErod);
+    app.hfig = imshow(app.imgOrig);
+end
+%% usually there wouldn't be a pore now in the lower left corner.
+[height, ~, ~] = size(app.imgErod);
+for i = height : -1 : 1
+    if app.imgErod(i,1) == 0
+        continue
+    else
+        lastLine = i + 1;
+        break
+    end
+end
+for i = 1 : size(app.imgErod,2)
+    if app.imgErod(height,i) == 0
+        continue
+    else
+        lastRow = i;
+        break
+    end
+end
+app.imgErod(lastLine:height, 1:lastRow) = 1;
+%% if the first 40 pixels are all black, then it's surely no pore
+if nnz(app.imgErod(height,1:40)) == 0
+    %% crop the image up to 'lastLine'
+    imgBWSchnittSecond = imgBWSchnitt(1 : lastLine, :);
+    app.imgErod = imgBWSchnittSecond;
+    imgOrigSchnittSecond = imgOrigSchnitt(1 : lastLine, :);
+    app.imgOrig = imgOrigSchnittSecond;
+    if app.doPlot
+        app.hfig = imshow(app.imgErod);
+        app.hfig = imshow(app.imgOrig);
+    end
+end
+nnz(app.imgErod(height,1:40))
+
+ans =
+
+    40
+
+app.imgErod(height,1:40)
+
+ans =
+
+  1×40 <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a> array
+
+  Columns 1 through 17
+
+   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1
+
+  Columns 18 through 34
+
+   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1
+
+  Columns 35 through 40
+
+   1   1   1   1   1   1
+
+nnz(app.imgErod(height,1:40))
+
+ans =
+
+    40
+
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

@@ -1,0 +1,96 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.303156 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',185,1)">185 </a>    app = plotContoursInImage(app);
+app = plotContoursInImage(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',607,1)">607 </a>Massstab = app.MassstabWert;
+Massstab = app.MassstabWert;
+img = app.imgErod;
+boundary = realeKontur(img);
+[heightBoundary,~] = size(boundary);
+[height,width,~] = size(img);
+% calculate length of real contour
+laengeOberfl=0;
+for i =2:heightBoundary
+    laengeOberfl = laengeOberfl + sqrt((boundary(i,1)-boundary(i-1,1))^2 + (boundary(i,2)-boundary(i-1,2))^2);
+end
+app.realeKonturY = boundary(:,1);
+app.realeKonturX = boundary(:,2);
+disp(['real contour length: ', num2str(round(laengeOberfl*Massstab)), ' µm / ', ...
+    num2str(laengeOberfl), ' px.']);
+real contour length: 746 µm / 7334.7685 px.
+disp(['picture width: ', num2str(round(width*Massstab)), ' µm / ', ...
+    num2str(width), ' px.']);
+picture width: 276 µm / 2710 px.
+disp(['ratio: ', num2str(round(laengeOberfl/width, 1))]);
+ratio: 2.7
+%% calculate top view surface
+count = 0;
+iZeile = 0;
+zWerte = zeros(width*5,2);
+for i = 1:(width*5)
+    iZeile = i + count;
+    zWerte(iZeile,2) = i;
+    for j= 1:height
+        if img(j,i) == 1
+            zWerte(iZeile,1) = j;
+            if i > 1
+                a = zWerte(iZeile,1);
+                b = zWerte(iZeile-1,1);
+                if abs(b - a) > 1
+                    zWerte(iZeile+1,1) = j;
+                    zWerte(iZeile+1,2) = i;
+                    zWerte(iZeile,2) = zWerte(iZeile-1,2);
+                    zWerte(iZeile,1) = j;
+                    count = count + 1;
+                end
+            end
+            break;
+        end
+    end
+    if iZeile - count >= width - 1
+        break
+    end
+end
+zWerte = [zWerte((1:iZeile),1),zWerte((1:iZeile),2)];
+app.aufKontur = zWerte;
+Mittel = mean2(app.realeKonturY); % Bild bereits ausgerichtet, deshalb Mittelwertberechnung nun trivial
+
+if app.doPlot
+    app.hfig = imshow(app.imgErod);
+    hold on;
+    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot([1 width],[Mittel Mittel],'b','Linewidth',2);
+    
+    app.hfig = imshow(app.imgOrig);
+    hold on;
+    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot([1 width],[Mittel Mittel],'b','Linewidth',2);
+end
+app.hfig = imshow(app.imgErod);
+    hold on;
+    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot([1 width],[Mittel Mittel],'b','Linewidth',2);
+    
+    app.hfig = imshow(app.imgOrig);
+    hold on;
+    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot([1 width],[Mittel Mittel],'b','Linewidth',2);
+imshow(app.imgOrig, 'Parent', app.UIAxes_2);
+{Reference to non-existent field 'UIAxes_2'.
+} 
+plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2, 'Parent', app.UIAxes_2); % g: gruen; Linewidth: 2 Pixel (breite Linie)
+{Reference to non-existent field 'UIAxes_2'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

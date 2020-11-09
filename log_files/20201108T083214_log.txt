@@ -1,0 +1,36 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.288770 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: 741 µm / 7334.7685 px.
+picture width: 274 µm / 2710 px.
+ratio: 2.7
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.109874 seconds.
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\eliminateBlobsFromImage.m',12,1)">12  </a>labeledImage = bwlabel(thisImage_tmp, 8);
+labeledImage = logical(thisImage_tmp, 8);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('logical')" style="font-weight:bold">logical</a>
+Too many input arguments.
+} 
+labeledImage = logical(thisImage_tmp);
+blobMeasurements = regionprops(labeledImage, 'PixelList', 'Area');
+thisImage_tmp = thisImage;
+blobMeasurements = regionprops(thisImage_tmp, 'PixelList', 'Area');
+thisImage_tmp = thisImage; 
+blobMeasurements = regionprops(thisImage_tmp, 'Area');
+blobMeasurements = regionprops(thisImage_tmp, 'Area');
+blobMeasurements = regionprops(thisImage_tmp, 'Area');
+thisImage_tmp = thisImage; 
+blobMeasurements = regionprops(thisImage_tmp, 'Area');
+blobMeasurements = regionprops(thisImage_tmp, 'PixelList', 'Area');
+[~, ab, ~] = intersect(vertcat(blobMeasurements(:).Area), max(vertcat(blobMeasurements(:).Area)));
+blobMeasurements(ab) = [];
+if system_dependent('IsDebugMode')==1, dbquit all; end
+SLS_Oberflaechenrauheit_final_2020

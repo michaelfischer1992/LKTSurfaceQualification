@@ -1,0 +1,24 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 726)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',726,0)">line 726</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 704)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',704,0)">line 704</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+[Warning: You have to select two points!] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 726)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',726,0)">line 726</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 707)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',707,0)">line 707</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',92,0)">line 92</a>)] 
+no image selected.
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',100,1)">100 </a>if strcmp(app.programMode, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Reference to non-existent field 'MassstabXVals'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 438)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',438,0)">line 438</a>)
+rx = app.MassstabXVals;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 168)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',168,0)">line 168</a>)
+    calculateScaleFromPreviousUserSelection(app)
+} 
+runAllQualityParametersWithGivenParameters2

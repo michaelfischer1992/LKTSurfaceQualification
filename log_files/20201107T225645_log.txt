@@ -1,0 +1,1186 @@
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',52,1)">52  </a>        S = dir(fullfile(importPath, '*.jpg')); % pattern to match filenames.
+if system_dependent('IsDebugMode')==1, dbcont; end
+114 images found.
+all images the same
+114 images remaining.
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+Elapsed time is 0.308832 seconds.
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 28 objects remain. (10 deleted)
+After imopen: 23 objects remain. (5 deleted)
+Overall reduction of objects 62.3%
+Reduction in area 0.2%
+real contour length: 764 µm / 7334.7685 px.
+picture width: 282 µm / 2710 px.
+ratio: 2.7
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.117338 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.529534 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.149422 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.871534 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.732984 seconds.
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',531,1)">531 </a>filename = fullfile(app.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
+dbstack
+> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 531)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020>exportAllResultsToMatFile</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',531,0)">line 531</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 130)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',130,0)">line 130</a>)
+opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',130,0)
+opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',531,0)
+if system_dependent('IsDebugMode')==1, dbcont; end
+Results saved as "20201107T225733_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+i = 2
+
+i =
+
+     2
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part 0: Load this image
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        imgPath = app.ImagesData(i).filename;
+        app.imgOriginal = imread(imgPath);
+%         showFigureInGUI(app)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part I: Image preparation
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% calculate threshold
+        app = calcGrayscaleThresholdInImage(app);
+        %% grayscale to binary image
+        app = convertGrayscaleToBinaryImage(app);
+        %% remove scale
+        app.imgBWnoScale = app.imgBW;
+        app.imgBWnoScale(app.MassstabXVals, app.MassstabYVals) = 1;
+{Index in position 1 is invalid. Array indices must be positive
+integers or logical values.
+} 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part 0: Load this image
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        imgPath = app.ImagesData(i).filename;
+        app.imgOriginal = imread(imgPath);
+%         showFigureInGUI(app)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part I: Image preparation
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% calculate threshold
+        app = calcGrayscaleThresholdInImage(app);
+        %% grayscale to binary image
+        app = convertGrayscaleToBinaryImage(app);
+%% remove scale
+        app.imgBWnoScale = app.imgBW;
+app.imgBWnoScale(app.yValsRectScale, xValsRectScale) = 1;
+{Unrecognized function or variable 'xValsRectScale'.
+} 
+if system_dependent('IsDebugMode')==1, dbstep; end
+app.imgBWnoScale(app.yValsRectScale, app.xValsRectScale) = 1;
+%% prepare image (erode, dilate, etc.)
+        app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+Elapsed time is 0.304914 seconds.
+bwareaopen: Of 134 objects (< 3px) -54 have been eliminated (current size: 1)
+bwareaopen: Of 134 objects (< 3px) 79 have been eliminated (current size: 2)
+After imclose: 49 objects remain. (6 deleted)
+After imopen: 36 objects remain. (13 deleted)
+Overall reduction of objects 80.9%
+Reduction in area 0.4%
+        %% align image horizontally, cut off edges
+        app = alignImageHorizontally(app);
+        %% plot contours
+        app = plotContoursInImage(app);
+real contour length: 918 µm / 8805.4939 px.
+picture width: 276 µm / 2650 px.
+ratio: 3.3
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part II: Calculate parameters and export
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        app = runAllQualityParametersWithGivenParameters(app);
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.166648 seconds.
+For parameter "Materialinseln" 49 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.944357 seconds.
+For parameter "Materialinseln" 57 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.171738 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.905341 seconds.
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 26 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.736047 seconds.
+        disp('-')
+-
+        disp('-')
+-
+        disp('--------------------------------------------------------------------------------------------------------------------------')
+--------------------------------------------------------------------------------------------------------------------------
+        disp(['Image ', app.ImagesData(i).name])
+Image 11565_0008
+        exportAllResultsToMatFile(app, app.ImagesData(i).name)
+Results saved as "20201107T225851_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+for i = 2 : numel(app.ImagesData)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part 0: Load this image
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        imgPath = app.ImagesData(i).filename;
+        app.imgOriginal = imread(imgPath);
+%         showFigureInGUI(app)
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part I: Image preparation
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% calculate threshold
+        app = calcGrayscaleThresholdInImage(app);
+        %% grayscale to binary image
+        app = convertGrayscaleToBinaryImage(app);
+        %% remove scale
+        app.imgBWnoScale = app.imgBW; 
+        app.imgBWnoScale(app.yValsRectScale, app.xValsRectScale) = 1;
+        %% prepare image (erode, dilate, etc.)
+        app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+        %% align image horizontally, cut off edges
+        app = alignImageHorizontally(app);
+        %% plot contours
+        app = plotContoursInImage(app);
+        
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% Part II: Calculate parameters and export
+        %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        app = runAllQualityParametersWithGivenParameters(app);
+        disp('-')
+        disp('-')
+        disp('--------------------------------------------------------------------------------------------------------------------------')
+        disp(['Image ', app.ImagesData(i).name])
+        exportAllResultsToMatFile(app, app.ImagesData(i).name)
+    end
+Elapsed time is 0.222530 seconds.
+bwareaopen: Of 134 objects (< 3px) -54 have been eliminated (current size: 1)
+bwareaopen: Of 134 objects (< 3px) 79 have been eliminated (current size: 2)
+After imclose: 49 objects remain. (6 deleted)
+After imopen: 36 objects remain. (13 deleted)
+Overall reduction of objects 80.9%
+Reduction in area 0.4%
+real contour length: 918 µm / 8805.4939 px.
+picture width: 276 µm / 2650 px.
+ratio: 3.3
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.105305 seconds.
+For parameter "Materialinseln" 49 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.503902 seconds.
+For parameter "Materialinseln" 57 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.165699 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.875213 seconds.
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 26 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.690778 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0008
+Results saved as "20201107T225919_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.254075 seconds.
+bwareaopen: Of 137 objects (< 3px) -54 have been eliminated (current size: 1)
+bwareaopen: Of 137 objects (< 3px) 81 have been eliminated (current size: 2)
+bwareaopen: Of 137 objects (< 3px) 82 have been eliminated (current size: 3)
+After imclose: 49 objects remain. (6 deleted)
+After imopen: 36 objects remain. (13 deleted)
+Overall reduction of objects 81.2%
+Reduction in area 0.4%
+real contour length: 918 µm / 8808.3639 px.
+picture width: 276 µm / 2650 px.
+ratio: 3.3
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.103653 seconds.
+For parameter "Materialinseln" 49 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.502893 seconds.
+For parameter "Materialinseln" 56 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.160091 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.876386 seconds.
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 26 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.747159 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0008_inkl_massstab
+Results saved as "20201107T225930_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.214478 seconds.
+bwareaopen: Of 7 objects (< 3px) -33 have been eliminated (current size: 1)
+bwareaopen: Of 7 objects (< 3px) -28 have been eliminated (current size: 2)
+bwareaopen: Of 7 objects (< 3px) -27 have been eliminated (current size: 3)
+After imclose: 21 objects remain. (13 deleted)
+After imopen: 13 objects remain. (8 deleted)
+Overall reduction of objects 67.5%
+Reduction in area 26.1%
+real contour length: 763 µm / 7319.0053 px.
+picture width: 271 µm / 2602 px.
+ratio: 2.8
+For parameter "Materialinseln" 12 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.097946 seconds.
+For parameter "Materialinseln" 68 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.547438 seconds.
+For parameter "Materialinseln" 111 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.196188 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.852264 seconds.
+For parameter "Materialinseln" 12 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 11 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.750841 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0009
+Results saved as "20201107T225941_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.197311 seconds.
+bwareaopen: Of 4 objects (< 3px) -18 have been eliminated (current size: 1)
+bwareaopen: Of 4 objects (< 3px) -17 have been eliminated (current size: 2)
+bwareaopen: Of 4 objects (< 3px) -16 have been eliminated (current size: 3)
+bwareaopen: Of 4 objects (< 3px) -14 have been eliminated (current size: 4)
+After imclose: 14 objects remain. (4 deleted)
+After imopen: 11 objects remain. (3 deleted)
+Overall reduction of objects 50%
+Reduction in area 3.4%
+real contour length: 772 µm / 7405.6558 px.
+picture width: 283 µm / 2712 px.
+ratio: 2.7
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.099237 seconds.
+For parameter "Materialinseln" 31 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.493283 seconds.
+For parameter "Materialinseln" 78 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.165146 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.866242 seconds.
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.681409 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0010
+Results saved as "20201107T225952_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.248734 seconds.
+bwareaopen: Of 25 objects (< 3px) -33 have been eliminated (current size: 1)
+bwareaopen: Of 25 objects (< 3px) -16 have been eliminated (current size: 2)
+bwareaopen: Of 25 objects (< 3px) -12 have been eliminated (current size: 3)
+bwareaopen: Of 25 objects (< 3px) -8 have been eliminated (current size: 4)
+After imclose: 27 objects remain. (6 deleted)
+After imopen: 23 objects remain. (4 deleted)
+Overall reduction of objects 60.3%
+Reduction in area 0.2%
+real contour length: 763 µm / 7320.2 px.
+picture width: 282 µm / 2710 px.
+ratio: 2.7
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.103665 seconds.
+For parameter "Materialinseln" 52 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.522427 seconds.
+For parameter "Materialinseln" 42 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.173351 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.842090 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.737817 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0011
+Results saved as "20201107T230003_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.214527 seconds.
+bwareaopen: Of 80 objects (< 3px) -47 have been eliminated (current size: 1)
+bwareaopen: Of 80 objects (< 3px) 16 have been eliminated (current size: 2)
+bwareaopen: Of 80 objects (< 3px) 29 have been eliminated (current size: 3)
+bwareaopen: Of 80 objects (< 3px) 33 have been eliminated (current size: 4)
+After imclose: 33 objects remain. (14 deleted)
+After imopen: 32 objects remain. (1 deleted)
+Overall reduction of objects 74.8%
+Reduction in area 51.3%
+real contour length: 1280 µm / 12286.7769 px.
+picture width: 270 µm / 2590 px.
+ratio: 4.7
+For parameter "Materialinseln" 31 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.109383 seconds.
+For parameter "Materialinseln" 62 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.510595 seconds.
+For parameter "Materialinseln" 55 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.174015 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.860359 seconds.
+For parameter "Materialinseln" 30 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 31 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.691395 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0012
+Results saved as "20201107T230014_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.204324 seconds.
+bwareaopen: Of 13 objects (< 3px) -21 have been eliminated (current size: 1)
+bwareaopen: Of 13 objects (< 3px) -9 have been eliminated (current size: 2)
+After imclose: 13 objects remain. (9 deleted)
+After imopen: 11 objects remain. (2 deleted)
+Overall reduction of objects 67.6%
+Reduction in area 18.1%
+real contour length: 661 µm / 6339.2597 px.
+picture width: 268 µm / 2570 px.
+ratio: 2.5
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.101093 seconds.
+For parameter "Materialinseln" 32 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.513406 seconds.
+For parameter "Materialinseln" 31 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.170865 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.814310 seconds.
+For parameter "Materialinseln" 9 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 8 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.648602 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0013
+Results saved as "20201107T230024_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.228942 seconds.
+bwareaopen: Of 92 objects (< 3px) -29 have been eliminated (current size: 1)
+bwareaopen: Of 92 objects (< 3px) 49 have been eliminated (current size: 2)
+bwareaopen: Of 92 objects (< 3px) 60 have been eliminated (current size: 3)
+bwareaopen: Of 92 objects (< 3px) 63 have been eliminated (current size: 4)
+After imclose: 17 objects remain. (12 deleted)
+After imopen: 12 objects remain. (5 deleted)
+Overall reduction of objects 90.1%
+Reduction in area 7.7%
+real contour length: 647 µm / 6212.0852 px.
+picture width: 277 µm / 2658 px.
+ratio: 2.3
+For parameter "Materialinseln" 11 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.098599 seconds.
+For parameter "Materialinseln" 58 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.505550 seconds.
+For parameter "Materialinseln" 43 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.160796 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.866152 seconds.
+For parameter "Materialinseln" 8 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 12 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.705702 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0014
+Results saved as "20201107T230035_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.218609 seconds.
+bwareaopen: Of 83 objects (< 3px) -39 have been eliminated (current size: 1)
+bwareaopen: Of 83 objects (< 3px) 13 have been eliminated (current size: 2)
+bwareaopen: Of 83 objects (< 3px) 36 have been eliminated (current size: 3)
+bwareaopen: Of 83 objects (< 3px) 44 have been eliminated (current size: 4)
+After imclose: 26 objects remain. (13 deleted)
+After imopen: 24 objects remain. (2 deleted)
+Overall reduction of objects 80.3%
+Reduction in area 35.7%
+real contour length: 891 µm / 8551.8703 px.
+picture width: 271 µm / 2604 px.
+ratio: 3.3
+For parameter "Materialinseln" 23 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.105602 seconds.
+For parameter "Materialinseln" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.505814 seconds.
+For parameter "Materialinseln" 40 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.158634 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.852887 seconds.
+For parameter "Materialinseln" 22 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 12 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.639037 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0015
+Results saved as "20201107T230046_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.197446 seconds.
+bwareaopen: Of 91 objects (< 3px) -51 have been eliminated (current size: 1)
+bwareaopen: Of 91 objects (< 3px) 23 have been eliminated (current size: 2)
+bwareaopen: Of 91 objects (< 3px) 34 have been eliminated (current size: 3)
+bwareaopen: Of 91 objects (< 3px) 40 have been eliminated (current size: 4)
+After imclose: 35 objects remain. (16 deleted)
+After imopen: 35 objects remain. (0 deleted)
+Overall reduction of objects 75.4%
+Reduction in area 8.6%
+real contour length: 858 µm / 8229.319 px.
+picture width: 269 µm / 2578 px.
+ratio: 3.2
+For parameter "Materialinseln" 34 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.096440 seconds.
+For parameter "Materialinseln" 65 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.509371 seconds.
+For parameter "Materialinseln" 29 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.163910 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.879258 seconds.
+For parameter "Materialinseln" 33 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 28 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.696889 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0016
+Results saved as "20201107T230056_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.226483 seconds.
+bwareaopen: Of 18 objects (< 3px) -13 have been eliminated (current size: 1)
+bwareaopen: Of 18 objects (< 3px) 4 have been eliminated (current size: 2)
+After imclose: 8 objects remain. (6 deleted)
+After imopen: 5 objects remain. (3 deleted)
+Overall reduction of objects 83.9%
+Reduction in area 2.4%
+real contour length: 637 µm / 6111.348 px.
+picture width: 283 µm / 2712 px.
+ratio: 2.3
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.098095 seconds.
+For parameter "Materialinseln" 39 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.606832 seconds.
+For parameter "Materialinseln" 28 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.157068 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.829032 seconds.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.704700 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0017
+Results saved as "20201107T230107_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.221856 seconds.
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -4 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) 5 have been eliminated (current size: 3)
+After imclose: 12 objects remain. (7 deleted)
+After imopen: 11 objects remain. (1 deleted)
+Overall reduction of objects 73.8%
+Reduction in area 1.7%
+real contour length: 671 µm / 6436.541 px.
+picture width: 272 µm / 2606 px.
+ratio: 2.5
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.097414 seconds.
+For parameter "Materialinseln" 62 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.509958 seconds.
+For parameter "Materialinseln" 26 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.162485 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.842168 seconds.
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 8 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.684614 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0018
+Results saved as "20201107T230117_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.206787 seconds.
+bwareaopen: Of 28 objects (< 3px) -20 have been eliminated (current size: 1)
+bwareaopen: Of 28 objects (< 3px) -6 have been eliminated (current size: 2)
+bwareaopen: Of 28 objects (< 3px) 2 have been eliminated (current size: 3)
+bwareaopen: Of 28 objects (< 3px) 8 have been eliminated (current size: 4)
+After imclose: 11 objects remain. (9 deleted)
+After imopen: 8 objects remain. (3 deleted)
+Overall reduction of objects 83.3%
+Reduction in area 26.4%
+real contour length: 619 µm / 5939.5175 px.
+picture width: 277 µm / 2654 px.
+ratio: 2.2
+For parameter "Materialinseln" 7 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.098382 seconds.
+For parameter "Materialinseln" 39 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.480234 seconds.
+For parameter "Materialinseln" 25 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.160261 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.856182 seconds.
+For parameter "Materialinseln" 7 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.672000 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0019
+Results saved as "20201107T230128_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.208032 seconds.
+bwareaopen: Of 39 objects (< 3px) -25 have been eliminated (current size: 1)
+bwareaopen: Of 39 objects (< 3px) 9 have been eliminated (current size: 2)
+bwareaopen: Of 39 objects (< 3px) 11 have been eliminated (current size: 3)
+bwareaopen: Of 39 objects (< 3px) 14 have been eliminated (current size: 4)
+After imclose: 16 objects remain. (9 deleted)
+After imopen: 9 objects remain. (7 deleted)
+Overall reduction of objects 85.9%
+Reduction in area 55.8%
+real contour length: 743 µm / 7127.0204 px.
+picture width: 282 µm / 2702 px.
+ratio: 2.6
+For parameter "Materialinseln" 8 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.093986 seconds.
+For parameter "Materialinseln" 71 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.484221 seconds.
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.159347 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 2%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.896557 seconds.
+For parameter "Materialinseln" 8 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 12 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.667843 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0020
+Results saved as "20201107T230139_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.222586 seconds.
+bwareaopen: Of 22 objects (< 3px) -18 have been eliminated (current size: 1)
+bwareaopen: Of 22 objects (< 3px) 1 have been eliminated (current size: 2)
+bwareaopen: Of 22 objects (< 3px) 3 have been eliminated (current size: 3)
+After imclose: 12 objects remain. (7 deleted)
+After imopen: 10 objects remain. (2 deleted)
+Overall reduction of objects 75%
+Reduction in area 3.1%
+real contour length: 602 µm / 5781.7581 px.
+picture width: 283 µm / 2718 px.
+ratio: 2.1
+For parameter "Materialinseln" 9 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.100694 seconds.
+For parameter "Materialinseln" 33 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.502368 seconds.
+For parameter "Materialinseln" 35 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.159210 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.869008 seconds.
+For parameter "Materialinseln" 9 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 9 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.639785 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0021
+Results saved as "20201107T230149_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.216773 seconds.
+bwareaopen: Of 4 objects (< 3px) -13 have been eliminated (current size: 1)
+bwareaopen: Of 4 objects (< 3px) -9 have been eliminated (current size: 2)
+After imclose: 12 objects remain. (1 deleted)
+After imopen: 12 objects remain. (0 deleted)
+Overall reduction of objects 29.4%
+Reduction in area 1.2%
+real contour length: 717 µm / 6876.7837 px.
+picture width: 281 µm / 2695 px.
+ratio: 2.6
+For parameter "Materialinseln" 11 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.096903 seconds.
+For parameter "Materialinseln" 31 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.519036 seconds.
+For parameter "Materialinseln" 13 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.158871 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.850240 seconds.
+For parameter "Materialinseln" 11 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 7 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.675641 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0022
+Results saved as "20201107T230159_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.206394 seconds.
+bwareaopen: Of 8 objects (< 3px) -14 have been eliminated (current size: 1)
+bwareaopen: Of 8 objects (< 3px) -10 have been eliminated (current size: 2)
+bwareaopen: Of 8 objects (< 3px) -7 have been eliminated (current size: 3)
+After imclose: 5 objects remain. (10 deleted)
+After imopen: 6 objects remain. (-1 deleted)
+Overall reduction of objects 72.7%
+Reduction in area 54.6%
+real contour length: 351 µm / 3370.6644 px.
+picture width: 283 µm / 2718 px.
+ratio: 1.2
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.093842 seconds.
+For parameter "Materialinseln" 16 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.480176 seconds.
+For parameter "Materialinseln" 19 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.156403 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.844529 seconds.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 2 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.656978 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0024
+Results saved as "20201107T230210_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.225224 seconds.
+bwareaopen: Of 2 objects (< 3px) -16 have been eliminated (current size: 1)
+bwareaopen: Of 2 objects (< 3px) -16 have been eliminated (current size: 2)
+bwareaopen: Of 2 objects (< 3px) -14 have been eliminated (current size: 3)
+After imclose: 12 objects remain. (4 deleted)
+After imopen: 7 objects remain. (5 deleted)
+Overall reduction of objects 61.1%
+Reduction in area 38.2%
+real contour length: 331 µm / 3172.6257 px.
+picture width: 283 µm / 2716 px.
+ratio: 1.2
+For parameter "Materialinseln" 6 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.100064 seconds.
+For parameter "Materialinseln" 7 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.509142 seconds.
+For parameter "Materialinseln" 11 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.159990 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.844393 seconds.
+For parameter "Materialinseln" 6 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.665118 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0025
+Results saved as "20201107T230220_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.214506 seconds.
+bwareaopen: Of 5 objects (< 3px) -8 have been eliminated (current size: 1)
+bwareaopen: Of 5 objects (< 3px) -4 have been eliminated (current size: 2)
+After imclose: 5 objects remain. (4 deleted)
+After imopen: 5 objects remain. (0 deleted)
+Overall reduction of objects 61.5%
+Reduction in area 4.2%
+real contour length: 376 µm / 3609.5436 px.
+picture width: 283 µm / 2718 px.
+ratio: 1.3
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.097365 seconds.
+For parameter "Materialinseln" 24 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.506251 seconds.
+For parameter "Materialinseln" 10 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.155442 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.857447 seconds.
+For parameter "Materialinseln" 1 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.952715 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0026
+Results saved as "20201107T230231_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.213414 seconds.
+bwareaopen: Of 7 objects (< 3px) -4 have been eliminated (current size: 1)
+bwareaopen: Of 7 objects (< 3px) 0 have been eliminated (current size: 2)
+bwareaopen: Of 7 objects (< 3px) 0 have been eliminated (current size: 3)
+bwareaopen: Of 7 objects (< 3px) 3 have been eliminated (current size: 4)
+After imclose: 3 objects remain. (1 deleted)
+After imopen: 2 objects remain. (1 deleted)
+Overall reduction of objects 81.8%
+Reduction in area 69.8%
+real contour length: 333 µm / 3193.7089 px.
+picture width: 282 µm / 2711 px.
+ratio: 1.2
+For parameter "Materialinseln" 1 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.092444 seconds.
+For parameter "Materialinseln" 7 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.506840 seconds.
+For parameter "Materialinseln" 16 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.155514 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.853532 seconds.
+For parameter "Materialinseln" 1 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 0 objects were found.
+Ratio to image area: 0%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.640155 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0027
+Results saved as "20201107T230241_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.291462 seconds.
+bwareaopen: Of 9 objects (< 3px) -12 have been eliminated (current size: 1)
+bwareaopen: Of 9 objects (< 3px) -9 have been eliminated (current size: 2)
+bwareaopen: Of 9 objects (< 3px) -5 have been eliminated (current size: 3)
+bwareaopen: Of 9 objects (< 3px) -3 have been eliminated (current size: 4)
+After imclose: 7 objects remain. (5 deleted)
+After imopen: 6 objects remain. (1 deleted)
+Overall reduction of objects 71.4%
+Reduction in area 20.4%
+real contour length: 336 µm / 3225.4125 px.
+picture width: 283 µm / 2718 px.
+ratio: 1.2
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.103226 seconds.
+For parameter "Materialinseln" 14 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.502830 seconds.
+For parameter "Materialinseln" 24 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.146867 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.821825 seconds.
+For parameter "Materialinseln" 5 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.689548 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0028
+Results saved as "20201107T230253_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.207893 seconds.
+bwareaopen: Of 212 objects (< 3px) -29 have been eliminated (current size: 1)
+bwareaopen: Of 212 objects (< 3px) 164 have been eliminated (current size: 2)
+bwareaopen: Of 212 objects (< 3px) 178 have been eliminated (current size: 3)
+bwareaopen: Of 212 objects (< 3px) 183 have been eliminated (current size: 4)
+After imclose: 12 objects remain. (17 deleted)
+After imopen: 7 objects remain. (5 deleted)
+Overall reduction of objects 97.1%
+Reduction in area 66.1%
+real contour length: 384 µm / 3682.5142 px.
+picture width: 282 µm / 2710 px.
+ratio: 1.4
+For parameter "Materialinseln" 6 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.094630 seconds.
+For parameter "Materialinseln" 29 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.602779 seconds.
+For parameter "Materialinseln" 16 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.165187 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.912313 seconds.
+For parameter "Materialinseln" 4 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 2 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.730574 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0029
+Results saved as "20201107T230304_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.204661 seconds.
+bwareaopen: Of 239 objects (< 3px) -23 have been eliminated (current size: 1)
+bwareaopen: Of 239 objects (< 3px) 174 have been eliminated (current size: 2)
+bwareaopen: Of 239 objects (< 3px) 211 have been eliminated (current size: 3)
+bwareaopen: Of 239 objects (< 3px) 216 have been eliminated (current size: 4)
+After imclose: 18 objects remain. (5 deleted)
+After imopen: 16 objects remain. (2 deleted)
+Overall reduction of objects 93.9%
+Reduction in area -3.6%
+real contour length: 752 µm / 7215.1697 px.
+picture width: 281 µm / 2696 px.
+ratio: 2.7
+For parameter "Materialinseln" 15 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.095729 seconds.
+For parameter "Materialinseln" 39 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.482513 seconds.
+For parameter "Materialinseln" 34 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.156943 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.884955 seconds.
+For parameter "Materialinseln" 13 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 16 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.675564 seconds.
+-
+-
+--------------------------------------------------------------------------------------------------------------------------
+Image 11565_0030
+Results saved as "20201107T230314_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-
+Elapsed time is 0.218639 seconds.
+bwareaopen: Of 5 objects (< 3px) -14 have been eliminated (current size: 1)
+bwareaopen: Of 5 objects (< 3px) -10 have been eliminated (current size: 2)
+After imclose: 12 objects remain. (3 deleted)
+After imopen: 15 objects remain. (-3 deleted)
+Overall reduction of objects 21.1%
+Reduction in area -29.7%
+real contour length: 585 µm / 5611.6576 px.
+picture width: 283 µm / 2714 px.
+ratio: 2.1
+For parameter "Materialinseln" 14 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.104063 seconds.
+For parameter "Materialinseln" 29 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.549691 seconds.
+For parameter "Materialinseln" 34 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.185619 seconds.
+For parameter "Roughness Areas" 53 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 2.081437 seconds.
+For parameter "Materialinseln" 14 objects were found.
+Ratio to image area: 1%.
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('regionprops>ComputePixelIdxList', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\regionprops.m', 437)" style="font-weight:bold">regionprops>ComputePixelIdxList</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\regionprops.m',437,0)">line 437</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('regionprops', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\regionprops.m', 254)" style="font-weight:bold">regionprops</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\regionprops.m',254,0)">line 254</a>)
+    ComputePixelIdxList(L, CC, numObjs, stats,
+    statsAlreadyComputed);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eliminateBlobsFromImage', 'C:\git\LKTSurfaceQualification\functions\eliminateBlobsFromImage.m', 3)" style="font-weight:bold">eliminateBlobsFromImage</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\eliminateBlobsFromImage.m',3,0)">line 3</a>)
+blobMeasurements = regionprops(labeledImage, 'PixelList', 'Area');
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters>CalcQualityParam5', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m', 92)" style="font-weight:bold">runAllQualityParametersWithGivenParameters>CalcQualityParam5</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',92,0)">line 92</a>)
+[matIslandsEliminated] = eliminateBlobsFromImage(~poresEliminated);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m', 19)" style="font-weight:bold">runAllQualityParametersWithGivenParameters</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',19,0)">line 19</a>)
+[handles] = CalcQualityParam5(handles);
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+SLS_Oberflaechenrauheit_final_2020

@@ -1,0 +1,17 @@
+{Unrecognized method, property, or field 'icon_settings1' for class
+'SLS_Oberflaechenrauheit_final_App_new'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/startupFcn', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 771)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',771,0)">line 771</a>)
+            app.icon_settings1.ImageSource = ([app.guiImagesPath, '\settings.png']);
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+Error while evaluating GraphicsCallbackProxy CallbackFcn.
+
+[Warning: The following error was caught while executing
+'SLS_Oberflaechenrauheit_final_App_new' class destructor:
+Method 'delete' is not defined for class 'SLS_Oberflaechenrauheit_final_App_new' or is
+removed from MATLAB's search path.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(src,e)delete(app)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 249)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(src,e)delete(app)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',249,0)">line 249</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('closereq', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\closereq.m', 18)" style="font-weight:bold">closereq</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\closereq.m',18,0)">line 18</a>)
+In close
+In close] 

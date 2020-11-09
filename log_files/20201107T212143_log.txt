@@ -1,0 +1,26 @@
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',254,1)">254 </a>[FileName, PathName]  = uigetfile(  ...
+if system_dependent('IsDebugMode')==1, dbcont; end
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',82,1)">82  </a>    imgPath = [app.BildPfad app.BildNamePlusExtention];
+imgPath = [app.BildPfad app.BildNamePlusExtention];
+app.imgOriginal = imread(imgPath);
+plotImageWindowsized(app, app.imgOriginal)
+showFigureInGUI(app)
+{Check for missing argument or incorrect argument data type in call
+to function 'showFigureInGUI'.
+} 
+getScaleValues(app)
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getpts', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m', 108)" style="font-weight:bold">getpts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\getpts.m',108,0)">line 108</a>)
+
+
+In
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 727)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>letUserDrawEdgesOfScale</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',727,0)">line 727</a>)
+[x,y] = getpts;
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>getScaleValues', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 708)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>getScaleValues</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',708,0)">line
+708</a>)
+choice = letUserDrawEdgesOfScale(app);
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

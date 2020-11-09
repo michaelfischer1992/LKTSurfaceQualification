@@ -1,0 +1,7418 @@
+User selected C:\git\LKTSurfaceQualification\images\1B_3mm_l1_2048.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\calcGrayscaleThresholdInImage.m',10,1)">10  </a>pxW = 5;
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+Background area at the bottom filled with ones (area: 390793 px, width: 25914 px).
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',15,1)">15  </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 10;
+    P = 10;
+end
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.798747 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+%% Remove small objects from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+BW_tmp = bwareaopen(BW_tmp, P);
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+  figure, imshow(app.imgBWnoScale)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+bwareaopen: Of 2443 objects (< 10px) 320 have been eliminated (current size: 10)
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+   116
+
+P = P + 1;
+initialAreasSmallerTS_tmp > 1
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+bwareaopen: Of 2443 objects (< 10px) 436 have been eliminated (current size: 11)
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+P = P + 1;
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.744125 seconds.
+bwareaopen: Of 2443 objects (< 10px) 546 have been eliminated (current size: 12)
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+     0
+
+filterTS
+
+filterTS =
+
+    10
+
+filterTS = 20;
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+   585
+
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.734421 seconds.
+bwareaopen: Of 2443 objects (< 20px) 922 have been eliminated (current size: 17)
+Elapsed time is 0.723612 seconds.
+bwareaopen: Of 2443 objects (< 20px) 1170 have been eliminated (current size: 22)
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+se = strel(app.erosionType, app.erosionValue);
+se
+
+se = 
+
+<a href="matlab:helpPopup strel" style="font-weight:bold">strel</a> is a diamond shaped structuring element with properties:
+
+      Neighborhood: [5×5 logical]
+    Dimensionality: 2
+
+BW_tmp = imclose(BW_tmp, se);
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(regionprops(BW_tmp));
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 833 objects remain. (440 deleted)
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+BW_tmp = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_tmp));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 977 objects remain. (-144 deleted)
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+app.erosionValue = 5;
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.736214 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1998 have been eliminated (current size: 27)
+se = strel(app.erosionType, app.erosionValue);
+se
+
+se = 
+
+<a href="matlab:helpPopup strel" style="font-weight:bold">strel</a> is a diamond shaped structuring element with properties:
+
+      Neighborhood: [11×11 logical]
+    Dimensionality: 2
+
+app.erosionValue = 5;
+se = strel(app.erosionType, app.erosionValue);
+se
+
+se = 
+
+<a href="matlab:helpPopup strel" style="font-weight:bold">strel</a> is a diamond shaped structuring element with properties:
+
+      Neighborhood: [11×11 logical]
+    Dimensionality: 2
+
+app.erosionValue
+
+ans =
+
+     5
+
+%% Morphologically close image
+BW_tmp = imclose(BW_tmp, se);
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(regionprops(BW_tmp));
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 429 objects remain. (711 deleted)
+figure, imshow(BW_tmp)
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+%% Morphologically open image
+BW_tmp = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_tmp));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 256 objects remain. (173 deleted)
+figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+initialRegionProps = regionprops(BW_tmp);
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll_after = sum(areasInit(1:(quantInit-1)));
+i4 = round(((areaAll - areaAll_after) / areaAll) * 100, 1);
+disp(['Overall reduction of objects ', num2str(i3), '%'])
+Overall reduction of objects 94.2%
+disp(['Reduction in area ', num2str(i4), '%'])
+Reduction in area 48.7%
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+initialRegionProps = regionprops(BW_tmp, 'Area');
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll_after = sum(areasInit(1:(quantInit-1)));
+i4 = round(((areaAll - areaAll_after) / areaAll) * 100, 1);
+disp(['Overall reduction of objects ', num2str(i3), '%'])
+Overall reduction of objects 0%
+disp(['Reduction in area ', num2str(i4), '%'])
+Reduction in area 48.7%
+figure
+    subplot(2,1,1)
+    imshow(app.imgBWnoScale)
+    subplot(2,1,2)
+    imshow(BW_tmp)
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    imshow(app.imgBWnoScale)
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale)
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale)
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+gca
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.axis.Axes" style="font-weight:bold">Axes</a> with properties:
+
+             XLim: [9.1248e+03 1.0722e+04]
+             YLim: [838.1576 952.4959]
+           XScale: 'linear'
+           YScale: 'linear'
+    GridLineStyle: '-'
+         Position: [0.1300 0.1100 0.2134 0.8150]
+            Units: 'normalized'
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.axis.Axes'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.axis.Axes'), else, matlab.graphics.internal.getForDisplay('ans'), end
+                        ALim: [0 1]
+                    ALimMode: 'auto'
+                  AlphaScale: 'linear'
+                    Alphamap: [1×64 double]
+           AmbientLightColor: [1 1 1]
+                BeingDeleted: off
+                         Box: on
+                    BoxStyle: 'back'
+                  BusyAction: 'queue'
+               ButtonDownFcn: ''
+                        CLim: [0 1]
+                    CLimMode: 'manual'
+              CameraPosition: [9.9234e+03 895.3268 8.0057e+03]
+          CameraPositionMode: 'auto'
+                CameraTarget: [9.9234e+03 895.3268 0]
+            CameraTargetMode: 'auto'
+              CameraUpVector: [0 -1 0]
+          CameraUpVectorMode: 'auto'
+             CameraViewAngle: 11.3922
+         CameraViewAngleMode: 'auto'
+                    Children: [1×1 Image]
+                    Clipping: off
+               ClippingStyle: '3dbox'
+                       Color: [1 1 1]
+                  ColorOrder: [7×3 double]
+             ColorOrderIndex: 1
+                  ColorScale: 'linear'
+                    Colormap: [256×3 double]
+                 ContextMenu: [0×0 GraphicsPlaceholder]
+                   CreateFcn: ''
+                CurrentPoint: [2×3 double]
+             DataAspectRatio: [1 1 1]
+         DataAspectRatioMode: 'manual'
+                   DeleteFcn: ''
+                   FontAngle: 'normal'
+                    FontName: 'Helvetica'
+                    FontSize: 10
+                FontSizeMode: 'auto'
+               FontSmoothing: on
+                   FontUnits: 'points'
+                  FontWeight: 'normal'
+                   GridAlpha: 0.1500
+               GridAlphaMode: 'auto'
+                   GridColor: [0.1500 0.1500 0.1500]
+               GridColorMode: 'auto'
+               GridLineStyle: '-'
+            HandleVisibility: 'on'
+                     HitTest: on
+               InnerPosition: [0.1300 0.1100 0.2134 0.8150]
+                Interactions: [1×1 matlab.graphics.interaction.interface.DefaultAxesInteractionSet]
+               Interruptible: on
+     LabelFontSizeMultiplier: 1.1000
+                       Layer: 'top'
+                      Layout: [0×0 matlab.ui.layout.LayoutOptions]
+                      Legend: [0×0 GraphicsPlaceholder]
+              LineStyleOrder: '-'
+         LineStyleOrderIndex: 1
+                   LineWidth: 0.5000
+              MinorGridAlpha: 0.2500
+          MinorGridAlphaMode: 'auto'
+              MinorGridColor: [0.1000 0.1000 0.1000]
+          MinorGridColorMode: 'auto'
+          MinorGridLineStyle: ':'
+                    NextPlot: 'replace'
+             NextSeriesIndex: 1
+               OuterPosition: [0.0977 0 0.2485 1]
+                      Parent: [1×1 Figure]
+               PickableParts: 'visible'
+          PlotBoxAspectRatio: [798.5255 57.1691 1]
+      PlotBoxAspectRatioMode: 'auto'
+                    Position: [0.1300 0.1100 0.2134 0.8150]
+          PositionConstraint: 'innerposition'
+                  Projection: 'orthographic'
+                    Selected: off
+          SelectionHighlight: on
+                  SortMethod: 'childorder'
+                    Subtitle: [1×1 Text]
+          SubtitleFontWeight: 'normal'
+                         Tag: ''
+                     TickDir: 'out'
+                 TickDirMode: 'manual'
+        TickLabelInterpreter: 'tex'
+                  TickLength: [0.0100 0.0250]
+                  TightInset: [0.0170 0 5.2455e-08 0]
+                       Title: [1×1 Text]
+     TitleFontSizeMultiplier: 1.1000
+             TitleFontWeight: 'bold'
+    TitleHorizontalAlignment: 'center'
+                     Toolbar: [1×1 AxesToolbar]
+                        Type: 'axes'
+                       Units: 'normalized'
+                    UserData: []
+                        View: [0 90]
+                     Visible: off
+                       XAxis: [1×1 NumericRuler]
+               XAxisLocation: 'bottom'
+                      XColor: [0.1500 0.1500 0.1500]
+                  XColorMode: 'auto'
+                        XDir: 'normal'
+                       XGrid: off
+                      XLabel: [1×1 Text]
+                        XLim: [9.1248e+03 1.0722e+04]
+                    XLimMode: 'manual'
+                  XMinorGrid: off
+                  XMinorTick: off
+                      XScale: 'linear'
+                       XTick: [1×8 double]
+                  XTickLabel: {8×1 cell}
+              XTickLabelMode: 'auto'
+          XTickLabelRotation: 0
+                   XTickMode: 'auto'
+                       YAxis: [1×1 NumericRuler]
+               YAxisLocation: 'left'
+                      YColor: [0.1500 0.1500 0.1500]
+                  YColorMode: 'auto'
+                        YDir: 'reverse'
+                       YGrid: off
+                      YLabel: [1×1 Text]
+                        YLim: [838.1576 952.4959]
+                    YLimMode: 'manual'
+                  YMinorGrid: off
+                  YMinorTick: off
+                      YScale: 'linear'
+                       YTick: [850 900 950]
+                  YTickLabel: {3×1 cell}
+              YTickLabelMode: 'auto'
+          YTickLabelRotation: 0
+                   YTickMode: 'auto'
+                       ZAxis: [1×1 NumericRuler]
+                      ZColor: [0.1500 0.1500 0.1500]
+                  ZColorMode: 'auto'
+                        ZDir: 'normal'
+                       ZGrid: off
+                      ZLabel: [1×1 Text]
+                        ZLim: [-1 1]
+                    ZLimMode: 'auto'
+                  ZMinorGrid: off
+                  ZMinorTick: off
+                      ZScale: 'linear'
+                       ZTick: [-1 0 1]
+                  ZTickLabel: ''
+              ZTickLabelMode: 'auto'
+          ZTickLabelRotation: 0
+                   ZTickMode: 'auto'
+
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale)
+      ax = gca;
+ax.Clipping = 'off';    % turn clipping off
+ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03];
+ax.CameraTarget = [9.9234e+03 895.3268 0];
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale)
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+        ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03]; 
+        ax.CameraTarget = [9.9234e+03 895.3268 0];
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale)
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+        ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03]; 
+        ax.CameraTarget = [9.9234e+03 895.3268 0];
+        ax.CameraViewAngle = 11.3922;
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale(:, 1:1000))
+      ax = gca;
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale(:, 1:1000))
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+        ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03]; 
+        ax.CameraTarget = [9.9234e+03 895.3268 0];
+        ax.CameraViewAngle = 11.3922;
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgBWnoScale(:, 1:1000))
+      ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+title('BW image original')
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgOriginal(:, 1:1000), :)
+{Unrecognized function or variable 'imshow'.
+} 
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgOriginal)
+figure
+    subplot(1,3,1)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+      
+    imshow(app.imgOriginal(:, 1:1000,  :))
+if app.doPlot
+    figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    %       ax = gca;
+    %         ax.Clipping = 'off';    % turn clipping off
+    %         ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03];
+    %         ax.CameraTarget = [9.9234e+03 895.3268 0];
+    %         ax.CameraViewAngle = 11.3922;
+    subplot(1, 3, 2)
+    imshow(app.imgBWnoScale(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+    
+end
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    %       ax = gca;
+    %         ax.Clipping = 'off';    % turn clipping off
+    %         ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03];
+    %         ax.CameraTarget = [9.9234e+03 895.3268 0];
+    %         ax.CameraViewAngle = 11.3922;
+    subplot(1, 3, 2)
+    imshow(app.imgBWnoScale(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    %       ax = gca;
+    %         ax.Clipping = 'off';    % turn clipping off
+    %         ax.CameraPosition = [9.9234e+03 895.3268 8.0057e+03];
+    %         ax.CameraTarget = [9.9234e+03 895.3268 0];
+    %         ax.CameraViewAngle = 11.3922;
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+exportgraphics(gcf, fullfile(['C:\Users\micha\Desktop\', datestr8601, 'plot1', '.png']), 'BackgroundColor','none', 'ContentType', 'auto', 'Resolution', 300)
+[Warning: Background transparency is not supported; using white
+instead.] 
+close all
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 20;
+    P = 10;
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.778389 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.732140 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1015 have been eliminated (current size: 10)
+Elapsed time is 0.742019 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1492 have been eliminated (current size: 15)
+Elapsed time is 0.733399 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1775 have been eliminated (current size: 20)
+Elapsed time is 0.728590 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1950 have been eliminated (current size: 25)
+
+se = strel(app.erosionType, app.erosionValue);
+
+%% Morphologically close image
+BW_tmp = imclose(BW_tmp, se);
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(regionprops(BW_tmp));
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 440 objects remain. (748 deleted)
+
+%% Morphologically open image
+BW_tmp = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_tmp));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 258 objects remain. (182 deleted)
+
+%% display results
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+initialRegionProps = regionprops(BW_tmp, 'Area');
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll_after = sum(areasInit(1:(quantInit-1)));
+i4 = round(((areaAll - areaAll_after) / areaAll) * 100, 1);
+disp(['Overall reduction of objects ', num2str(i3), '%'])
+Overall reduction of objects 94.2%
+disp(['Reduction in area ', num2str(i4), '%'])
+Reduction in area 48.4%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 20;
+    P = 10;
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.789411 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.752365 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1015 have been eliminated (current size: 10)
+Elapsed time is 0.743351 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1492 have been eliminated (current size: 15)
+Elapsed time is 0.735287 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1775 have been eliminated (current size: 20)
+Elapsed time is 0.733484 seconds.
+bwareaopen: Of 3138 objects (< 20px) 1950 have been eliminated (current size: 25)
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 50;
+    P = 10;
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.749794 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 5;
+end
+Elapsed time is 0.740829 seconds.
+bwareaopen: Of 3726 objects (< 50px) 1603 have been eliminated (current size: 10)
+Elapsed time is 0.754314 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2080 have been eliminated (current size: 15)
+Elapsed time is 0.732571 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2363 have been eliminated (current size: 20)
+Elapsed time is 0.740998 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2538 have been eliminated (current size: 25)
+Elapsed time is 0.733720 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2661 have been eliminated (current size: 30)
+Elapsed time is 0.740003 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2784 have been eliminated (current size: 35)
+Elapsed time is 0.737242 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2869 have been eliminated (current size: 40)
+Elapsed time is 0.727917 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2933 have been eliminated (current size: 45)
+Elapsed time is 0.756301 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2987 have been eliminated (current size: 50)
+Elapsed time is 0.735743 seconds.
+bwareaopen: Of 3726 objects (< 50px) 3045 have been eliminated (current size: 55)
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 50;
+    P = 20;
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.762161 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 10;
+end
+Elapsed time is 0.737054 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2363 have been eliminated (current size: 20)
+Elapsed time is 0.744872 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2661 have been eliminated (current size: 30)
+Elapsed time is 0.728124 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2869 have been eliminated (current size: 40)
+Elapsed time is 0.785403 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2987 have been eliminated (current size: 50)
+Elapsed time is 0.736025 seconds.
+bwareaopen: Of 3726 objects (< 50px) 3088 have been eliminated (current size: 60)
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 50;
+    P = 20;
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.783310 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 20;
+end
+Elapsed time is 0.747339 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2363 have been eliminated (current size: 20)
+Elapsed time is 0.732224 seconds.
+bwareaopen: Of 3726 objects (< 50px) 2869 have been eliminated (current size: 40)
+Elapsed time is 0.736276 seconds.
+bwareaopen: Of 3726 objects (< 50px) 3088 have been eliminated (current size: 60)
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterTS = 100;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.758745 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    if app.doPlot 
+        figure, imshow(BW_tmp)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_tmp, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + interval4P;
+end
+Elapsed time is 0.833343 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 0.734405 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 0.728638 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 0.757836 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.785208 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + interval4P;
+end
+Elapsed time is 0.733343 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3685 have been eliminated (current size: 140)
+BW_tmp = BW_bwAreaOpen;
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterTS = 100;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 5;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.780730 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% Remove small objects (material islands) from binary image
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = initialRegionProps;
+while initialAreasSmallerTS_tmp > 1
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + interval4P;
+end
+Elapsed time is 0.728307 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 0.740753 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 0.750805 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 0.738680 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen;
+se = strel(app.erosionType, app.erosionValue);
+%% Morphologically close image
+BW_imClose = imclose(BW_tmp, se);
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(regionprops(BW_imClose));
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 182 objects remain. (221 deleted)
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+BW_tmp = BW_bwAreaOpen;
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+initialAreasSmallerTS
+
+initialAreasSmallerTS =
+
+       26366
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 5;
+end
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+filterPores
+
+filterPores =
+
+    20
+
+interval4P = 30;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+       23870
+
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+imclose: Of 23870 objects (< 100px) 23417 have been eliminated (current size: 20)
+app.erosionValue = 2;
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 23870 objects (< 100px) 21364 have been eliminated (current size: 2)
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+app.erosionValue = app.erosionValue + 1;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+    if app.doPlot 
+        figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+    toc
+Elapsed time is 0.430764 seconds.
+disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 23870 objects (< 100px) 22964 have been eliminated (current size: 3)
+figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+if initialAreasSmallerTS_tmp > 1
+        app.erosionValue = app.erosionValue + 1;
+    end
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+    if app.doPlot 
+        figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+    toc
+Elapsed time is 0.435101 seconds.
+    disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 23870 objects (< 100px) 23282 have been eliminated (current size: 4)
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+if initialAreasSmallerTS_tmp > 1
+        app.erosionValue = app.erosionValue + 1;
+    end
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+    if app.doPlot 
+        figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+    toc
+Elapsed time is 0.433600 seconds.
+    disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 23870 objects (< 100px) 23417 have been eliminated (current size: 5)
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    if initialAreasSmallerTS_tmp > 1
+        app.erosionValue = app.erosionValue + 1;
+    end
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+    if app.doPlot 
+        figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+    toc
+    disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterPores);
+    if initialAreasSmallerTS_tmp > 1
+        app.erosionValue = app.erosionValue + 1;
+    end
+end
+Elapsed time is 0.441105 seconds.
+imclose: Of 23870 objects (< 20px) 23476 have been eliminated (current size: 6)
+Elapsed time is 0.423932 seconds.
+imclose: Of 23870 objects (< 20px) 23541 have been eliminated (current size: 7)
+Elapsed time is 0.437482 seconds.
+imclose: Of 23870 objects (< 20px) 23578 have been eliminated (current size: 8)
+Elapsed time is 0.428920 seconds.
+imclose: Of 23870 objects (< 20px) 23631 have been eliminated (current size: 9)
+Elapsed time is 0.428678 seconds.
+imclose: Of 23870 objects (< 20px) 23667 have been eliminated (current size: 10)
+Elapsed time is 0.421196 seconds.
+imclose: Of 23870 objects (< 20px) 23701 have been eliminated (current size: 11)
+Elapsed time is 0.423560 seconds.
+imclose: Of 23870 objects (< 20px) 23725 have been eliminated (current size: 12)
+Elapsed time is 0.428249 seconds.
+imclose: Of 23870 objects (< 20px) 23740 have been eliminated (current size: 13)
+Elapsed time is 0.426650 seconds.
+imclose: Of 23870 objects (< 20px) 23750 have been eliminated (current size: 14)
+Elapsed time is 0.427960 seconds.
+imclose: Of 23870 objects (< 20px) 23767 have been eliminated (current size: 15)
+Elapsed time is 0.430373 seconds.
+imclose: Of 23870 objects (< 20px) 23780 have been eliminated (current size: 16)
+Elapsed time is 0.419889 seconds.
+imclose: Of 23870 objects (< 20px) 23792 have been eliminated (current size: 17)
+Elapsed time is 0.429269 seconds.
+imclose: Of 23870 objects (< 20px) 23800 have been eliminated (current size: 18)
+Elapsed time is 0.432484 seconds.
+imclose: Of 23870 objects (< 20px) 23812 have been eliminated (current size: 19)
+Elapsed time is 0.426079 seconds.
+imclose: Of 23870 objects (< 20px) 23813 have been eliminated (current size: 20)
+Elapsed time is 0.435324 seconds.
+imclose: Of 23870 objects (< 20px) 23818 have been eliminated (current size: 21)
+Elapsed time is 0.441979 seconds.
+imclose: Of 23870 objects (< 20px) 23822 have been eliminated (current size: 22)
+Elapsed time is 0.461699 seconds.
+imclose: Of 23870 objects (< 20px) 23826 have been eliminated (current size: 23)
+Elapsed time is 0.420608 seconds.
+imclose: Of 23870 objects (< 20px) 23831 have been eliminated (current size: 24)
+Elapsed time is 0.411581 seconds.
+imclose: Of 23870 objects (< 20px) 23833 have been eliminated (current size: 25)
+Elapsed time is 0.409846 seconds.
+imclose: Of 23870 objects (< 20px) 23832 have been eliminated (current size: 26)
+Elapsed time is 0.419712 seconds.
+imclose: Of 23870 objects (< 20px) 23835 have been eliminated (current size: 27)
+Elapsed time is 0.414880 seconds.
+imclose: Of 23870 objects (< 20px) 23837 have been eliminated (current size: 28)
+Elapsed time is 0.426114 seconds.
+imclose: Of 23870 objects (< 20px) 23837 have been eliminated (current size: 29)
+Elapsed time is 0.423697 seconds.
+imclose: Of 23870 objects (< 20px) 23840 have been eliminated (current size: 30)
+Elapsed time is 0.416927 seconds.
+imclose: Of 23870 objects (< 20px) 23841 have been eliminated (current size: 31)
+Elapsed time is 0.424538 seconds.
+imclose: Of 23870 objects (< 20px) 23845 have been eliminated (current size: 32)
+Elapsed time is 0.423748 seconds.
+imclose: Of 23870 objects (< 20px) 23846 have been eliminated (current size: 33)
+Elapsed time is 0.413650 seconds.
+imclose: Of 23870 objects (< 20px) 23847 have been eliminated (current size: 34)
+Elapsed time is 0.419142 seconds.
+imclose: Of 23870 objects (< 20px) 23849 have been eliminated (current size: 35)
+Elapsed time is 0.415857 seconds.
+imclose: Of 23870 objects (< 20px) 23851 have been eliminated (current size: 36)
+Elapsed time is 0.421723 seconds.
+imclose: Of 23870 objects (< 20px) 23853 have been eliminated (current size: 37)
+Elapsed time is 0.412915 seconds.
+imclose: Of 23870 objects (< 20px) 23854 have been eliminated (current size: 38)
+Elapsed time is 0.418738 seconds.
+imclose: Of 23870 objects (< 20px) 23856 have been eliminated (current size: 39)
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('imclose', 'C:\Program Files\MATLAB\R2020b\toolbox\images\images\imclose.m', 98)" style="font-weight:bold">imclose</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\images\images\imclose.m',98,0)">line 98</a>)
+} 
+figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+app.erosionValue = 2;
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 2;
+end
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialAreasSmallerTS_tmp
+
+initialAreasSmallerTS_tmp =
+
+       23870
+
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+    if app.doPlot 
+        figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off'; % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(~BW_imClose, 'Area');
+    toc
+Elapsed time is 0.473473 seconds.
+    disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 23870 objects (< 20px) 21364 have been eliminated (current size: 2)
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterPores);
+    if initialAreasSmallerTS_tmp > 1
+        app.erosionValue = app.erosionValue + 1;
+    end
+figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off'; % turn clipping off
+ app.erosionValue = 5
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'single image'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 5
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                    BildName: '1B_3mm_l1_2048'
+       BildNamePlusExtention: '1B_3mm_l1_2048.jpg'
+                 imgOriginal: [2048×28606×3 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.0107
+                 imageHeight: 2048
+                  imageWidth: 28606
+                 schwellwert: 83.7645
+                       imgBW: [2048×28606 logical]
+              xValsRectScale: [1×4825 double]
+              yValsRectScale: [1×865 double]
+                imgBWnoScale: [2048×28606 logical]
+
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+figure, imshow(BW_imClose)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off'; % turn clipping off
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+app.erosionValue = 1
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'single image'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 1
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                    BildName: '1B_3mm_l1_2048'
+       BildNamePlusExtention: '1B_3mm_l1_2048.jpg'
+                 imgOriginal: [2048×28606×3 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.0107
+                 imageHeight: 2048
+                  imageWidth: 28606
+                 schwellwert: 83.7645
+                       imgBW: [2048×28606 logical]
+              xValsRectScale: [1×4825 double]
+              yValsRectScale: [1×865 double]
+                imgBWnoScale: [2048×28606 logical]
+
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+ app.erosionValue = 2
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'single image'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 2
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                    BildName: '1B_3mm_l1_2048'
+       BildNamePlusExtention: '1B_3mm_l1_2048.jpg'
+                 imgOriginal: [2048×28606×3 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.0107
+                 imageHeight: 2048
+                  imageWidth: 28606
+                 schwellwert: 83.7645
+                       imgBW: [2048×28606 logical]
+              xValsRectScale: [1×4825 double]
+              yValsRectScale: [1×865 double]
+                imgBWnoScale: [2048×28606 logical]
+
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+app.erosionValue = 3
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         ImportpathEditField: [1×1 struct]
+                      doPlot: 0
+                 programMode: 'single image'
+        LengthScaleEditField: 50
+              MassstabLaenge: 50
+                 erosionType: 'diamond'
+                erosionValue: 3
+      pixelsWidthCheckIfPore: 40
+    SurfaceRoughnessSections: 50
+               currentFolder: 'C:\git\LKTSurfaceQualification'
+               guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+                    logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+                  exportPath: 'C:\git\LKTSurfaceQualification\export'
+                functionPath: 'C:\git\LKTSurfaceQualification\functions'
+            functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+                   imagePath: 'C:\git\LKTSurfaceQualification\images'
+                    BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                    BildName: '1B_3mm_l1_2048'
+       BildNamePlusExtention: '1B_3mm_l1_2048.jpg'
+                 imgOriginal: [2048×28606×3 uint8]
+               MassstabXVals: [2×1 double]
+               MassstabYVals: [2×1 double]
+                MassstabWert: 0.0107
+                 imageHeight: 2048
+                  imageWidth: 28606
+                 schwellwert: 83.7645
+                       imgBW: [2048×28606 logical]
+              xValsRectScale: [1×4825 double]
+              yValsRectScale: [1×865 double]
+                imgBWnoScale: [2048×28606 logical]
+
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area');
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+largePores = regionPropsImClose(:).Area > 1000;
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('gt')" style="font-weight:bold"> > </a>
+Too many input arguments.
+} 
+largePores = vertcat(regionPropsImClose(:).Area) > 1000;
+BW_tmp = BW_bwAreaOpen;
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+largePores = vertcat(regionPropsImClose(:).Area) > 1000;
+nnz(largePores)
+
+ans =
+
+    31
+
+largePores = vertcat(regionPropsImClose(:).Area) > 300;
+nnz(largePores)
+
+ans =
+
+   153
+
+largePoresRegionProps = regionPropsImClose(largePores);
+BW_tmp_LargePoresDeleted = BW_tmp;
+largePores = vertcat(regionPropsImClose(:).Area) > 300;
+largePoresRegionProps = regionPropsImClose(largePores); 
+
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_tmp;
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 1), allPixels(i, 2)) = 1;
+end
+BW_tmp_LargePoresDeleted([1, 1; 1, 2; 1, 3])
+
+ans =
+
+  3×2 <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a> array
+
+   0   0
+   0   0
+   0   0
+
+[1, 1; 1, 2; 1, 3]
+
+ans =
+
+     1     1
+     1     2
+     1     3
+
+BW_tmp_LargePoresDeleted([1, 2, 3, 4, 5])
+
+ans =
+
+  1×5 <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a> array
+
+   0   0   0   0   0
+
+BW_tmp_LargePoresDeleted([1, 2, 3, 4, 5], [3, 5, 6, 7, 8])
+
+ans =
+
+  5×5 <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a> array
+
+   0   0   0   0   0
+   0   0   0   0   0
+   0   0   0   0   0
+   0   0   0   0   0
+   0   0   0   0   0
+
+largePoresRegionProps(1).PixelList
+
+ans =
+
+   128   662
+   128   663
+   128   664
+   129   662
+   129   663
+   129   664
+   129   665
+   130   662
+   130   663
+   130   664
+   130   665
+   131   662
+   131   663
+   131   664
+   131   665
+   132   662
+   132   663
+   132   664
+   132   665
+   133   662
+   133   663
+   133   664
+   133   665
+   134   661
+   134   662
+   134   663
+   134   664
+   134   665
+   135   661
+   135   662
+   135   663
+   135   664
+   135   665
+   136   661
+   136   662
+   136   663
+   136   664
+   136   665
+   136   666
+   137   629
+   137   630
+   137   660
+   137   661
+   137   662
+   137   663
+   137   664
+   137   665
+   137   666
+   137   667
+   138   629
+   138   630
+   138   631
+   138   659
+   138   660
+   138   661
+   138   662
+   138   663
+   138   664
+   138   665
+   138   666
+   138   667
+   139   629
+   139   630
+   139   631
+   139   657
+   139   658
+   139   659
+   139   660
+   139   661
+   139   662
+   139   663
+   139   664
+   139   665
+   139   666
+   139   667
+   139   668
+   140   629
+   140   630
+   140   631
+   140   655
+   140   656
+   140   657
+   140   658
+   140   659
+   140   660
+   140   661
+   140   662
+   140   663
+   140   664
+   140   665
+   140   666
+   140   667
+   140   668
+   140   669
+   140   670
+   140   671
+   140   672
+   140   673
+   140   674
+   141   629
+   141   630
+   141   631
+   141   655
+   141   656
+   141   657
+   141   658
+   141   659
+   141   660
+   141   661
+   141   662
+   141   663
+   141   664
+   141   665
+   141   666
+   141   667
+   141   668
+   141   669
+   141   670
+   141   671
+   141   672
+   141   673
+   141   674
+   141   675
+   142   629
+   142   630
+   142   631
+   142   654
+   142   655
+   142   656
+   142   657
+   142   658
+   142   659
+   142   660
+   142   661
+   142   662
+   142   663
+   142   664
+   142   665
+   142   666
+   142   667
+   142   668
+   142   669
+   142   670
+   142   671
+   142   672
+   142   673
+   142   674
+   142   675
+   142   676
+   142   677
+   143   630
+   143   631
+   143   632
+   143   651
+   143   652
+   143   653
+   143   654
+   143   655
+   143   656
+   143   657
+   143   658
+   143   659
+   143   660
+   143   661
+   143   662
+   143   663
+   143   664
+   143   665
+   143   666
+   143   667
+   143   668
+   143   669
+   143   670
+   143   671
+   143   672
+   143   673
+   143   676
+   143   677
+   143   678
+   143   679
+   144   631
+   144   632
+   144   649
+   144   650
+   144   651
+   144   652
+   144   653
+   144   654
+   144   655
+   144   656
+   144   657
+   144   658
+   144   659
+   144   660
+   144   661
+   144   662
+   144   663
+   144   664
+   144   665
+   144   668
+   144   669
+   144   670
+   144   671
+   144   676
+   144   677
+   144   678
+   144   679
+   144   680
+   145   631
+   145   632
+   145   633
+   145   648
+   145   649
+   145   650
+   145   651
+   145   652
+   145   653
+   145   654
+   145   655
+   145   656
+   145   657
+   145   658
+   145   659
+   145   660
+   145   661
+   145   662
+   145   663
+   145   664
+   145   665
+   145   676
+   145   677
+   145   678
+   145   679
+   145   680
+   146   632
+   146   633
+   146   647
+   146   648
+   146   649
+   146   650
+   146   651
+   146   652
+   146   653
+   146   654
+   146   655
+   146   656
+   146   657
+   146   658
+   146   659
+   146   660
+   146   661
+   146   662
+   146   663
+   146   664
+   146   676
+   146   677
+   146   678
+   146   679
+   146   680
+   147   633
+   147   634
+   147   635
+   147   646
+   147   647
+   147   648
+   147   649
+   147   650
+   147   651
+   147   652
+   147   653
+   147   654
+   147   655
+   147   656
+   147   657
+   147   658
+   147   659
+   147   660
+   147   661
+   147   664
+   147   672
+   147   673
+   147   674
+   147   675
+   147   676
+   147   677
+   147   678
+   147   679
+   147   680
+   148   633
+   148   634
+   148   635
+   148   636
+   148   637
+   148   645
+   148   646
+   148   647
+   148   648
+   148   649
+   148   650
+   148   651
+   148   652
+   148   653
+   148   654
+   148   655
+   148   656
+   148   657
+   148   665
+   148   666
+   148   667
+   148   672
+   148   673
+   148   674
+   148   675
+   148   676
+   148   677
+   148   678
+   148   679
+   148   680
+   148   681
+   149   634
+   149   635
+   149   636
+   149   637
+   149   638
+   149   639
+   149   644
+   149   645
+   149   646
+   149   647
+   149   648
+   149   649
+   149   650
+   149   651
+   149   652
+   149   653
+   149   654
+   149   655
+   149   656
+   149   665
+   149   666
+   149   667
+   149   668
+   149   672
+   149   673
+   149   674
+   149   675
+   149   676
+   149   677
+   149   678
+   149   679
+   149   680
+   149   681
+   149   682
+   150   634
+   150   635
+   150   636
+   150   637
+   150   638
+   150   639
+   150   640
+   150   644
+   150   645
+   150   646
+   150   647
+   150   648
+   150   649
+   150   650
+   150   651
+   150   652
+   150   653
+   150   654
+   150   655
+   150   656
+   150   657
+   150   666
+   150   667
+   150   672
+   150   673
+   150   674
+   150   680
+   150   681
+   150   682
+   151   622
+   151   623
+   151   634
+   151   635
+   151   636
+   151   637
+   151   638
+   151   639
+   151   640
+   151   644
+   151   645
+   151   646
+   151   647
+   151   648
+   151   649
+   151   650
+   151   651
+   151   652
+   151   653
+   151   654
+   151   655
+   151   656
+   151   657
+   151   658
+   151   659
+   151   660
+   151   661
+   151   662
+   151   663
+   151   665
+   151   666
+   151   667
+   151   680
+   151   681
+   151   682
+   152   622
+   152   623
+   152   624
+   152   625
+   152   629
+   152   630
+   152   631
+   152   632
+   152   633
+   152   634
+   152   635
+   152   636
+   152   637
+   152   638
+   152   639
+   152   640
+   152   641
+   152   644
+   152   645
+   152   646
+   152   647
+   152   648
+   152   649
+   152   650
+   152   651
+   152   652
+   152   653
+   152   654
+   152   655
+   152   656
+   152   657
+   152   658
+   152   659
+   152   660
+   152   661
+   152   662
+   152   663
+   152   664
+   152   665
+   152   666
+   152   667
+   153   622
+   153   623
+   153   624
+   153   625
+   153   629
+   153   630
+   153   631
+   153   635
+   153   636
+   153   637
+   153   638
+   153   639
+   153   640
+   153   641
+   153   642
+   153   643
+   153   644
+   153   645
+   153   646
+   153   647
+   153   648
+   153   649
+   153   650
+   153   651
+   153   652
+   153   653
+   153   654
+   153   655
+   153   656
+   153   657
+   153   658
+   153   659
+   153   660
+   153   661
+   153   662
+   153   663
+   153   664
+   153   665
+   153   666
+   153   667
+   154   624
+   154   625
+   154   626
+   154   627
+   154   628
+   154   629
+   154   630
+   154   636
+   154   637
+   154   638
+   154   639
+   154   640
+   154   641
+   154   642
+   154   643
+   154   644
+   154   645
+   154   646
+   154   647
+   154   648
+   154   649
+   154   650
+   154   651
+   154   652
+   154   653
+   154   654
+   154   655
+   154   656
+   154   657
+   154   658
+   154   659
+   154   660
+   154   661
+   154   662
+   154   663
+   154   664
+   154   665
+   154   666
+   154   667
+   154   668
+   155   625
+   155   626
+   155   627
+   155   628
+   155   629
+   155   630
+   155   637
+   155   638
+   155   639
+   155   640
+   155   641
+   155   642
+   155   643
+   155   644
+   155   645
+   155   646
+   155   647
+   155   648
+   155   649
+   155   650
+   155   651
+   155   652
+   155   653
+   155   654
+   155   655
+   155   656
+   155   657
+   155   658
+   155   659
+   155   660
+   155   661
+   155   662
+   155   663
+   155   664
+   155   665
+   155   666
+   155   667
+   155   668
+   156   625
+   156   626
+   156   627
+   156   628
+   156   629
+   156   638
+   156   639
+   156   640
+   156   641
+   156   642
+   156   643
+   156   644
+   156   645
+   156   646
+   156   647
+   156   648
+   156   649
+   156   650
+   156   651
+   156   652
+   156   653
+   156   654
+   156   655
+   156   656
+   156   657
+   156   658
+   156   659
+   156   660
+   156   661
+   156   662
+   156   663
+   156   664
+   156   665
+   156   666
+   156   667
+   156   668
+   157   627
+   157   628
+   157   638
+   157   639
+   157   640
+   157   641
+   157   642
+   157   643
+   157   644
+   157   645
+   157   646
+   157   647
+   157   648
+   157   649
+   157   650
+   157   651
+   157   652
+   157   653
+   157   654
+   157   655
+   157   656
+   157   657
+   157   658
+   157   659
+   157   660
+   157   661
+   157   662
+   157   663
+   157   664
+   157   665
+   157   666
+   157   667
+   158   639
+   158   640
+   158   641
+   158   642
+   158   643
+   158   644
+   158   645
+   158   646
+   158   647
+   158   648
+   158   649
+   158   650
+   158   651
+   158   652
+   158   653
+   158   654
+   158   655
+   158   656
+   158   657
+   158   658
+   158   659
+   158   660
+   158   661
+   158   662
+   158   663
+   158   664
+   159   639
+   159   640
+   159   641
+   159   642
+   159   643
+   159   644
+   159   645
+   159   646
+   159   647
+   159   648
+   159   649
+   159   650
+   159   651
+   159   652
+   159   653
+   159   654
+   159   655
+   159   656
+   159   657
+   159   658
+   159   659
+   159   660
+   159   661
+   159   662
+   159   663
+   159   664
+   160   639
+   160   640
+   160   641
+   160   642
+   160   643
+   160   644
+   160   645
+   160   646
+   160   647
+   160   648
+   160   649
+   160   650
+   160   651
+   160   652
+   160   653
+   160   654
+   160   655
+   160   656
+   160   657
+   160   658
+   160   659
+   160   660
+   160   661
+   160   662
+   160   663
+   160   664
+   160   665
+   161   639
+   161   640
+   161   641
+   161   642
+   161   643
+   161   644
+   161   645
+   161   646
+   161   647
+   161   648
+   161   649
+   161   650
+   161   651
+   161   652
+   161   653
+   161   654
+   161   655
+   161   656
+   161   657
+   161   658
+   161   659
+   161   660
+   161   661
+   161   662
+   161   663
+   161   664
+   161   665
+   162   640
+   162   641
+   162   642
+   162   643
+   162   644
+   162   645
+   162   646
+   162   647
+   162   648
+   162   649
+   162   650
+   162   651
+   162   652
+   162   653
+   162   654
+   162   655
+   162   656
+   162   657
+   162   658
+   162   659
+   162   660
+   162   661
+   162   662
+   162   663
+   162   664
+   162   665
+   162   666
+   163   640
+   163   641
+   163   642
+   163   643
+   163   644
+   163   645
+   163   646
+   163   647
+   163   648
+   163   649
+   163   650
+   163   651
+   163   652
+   163   653
+   163   654
+   163   655
+   163   656
+   163   657
+   163   658
+   163   659
+   163   660
+   163   661
+   163   662
+   163   663
+   163   664
+   163   665
+   163   666
+   163   667
+   164   640
+   164   641
+   164   642
+   164   643
+   164   644
+   164   645
+   164   646
+   164   647
+   164   648
+   164   649
+   164   650
+   164   651
+   164   652
+   164   653
+   164   654
+   164   655
+   164   656
+   164   657
+   164   658
+   164   659
+   164   660
+   164   661
+   164   662
+   164   663
+   164   664
+   164   665
+   164   666
+   164   667
+   164   668
+   164   669
+   165   640
+   165   641
+   165   642
+   165   643
+   165   644
+   165   645
+   165   646
+   165   647
+   165   648
+   165   649
+   165   650
+   165   651
+   165   652
+   165   653
+   165   654
+   165   655
+   165   656
+   165   657
+   165   658
+   165   659
+   165   660
+   165   661
+   165   662
+   165   663
+   165   664
+   165   665
+   165   666
+   165   667
+   165   668
+   165   669
+   165   670
+   165   671
+   165   672
+   166   640
+   166   641
+   166   642
+   166   643
+   166   644
+   166   645
+   166   646
+   166   647
+   166   648
+   166   649
+   166   650
+   166   651
+   166   652
+   166   653
+   166   654
+   166   655
+   166   656
+   166   657
+   166   658
+   166   659
+   166   660
+   166   661
+   166   662
+   166   663
+   166   664
+   166   665
+   166   666
+   166   667
+   166   668
+   166   669
+   166   670
+   166   671
+   166   672
+   167   640
+   167   641
+   167   642
+   167   643
+   167   644
+   167   645
+   167   646
+   167   647
+   167   648
+   167   649
+   167   650
+   167   651
+   167   652
+   167   653
+   167   654
+   167   655
+   167   656
+   167   657
+   167   658
+   167   659
+   167   660
+   167   661
+   167   662
+   167   663
+   167   664
+   167   665
+   167   666
+   167   667
+   167   668
+   167   669
+   167   670
+   167   671
+   167   672
+   168   640
+   168   641
+   168   642
+   168   643
+   168   644
+   168   645
+   168   646
+   168   647
+   168   648
+   168   649
+   168   650
+   168   651
+   168   652
+   168   653
+   168   654
+   168   655
+   168   656
+   168   657
+   168   658
+   168   659
+   168   660
+   168   661
+   168   662
+   168   663
+   168   664
+   168   665
+   168   666
+   168   667
+   168   668
+   168   669
+   168   670
+   168   671
+   168   672
+   169   640
+   169   641
+   169   642
+   169   643
+   169   644
+   169   645
+   169   646
+   169   647
+   169   648
+   169   649
+   169   650
+   169   651
+   169   652
+   169   653
+   169   654
+   169   655
+   169   656
+   169   657
+   169   658
+   169   659
+   169   660
+   169   661
+   169   662
+   169   663
+   169   664
+   169   665
+   169   666
+   169   667
+   169   668
+   169   669
+   169   670
+   169   671
+   169   672
+   170   640
+   170   641
+   170   642
+   170   643
+   170   644
+   170   645
+   170   646
+   170   647
+   170   648
+   170   649
+   170   650
+   170   651
+   170   652
+   170   653
+   170   654
+   170   655
+   170   656
+   170   657
+   170   658
+   170   659
+   170   660
+   170   661
+   170   662
+   170   663
+   170   664
+   170   665
+   170   666
+   170   667
+   170   668
+   170   669
+   170   670
+   170   671
+   170   672
+   171   640
+   171   641
+   171   642
+   171   643
+   171   644
+   171   645
+   171   646
+   171   647
+   171   648
+   171   649
+   171   650
+   171   651
+   171   652
+   171   653
+   171   654
+   171   655
+   171   656
+   171   657
+   171   658
+   171   659
+   171   660
+   171   661
+   171   662
+   171   663
+   171   664
+   171   665
+   171   666
+   171   667
+   171   668
+   171   669
+   171   670
+   171   671
+   171   672
+   172   639
+   172   640
+   172   641
+   172   642
+   172   643
+   172   644
+   172   645
+   172   646
+   172   647
+   172   648
+   172   649
+   172   650
+   172   651
+   172   652
+   172   653
+   172   654
+   172   655
+   172   656
+   172   657
+   172   658
+   172   659
+   172   660
+   172   661
+   172   662
+   172   663
+   172   664
+   172   665
+   172   666
+   172   667
+   172   668
+   172   669
+   172   670
+   172   671
+   173   639
+   173   640
+   173   641
+   173   642
+   173   643
+   173   644
+   173   645
+   173   646
+   173   647
+   173   648
+   173   649
+   173   650
+   173   651
+   173   652
+   173   653
+   173   654
+   173   655
+   173   656
+   173   657
+   173   658
+   173   659
+   173   660
+   173   661
+   173   662
+   173   663
+   173   664
+   173   665
+   173   666
+   173   667
+   173   668
+   173   669
+   173   670
+   173   671
+   174   639
+   174   640
+   174   641
+   174   642
+   174   643
+   174   644
+   174   645
+   174   646
+   174   647
+   174   648
+   174   649
+   174   650
+   174   651
+   174   652
+   174   653
+   174   654
+   174   655
+   174   656
+   174   657
+   174   658
+   174   659
+   174   660
+   174   661
+   174   662
+   174   663
+   174   664
+   174   665
+   174   666
+   174   667
+   174   668
+   174   669
+   174   670
+   175   640
+   175   641
+   175   642
+   175   643
+   175   644
+   175   645
+   175   646
+   175   647
+   175   648
+   175   649
+   175   650
+   175   651
+   175   652
+   175   653
+   175   654
+   175   655
+   175   656
+   175   657
+   175   658
+   175   659
+   175   660
+   175   661
+   175   662
+   175   663
+   175   664
+   175   665
+   175   666
+   175   667
+   175   668
+   175   669
+   175   670
+   176   640
+   176   641
+   176   642
+   176   643
+   176   644
+   176   645
+   176   646
+   176   647
+   176   648
+   176   649
+   176   650
+   176   651
+   176   652
+   176   653
+   176   654
+   176   655
+   176   656
+   176   657
+   176   658
+   176   659
+   176   660
+   176   661
+   176   662
+   176   663
+   176   664
+   176   665
+   176   666
+   176   667
+   176   668
+   176   669
+   177   640
+   177   641
+   177   642
+   177   643
+   177   644
+   177   645
+   177   646
+   177   647
+   177   648
+   177   649
+   177   650
+   177   651
+   177   652
+   177   653
+   177   654
+   177   655
+   177   656
+   177   657
+   177   658
+   177   659
+   177   660
+   177   661
+   177   662
+   177   663
+   177   664
+   177   665
+   177   666
+   177   667
+   177   668
+   177   669
+   178   637
+   178   638
+   178   639
+   178   640
+   178   641
+   178   642
+   178   643
+   178   644
+   178   645
+   178   646
+   178   647
+   178   648
+   178   649
+   178   650
+   178   651
+   178   652
+   178   653
+   178   654
+   178   655
+   178   656
+   178   657
+   178   658
+   178   659
+   178   660
+   178   661
+   178   662
+   178   663
+   178   664
+   178   665
+   178   666
+   178   667
+   178   668
+   178   669
+   179   604
+   179   605
+   179   606
+   179   637
+   179   638
+   179   639
+   179   640
+   179   642
+   179   643
+   179   644
+   179   645
+   179   646
+   179   647
+   179   648
+   179   649
+   179   650
+   179   651
+   179   652
+   179   653
+   179   654
+   179   655
+   179   656
+   179   657
+   179   658
+   179   659
+   179   660
+   179   661
+   179   662
+   179   663
+   179   664
+   179   665
+   179   666
+   179   667
+   180   604
+   180   605
+   180   606
+   180   607
+   180   637
+   180   638
+   180   639
+   180   642
+   180   643
+   180   644
+   180   645
+   180   646
+   180   647
+   180   648
+   180   649
+   180   650
+   180   651
+   180   652
+   180   653
+   180   654
+   180   655
+   180   656
+   180   657
+   180   658
+   180   659
+   180   660
+   180   661
+   180   662
+   180   663
+   180   664
+   181   604
+   181   605
+   181   606
+   181   607
+   181   638
+   181   639
+   181   642
+   181   643
+   181   644
+   181   645
+   181   646
+   181   647
+   181   648
+   181   649
+   181   650
+   181   651
+   181   652
+   181   653
+   181   654
+   181   655
+   181   656
+   181   657
+   181   658
+   181   659
+   181   660
+   181   661
+   181   662
+   181   663
+   181   664
+   182   604
+   182   605
+   182   606
+   182   607
+   182   642
+   182   643
+   182   644
+   182   645
+   182   646
+   182   647
+   182   648
+   182   649
+   182   650
+   182   651
+   182   652
+   182   653
+   182   654
+   182   655
+   182   656
+   182   657
+   182   658
+   182   659
+   182   660
+   182   661
+   182   662
+   182   663
+   182   664
+   183   604
+   183   605
+   183   606
+   183   607
+   183   642
+   183   643
+   183   644
+   183   645
+   183   646
+   183   647
+   183   648
+   183   649
+   183   650
+   183   651
+   183   652
+   183   653
+   183   654
+   183   655
+   183   656
+   183   657
+   183   658
+   183   659
+   183   660
+   183   661
+   183   662
+   183   663
+   183   664
+   184   603
+   184   604
+   184   605
+   184   606
+   184   607
+   184   608
+   184   642
+   184   643
+   184   644
+   184   645
+   184   646
+   184   647
+   184   648
+   184   649
+   184   650
+   184   651
+   184   652
+   184   653
+   184   654
+   184   655
+   184   656
+   184   657
+   184   658
+   184   659
+   184   660
+   184   661
+   184   662
+   184   663
+   184   664
+   184   665
+   184   666
+   184   667
+   184   668
+   184   669
+   185   602
+   185   603
+   185   604
+   185   605
+   185   606
+   185   607
+   185   608
+   185   609
+   185   642
+   185   643
+   185   644
+   185   645
+   185   646
+   185   647
+   185   648
+   185   649
+   185   650
+   185   651
+   185   652
+   185   653
+   185   654
+   185   655
+   185   656
+   185   657
+   185   658
+   185   659
+   185   660
+   185   661
+   185   662
+   185   663
+   185   664
+   185   665
+   185   666
+   185   667
+   185   668
+   185   669
+   186   601
+   186   602
+   186   603
+   186   606
+   186   607
+   186   608
+   186   609
+   186   610
+   186   617
+   186   641
+   186   642
+   186   643
+   186   644
+   186   645
+   186   646
+   186   647
+   186   648
+   186   649
+   186   650
+   186   651
+   186   652
+   186   653
+   186   654
+   186   655
+   186   656
+   186   657
+   186   658
+   186   659
+   186   660
+   186   661
+   186   662
+   186   663
+   186   664
+   186   665
+   186   666
+   186   667
+   186   668
+   186   669
+   186   670
+   187   602
+   187   607
+   187   608
+   187   609
+   187   610
+   187   616
+   187   617
+   187   618
+   187   639
+   187   640
+   187   641
+   187   642
+   187   643
+   187   644
+   187   645
+   187   646
+   187   647
+   187   648
+   187   649
+   187   650
+   187   651
+   187   652
+   187   653
+   187   654
+   187   655
+   187   656
+   187   657
+   187   658
+   187   659
+   187   660
+   187   664
+   187   665
+   187   666
+   187   667
+   187   668
+   187   669
+   187   670
+   187   671
+   188   608
+   188   609
+   188   610
+   188   611
+   188   616
+   188   617
+   188   618
+   188   638
+   188   639
+   188   640
+   188   641
+   188   642
+   188   643
+   188   644
+   188   645
+   188   646
+   188   647
+   188   648
+   188   649
+   188   650
+   188   651
+   188   652
+   188   653
+   188   654
+   188   655
+   188   656
+   188   657
+   188   658
+   188   659
+   188   660
+   188   664
+   188   665
+   188   666
+   188   667
+   188   668
+   188   669
+   188   670
+   189   608
+   189   609
+   189   610
+   189   611
+   189   612
+   189   615
+   189   616
+   189   617
+   189   618
+   189   638
+   189   639
+   189   640
+   189   641
+   189   642
+   189   643
+   189   644
+   189   645
+   189   646
+   189   647
+   189   648
+   189   649
+   189   650
+   189   651
+   189   652
+   189   653
+   189   654
+   189   655
+   189   656
+   189   657
+   189   658
+   189   659
+   189   660
+   190   607
+   190   608
+   190   609
+   190   610
+   190   611
+   190   612
+   190   613
+   190   614
+   190   615
+   190   616
+   190   617
+   190   618
+   190   638
+   190   639
+   190   640
+   190   641
+   190   642
+   190   643
+   190   644
+   190   645
+   190   646
+   190   647
+   190   648
+   190   649
+   190   650
+   190   651
+   190   652
+   190   653
+   190   654
+   190   655
+   190   656
+   190   657
+   190   658
+   190   659
+   190   660
+   190   661
+   191   579
+   191   580
+   191   587
+   191   588
+   191   606
+   191   607
+   191   608
+   191   609
+   191   610
+   191   611
+   191   612
+   191   613
+   191   614
+   191   615
+   191   616
+   191   617
+   191   625
+   191   626
+   191   637
+   191   638
+   191   639
+   191   640
+   191   641
+   191   642
+   191   643
+   191   644
+   191   645
+   191   646
+   191   647
+   191   648
+   191   649
+   191   650
+   191   651
+   191   652
+   191   653
+   191   654
+   191   655
+   191   656
+   191   657
+   191   658
+   191   659
+   191   660
+   191   661
+   192   578
+   192   579
+   192   580
+   192   581
+   192   587
+   192   588
+   192   589
+   192   590
+   192   605
+   192   606
+   192   607
+   192   608
+   192   609
+   192   610
+   192   611
+   192   612
+   192   613
+   192   614
+   192   615
+   192   616
+   192   624
+   192   625
+   192   626
+   192   627
+   192   635
+   192   636
+   192   637
+   192   638
+   192   639
+   192   640
+   192   641
+   192   642
+   192   643
+   192   644
+   192   645
+   192   646
+   192   647
+   192   648
+   192   649
+   192   650
+   192   651
+   192   652
+   192   653
+   192   654
+   192   655
+   192   656
+   192   657
+   192   658
+   192   659
+   192   660
+   192   661
+   192   662
+   193   578
+   193   579
+   193   580
+   193   581
+   193   582
+   193   583
+   193   587
+   193   588
+   193   589
+   193   590
+   193   591
+   193   592
+   193   603
+   193   604
+   193   605
+   193   606
+   193   607
+   193   608
+   193   609
+   193   610
+   193   611
+   193   612
+   193   613
+   193   614
+   193   615
+   193   623
+   193   624
+   193   625
+   193   626
+   193   627
+   193   628
+   193   629
+   193   630
+   193   634
+   193   635
+   193   636
+   193   637
+   193   638
+   193   639
+   193   640
+   193   641
+   193   642
+   193   643
+   193   644
+   193   645
+   193   646
+   193   647
+   193   648
+   193   649
+   193   650
+   193   651
+   193   652
+   193   653
+   193   654
+   193   655
+   193   656
+   193   657
+   193   658
+   193   659
+   193   660
+   193   661
+   193   662
+   194   566
+   194   567
+   194   568
+   194   576
+   194   577
+   194   578
+   194   579
+   194   580
+   194   581
+   194   582
+   194   583
+   194   584
+   194   585
+   194   586
+   194   587
+   194   588
+   194   589
+   194   590
+   194   591
+   194   592
+   194   603
+   194   604
+   194   605
+   194   606
+   194   607
+   194   608
+   194   609
+   194   610
+   194   611
+   194   612
+   194   613
+   194   614
+   194   615
+   194   616
+   194   621
+   194   622
+   194   623
+   194   624
+   194   625
+   194   626
+   194   627
+   194   628
+   194   629
+   194   630
+   194   631
+   194   632
+   194   633
+   194   634
+   194   635
+   194   636
+   194   637
+   194   638
+   194   639
+   194   640
+   194   641
+   194   642
+   194   643
+   194   644
+   194   645
+   194   646
+   194   647
+   194   648
+   194   649
+   194   650
+   194   651
+   194   652
+   194   653
+   194   654
+   194   655
+   194   656
+   194   657
+   194   658
+   194   659
+   194   660
+   194   661
+   194   662
+   195   566
+   195   567
+   195   568
+   195   569
+   195   570
+   195   576
+   195   577
+   195   578
+   195   579
+   195   580
+   195   581
+   195   582
+   195   583
+   195   584
+   195   585
+   195   586
+   195   587
+   195   588
+   195   589
+   195   590
+   195   591
+   195   592
+   195   593
+   195   604
+   195   605
+   195   606
+   195   607
+   195   608
+   195   609
+   195   610
+   195   611
+   195   612
+   195   613
+   195   614
+   195   615
+   195   616
+   195   620
+   195   621
+   195   622
+   195   623
+   195   624
+   195   625
+   195   626
+   195   627
+   195   628
+   195   629
+   195   630
+   195   631
+   195   632
+   195   633
+   195   634
+   195   635
+   195   636
+   195   637
+   195   638
+   195   639
+   195   640
+   195   641
+   195   642
+   195   643
+   195   644
+   195   645
+   195   646
+   195   647
+   195   648
+   195   649
+   195   650
+   195   651
+   195   652
+   195   653
+   195   654
+   195   655
+   195   656
+   195   657
+   195   658
+   195   659
+   195   660
+   195   661
+   196   566
+   196   567
+   196   568
+   196   569
+   196   570
+   196   571
+   196   572
+   196   573
+   196   574
+   196   575
+   196   576
+   196   577
+   196   578
+   196   579
+   196   580
+   196   581
+   196   582
+   196   583
+   196   584
+   196   585
+   196   586
+   196   587
+   196   588
+   196   589
+   196   590
+   196   591
+   196   592
+   196   593
+   196   609
+   196   610
+   196   611
+   196   612
+   196   613
+   196   614
+   196   615
+   196   616
+   196   617
+   196   618
+   196   619
+   196   620
+   196   621
+   196   622
+   196   623
+   196   624
+   196   625
+   196   626
+   196   627
+   196   628
+   196   629
+   196   630
+   196   631
+   196   632
+   196   633
+   196   634
+   196   635
+   196   636
+   196   637
+   196   638
+   196   639
+   196   640
+   196   641
+   196   642
+   196   643
+   196   644
+   196   645
+   196   646
+   196   647
+   196   648
+   196   649
+   196   650
+   196   651
+   196   652
+   196   653
+   196   654
+   196   655
+   196   656
+   196   657
+   196   658
+   196   659
+   196   660
+   197   568
+   197   569
+   197   570
+   197   571
+   197   572
+   197   573
+   197   574
+   197   575
+   197   576
+   197   577
+   197   578
+   197   579
+   197   580
+   197   581
+   197   582
+   197   583
+   197   584
+   197   585
+   197   586
+   197   587
+   197   588
+   197   589
+   197   590
+   197   591
+   197   592
+   197   593
+   197   609
+   197   610
+   197   611
+   197   612
+   197   613
+   197   614
+   197   615
+   197   616
+   197   617
+   197   618
+   197   619
+   197   620
+   197   621
+   197   622
+   197   623
+   197   624
+   197   625
+   197   626
+   197   627
+   197   628
+   197   629
+   197   630
+   197   631
+   197   632
+   197   633
+   197   634
+   197   635
+   197   636
+   197   637
+   197   638
+   197   639
+   197   640
+   197   641
+   197   642
+   197   643
+   197   644
+   197   645
+   197   646
+   197   647
+   197   648
+   197   649
+   197   650
+   197   651
+   197   652
+   197   653
+   197   654
+   197   655
+   197   656
+   197   657
+   197   658
+   197   659
+   198   571
+   198   572
+   198   573
+   198   574
+   198   575
+   198   576
+   198   577
+   198   578
+   198   579
+   198   580
+   198   581
+   198   582
+   198   583
+   198   584
+   198   585
+   198   586
+   198   587
+   198   588
+   198   589
+   198   590
+   198   591
+   198   592
+   198   593
+   198   610
+   198   611
+   198   612
+   198   613
+   198   614
+   198   615
+   198   616
+   198   617
+   198   618
+   198   619
+   198   620
+   198   621
+   198   622
+   198   623
+   198   624
+   198   625
+   198   626
+   198   627
+   198   628
+   198   629
+   198   630
+   198   631
+   198   632
+   198   633
+   198   634
+   198   635
+   198   636
+   198   637
+   198   638
+   198   639
+   198   640
+   198   641
+   198   642
+   198   643
+   198   644
+   198   645
+   198   646
+   198   647
+   198   648
+   198   649
+   198   650
+   198   651
+   198   652
+   198   653
+   198   654
+   198   655
+   198   656
+   198   657
+   198   658
+   198   659
+   199   573
+   199   574
+   199   575
+   199   576
+   199   577
+   199   578
+   199   579
+   199   580
+   199   581
+   199   582
+   199   583
+   199   584
+   199   585
+   199   586
+   199   587
+   199   588
+   199   589
+   199   590
+   199   591
+   199   592
+   199   593
+   199   611
+   199   612
+   199   613
+   199   614
+   199   615
+   199   616
+   199   617
+   199   618
+   199   619
+   199   620
+   199   621
+   199   622
+   199   623
+   199   624
+   199   625
+   199   626
+   199   627
+   199   628
+   199   629
+   199   630
+   199   631
+   199   632
+   199   633
+   199   634
+   199   635
+   199   636
+   199   637
+   199   638
+   199   639
+   199   640
+   199   641
+   199   642
+   199   643
+   199   644
+   199   645
+   199   646
+   199   647
+   199   648
+   199   649
+   199   650
+   199   651
+   199   652
+   199   653
+   199   654
+   199   655
+   199   656
+   199   657
+   199   658
+   199   659
+   200   573
+   200   574
+   200   575
+   200   576
+   200   577
+   200   578
+   200   579
+   200   580
+   200   581
+   200   582
+   200   583
+   200   584
+   200   585
+   200   586
+   200   587
+   200   588
+   200   589
+   200   590
+   200   591
+   200   592
+   200   593
+   200   594
+   200   611
+   200   612
+   200   613
+   200   614
+   200   615
+   200   616
+   200   617
+   200   618
+   200   619
+   200   620
+   200   621
+   200   622
+   200   623
+   200   624
+   200   625
+   200   626
+   200   627
+   200   628
+   200   629
+   200   630
+   200   631
+   200   632
+   200   633
+   200   634
+   200   635
+   200   636
+   200   637
+   200   638
+   200   639
+   200   640
+   200   641
+   200   642
+   200   643
+   200   644
+   200   645
+   200   646
+   200   647
+   200   648
+   200   649
+   200   650
+   200   651
+   200   652
+   200   653
+   200   654
+   200   655
+   200   656
+   200   657
+   200   658
+   200   659
+   201   566
+   201   567
+   201   574
+   201   575
+   201   576
+   201   577
+   201   578
+   201   579
+   201   580
+   201   581
+   201   582
+   201   583
+   201   584
+   201   585
+   201   586
+   201   587
+   201   588
+   201   589
+   201   590
+   201   591
+   201   592
+   201   593
+   201   611
+   201   612
+   201   613
+   201   614
+   201   615
+   201   616
+   201   617
+   201   618
+   201   619
+   201   620
+   201   621
+   201   622
+   201   623
+   201   624
+   201   625
+   201   626
+   201   627
+   201   628
+   201   629
+   201   630
+   201   631
+   201   632
+   201   633
+   201   634
+   201   635
+   201   636
+   201   637
+   201   638
+   201   639
+   201   640
+   201   641
+   201   642
+   201   643
+   201   644
+   201   645
+   201   646
+   201   647
+   201   648
+   201   649
+   201   650
+   201   651
+   201   652
+   201   653
+   201   654
+   201   655
+   201   656
+   201   657
+   201   658
+   201   659
+   202   566
+   202   567
+   202   574
+   202   575
+   202   576
+   202   577
+   202   578
+   202   579
+   202   580
+   202   581
+   202   582
+   202   583
+   202   584
+   202   585
+   202   586
+   202   587
+   202   588
+   202   589
+   202   590
+   202   591
+   202   611
+   202   612
+   202   613
+   202   614
+   202   615
+   202   616
+   202   617
+   202   618
+   202   619
+   202   620
+   202   621
+   202   622
+   202   623
+   202   624
+   202   625
+   202   626
+   202   627
+   202   628
+   202   629
+   202   630
+   202   631
+   202   632
+   202   633
+   202   634
+   202   635
+   202   636
+   202   637
+   202   638
+   202   639
+   202   640
+   202   641
+   202   642
+   202   643
+   202   644
+   202   645
+   202   646
+   202   647
+   202   648
+   202   649
+   202   650
+   202   651
+   202   652
+   202   653
+   202   654
+   202   655
+   202   656
+   202   657
+   202   658
+   202   659
+   202   660
+   203   567
+   203   568
+   203   569
+   203   574
+   203   575
+   203   576
+   203   577
+   203   578
+   203   579
+   203   580
+   203   581
+   203   582
+   203   583
+   203   584
+   203   585
+   203   586
+   203   587
+   203   588
+   203   589
+   203   590
+   203   591
+   203   611
+   203   612
+   203   613
+   203   614
+   203   615
+   203   616
+   203   617
+   203   618
+   203   619
+   203   620
+   203   621
+   203   622
+   203   623
+   203   624
+   203   625
+   203   626
+   203   627
+   203   628
+   203   629
+   203   630
+   203   631
+   203   632
+   203   633
+   203   634
+   203   635
+   203   636
+   203   637
+   203   638
+   203   639
+   203   640
+   203   641
+   203   642
+   203   643
+   203   644
+   203   645
+   203   646
+   203   647
+   203   648
+   203   649
+   203   650
+   203   651
+   203   652
+   203   653
+   203   654
+   203   655
+   203   656
+   203   657
+   203   658
+   203   659
+   203   660
+   203   661
+   204   568
+   204   569
+   204   570
+   204   571
+   204   574
+   204   575
+   204   576
+   204   577
+   204   578
+   204   579
+   204   580
+   204   581
+   204   582
+   204   583
+   204   584
+   204   585
+   204   586
+   204   587
+   204   588
+   204   589
+   204   590
+   204   591
+   204   598
+   204   599
+   204   600
+   204   609
+   204   610
+   204   611
+   204   612
+   204   613
+   204   614
+   204   615
+   204   616
+   204   617
+   204   618
+   204   619
+   204   620
+   204   621
+   204   622
+   204   623
+   204   624
+   204   625
+   204   626
+   204   627
+   204   628
+   204   629
+   204   630
+   204   631
+   204   632
+   204   633
+   204   634
+   204   635
+   204   636
+   204   637
+   204   638
+   204   639
+   204   640
+   204   641
+   204   642
+   204   643
+   204   644
+   204   645
+   204   646
+   204   647
+   204   648
+   204   649
+   204   650
+   204   651
+   204   657
+   204   658
+   204   659
+   204   660
+   204   661
+   204   662
+   205   569
+   205   570
+   205   571
+   205   572
+   205   573
+   205   574
+   205   575
+   205   576
+   205   577
+   205   578
+   205   579
+   205   580
+   205   581
+   205   582
+   205   583
+   205   584
+   205   585
+   205   586
+   205   587
+   205   588
+   205   589
+   205   590
+   205   591
+   205   597
+   205   598
+   205   599
+   205   600
+   205   601
+   205   602
+   205   607
+   205   608
+   205   609
+   205   610
+   205   611
+   205   612
+   205   613
+   205   614
+   205   615
+   205   616
+   205   617
+   205   618
+   205   619
+   205   620
+   205   621
+   205   622
+   205   623
+   205   624
+   205   625
+   205   626
+   205   627
+   205   628
+   205   629
+   205   630
+   205   631
+   205   632
+   205   633
+   205   634
+   205   635
+   205   636
+   205   637
+   205   638
+   205   639
+   205   640
+   205   641
+   205   642
+   205   643
+   205   644
+   205   645
+   205   646
+   205   647
+   205   648
+   205   649
+   205   650
+   205   658
+   205   659
+   205   660
+   205   661
+   205   662
+   206   569
+   206   570
+   206   571
+   206   572
+   206   573
+   206   574
+   206   575
+   206   576
+   206   577
+   206   578
+   206   579
+   206   580
+   206   581
+   206   582
+   206   583
+   206   584
+   206   585
+   206   586
+   206   587
+   206   588
+   206   589
+   206   590
+   206   591
+   206   597
+   206   598
+   206   599
+   206   600
+   206   601
+   206   602
+   206   607
+   206   608
+   206   609
+   206   610
+   206   611
+   206   613
+   206   614
+   206   615
+   206   616
+   206   617
+   206   618
+   206   619
+   206   620
+   206   621
+   206   622
+   206   623
+   206   624
+   206   625
+   206   626
+   206   627
+   206   628
+   206   629
+   206   630
+   206   631
+   206   632
+   206   633
+   206   634
+   206   635
+   206   636
+   206   637
+   206   638
+   206   639
+   206   640
+   206   641
+   206   642
+   206   643
+   206   644
+   206   645
+   206   646
+   206   647
+   206   648
+   206   649
+   206   658
+   206   659
+   206   660
+   206   661
+   206   662
+   207   561
+   207   562
+   207   570
+   207   571
+   207   572
+   207   573
+   207   574
+   207   575
+   207   576
+   207   577
+   207   578
+   207   579
+   207   580
+   207   581
+   207   582
+   207   583
+   207   584
+   207   585
+   207   586
+   207   587
+   207   588
+   207   589
+   207   590
+   207   591
+   207   592
+   207   593
+   207   594
+   207   595
+   207   596
+   207   597
+   207   598
+   207   599
+   207   600
+   207   601
+   207   607
+   207   608
+   207   609
+   207   610
+   207   611
+   207   614
+   207   615
+   207   616
+   207   617
+   207   618
+   207   619
+   207   620
+   207   621
+   207   622
+   207   623
+   207   624
+   207   625
+   207   626
+   207   627
+   207   628
+   207   629
+   207   630
+   207   631
+   207   632
+   207   633
+   207   634
+   207   635
+   207   636
+   207   637
+   207   642
+   207   643
+   207   644
+   207   645
+   207   646
+   207   647
+   207   648
+   207   649
+   207   658
+   207   659
+   207   660
+   207   661
+   207   662
+   208   560
+   208   561
+   208   562
+   208   563
+   208   571
+   208   572
+   208   573
+   208   574
+   208   575
+   208   576
+   208   577
+   208   578
+   208   579
+   208   580
+   208   581
+   208   582
+   208   583
+   208   584
+   208   585
+   208   586
+   208   587
+   208   588
+   208   589
+   208   590
+   208   591
+   208   592
+   208   593
+   208   594
+   208   595
+   208   596
+   208   597
+   208   598
+   208   599
+   208   600
+   208   607
+   208   608
+   208   609
+   208   610
+   208   611
+   208   615
+   208   616
+   208   617
+   208   618
+   208   619
+   208   620
+   208   621
+   208   622
+   208   623
+   208   624
+   208   625
+   208   626
+   208   627
+   208   628
+   208   629
+   208   630
+   208   631
+   208   632
+   208   633
+   208   634
+   208   635
+   208   636
+   208   643
+   208   644
+   208   645
+   208   646
+   208   647
+   208   648
+   208   660
+   208   661
+   209   560
+   209   561
+   209   562
+   209   563
+   209   571
+   209   572
+   209   573
+   209   574
+   209   575
+   209   576
+   209   577
+   209   578
+   209   579
+   209   580
+   209   581
+   209   582
+   209   583
+   209   584
+   209   585
+   209   586
+   209   587
+   209   588
+   209   589
+   209   590
+   209   591
+   209   592
+   209   593
+   209   594
+   209   595
+   209   596
+   209   597
+   209   598
+   209   599
+   209   606
+   209   607
+   209   608
+   209   610
+   209   611
+   209   616
+   209   617
+   209   618
+   209   619
+   209   620
+   209   621
+   209   622
+   209   623
+   209   624
+   209   625
+   209   626
+   209   627
+   209   628
+   209   629
+   209   630
+   209   631
+   209   632
+   209   633
+   209   634
+   209   635
+   209   636
+   209   646
+   209   647
+   210   560
+   210   561
+   210   562
+   210   563
+   210   564
+   210   570
+   210   571
+   210   572
+   210   573
+   210   574
+   210   575
+   210   576
+   210   577
+   210   578
+   210   579
+   210   580
+   210   581
+   210   582
+   210   583
+   210   584
+   210   585
+   210   586
+   210   587
+   210   588
+   210   589
+   210   590
+   210   591
+   210   592
+   210   593
+   210   594
+   210   595
+   210   596
+   210   597
+   210   598
+   210   599
+   210   606
+   210   607
+   210   608
+   210   616
+   210   617
+   210   618
+   210   619
+   210   620
+   210   621
+   210   622
+   210   623
+   210   624
+   210   625
+   210   626
+   210   627
+   210   628
+   210   629
+   210   630
+   210   631
+   210   632
+   210   633
+   210   634
+   210   635
+   210   636
+   210   646
+   210   647
+   211   561
+   211   562
+   211   563
+   211   564
+   211   569
+   211   570
+   211   571
+   211   572
+   211   573
+   211   574
+   211   575
+   211   576
+   211   577
+   211   578
+   211   579
+   211   580
+   211   581
+   211   582
+   211   583
+   211   584
+   211   585
+   211   586
+   211   587
+   211   588
+   211   589
+   211   590
+   211   591
+   211   592
+   211   593
+   211   594
+   211   595
+   211   596
+   211   597
+   211   598
+   211   599
+   211   606
+   211   607
+   211   608
+   211   616
+   211   617
+   211   618
+   211   619
+   211   620
+   211   621
+   211   622
+   211   623
+   211   624
+   211   625
+   211   626
+   211   627
+   211   628
+   211   629
+   211   630
+   211   633
+   211   634
+   211   635
+   211   636
+   211   637
+   211   638
+   211   647
+   212   561
+   212   562
+   212   563
+   212   564
+   212   568
+   212   569
+   212   570
+   212   571
+   212   572
+   212   573
+   212   574
+   212   575
+   212   576
+   212   577
+   212   578
+   212   579
+   212   580
+   212   581
+   212   582
+   212   583
+   212   584
+   212   585
+   212   586
+   212   587
+   212   588
+   212   589
+   212   590
+   212   591
+   212   592
+   212   593
+   212   594
+   212   595
+   212   596
+   212   597
+   212   598
+   212   599
+   212   605
+   212   606
+   212   607
+   212   608
+   212   616
+   212   617
+   212   618
+   212   619
+   212   620
+   212   621
+   212   622
+   212   623
+   212   624
+   212   625
+   212   626
+   212   627
+   212   628
+   212   629
+   212   630
+   212   634
+   212   635
+   212   636
+   212   637
+   212   638
+   213   559
+   213   560
+   213   561
+   213   562
+   213   563
+   213   564
+   213   565
+   213   566
+   213   567
+   213   568
+   213   569
+   213   570
+   213   571
+   213   572
+   213   573
+   213   574
+   213   575
+   213   576
+   213   577
+   213   578
+   213   579
+   213   580
+   213   581
+   213   582
+   213   583
+   213   584
+   213   585
+   213   586
+   213   587
+   213   588
+   213   589
+   213   590
+   213   591
+   213   592
+   213   593
+   213   594
+   213   595
+   213   596
+   213   597
+   213   598
+   213   599
+   213   600
+   213   605
+   213   606
+   213   607
+   213   608
+   213   609
+   213   620
+   213   621
+   213   622
+   213   623
+   213   624
+   213   625
+   213   626
+   213   627
+   213   628
+   213   629
+   213   630
+   213   631
+   213   632
+   214   558
+   214   559
+   214   560
+   214   561
+   214   562
+   214   566
+   214   567
+   214   568
+   214   569
+   214   570
+   214   571
+   214   572
+   214   573
+   214   574
+   214   575
+   214   576
+   214   577
+   214   578
+   214   579
+   214   580
+   214   581
+   214   582
+   214   583
+   214   584
+   214   585
+   214   586
+   214   587
+   214   588
+   214   589
+   214   590
+   214   591
+   214   592
+   214   593
+   214   594
+   214   595
+   214   596
+   214   597
+   214   598
+   214   599
+   214   600
+   214   601
+   214   602
+   214   603
+   214   604
+   214   605
+   214   606
+   214   607
+   214   608
+   214   609
+   214   621
+   214   622
+   214   623
+   214   624
+   214   625
+   214   626
+   214   627
+   214   628
+   214   629
+   214   630
+   214   631
+   214   632
+   215   558
+   215   559
+   215   560
+   215   561
+   215   562
+   215   567
+   215   568
+   215   569
+   215   570
+   215   571
+   215   572
+   215   573
+   215   574
+   215   575
+   215   576
+   215   577
+   215   578
+   215   579
+   215   580
+   215   581
+   215   582
+   215   583
+   215   584
+   215   585
+   215   586
+   215   587
+   215   588
+   215   589
+   215   590
+   215   591
+   215   592
+   215   593
+   215   594
+   215   595
+   215   596
+   215   597
+   215   598
+   215   599
+   215   600
+   215   601
+   215   602
+   215   603
+   215   604
+   215   605
+   215   606
+   215   621
+   215   622
+   215   623
+   215   624
+   215   625
+   215   626
+   215   627
+   215   628
+   215   629
+   215   630
+   215   631
+   215   632
+   215   633
+   216   558
+   216   559
+   216   560
+   216   561
+   216   568
+   216   569
+   216   570
+   216   571
+   216   572
+   216   573
+   216   574
+   216   575
+   216   576
+   216   577
+   216   578
+   216   579
+   216   580
+   216   581
+   216   582
+   216   583
+   216   584
+   216   585
+   216   586
+   216   587
+   216   588
+   216   589
+   216   590
+   216   591
+   216   592
+   216   593
+   216   594
+   216   595
+   216   596
+   216   597
+   216   598
+   216   599
+   216   600
+   216   601
+   216   602
+   216   603
+   216   604
+   216   605
+   216   606
+   216   621
+   216   622
+   216   623
+   216   624
+   216   625
+   216   626
+   216   627
+   216   628
+   216   629
+   216   630
+   216   631
+   216   632
+   216   633
+   217   559
+   217   560
+   217   561
+   217   568
+   217   569
+   217   570
+   217   571
+   217   572
+   217   573
+   217   574
+   217   575
+   217   576
+   217   577
+   217   578
+   217   579
+   217   580
+   217   581
+   217   582
+   217   583
+   217   584
+   217   585
+   217   586
+   217   587
+   217   588
+   217   589
+   217   590
+   217   591
+   217   592
+   217   593
+   217   594
+   217   595
+   217   596
+   217   597
+   217   598
+   217   599
+   217   600
+   217   601
+   217   602
+   217   603
+   217   604
+   217   605
+   217   606
+   217   619
+   217   620
+   217   621
+   217   622
+   217   623
+   217   624
+   217   625
+   217   626
+   217   627
+   217   628
+   217   629
+   217   630
+   217   631
+   217   632
+   217   633
+   218   559
+   218   560
+   218   561
+   218   567
+   218   568
+   218   569
+   218   570
+   218   571
+   218   572
+   218   573
+   218   574
+   218   575
+   218   576
+   218   577
+   218   578
+   218   579
+   218   580
+   218   581
+   218   582
+   218   583
+   218   584
+   218   585
+   218   586
+   218   587
+   218   588
+   218   589
+   218   590
+   218   591
+   218   592
+   218   593
+   218   594
+   218   595
+   218   596
+   218   597
+   218   598
+   218   599
+   218   600
+   218   601
+   218   602
+   218   603
+   218   604
+   218   605
+   218   618
+   218   619
+   218   620
+   218   621
+   218   622
+   218   623
+   218   624
+   218   625
+   218   629
+   218   630
+   218   631
+   218   632
+   219   560
+   219   561
+   219   562
+   219   566
+   219   567
+   219   568
+   219   569
+   219   570
+   219   571
+   219   572
+   219   573
+   219   574
+   219   575
+   219   576
+   219   577
+   219   578
+   219   579
+   219   580
+   219   581
+   219   582
+   219   583
+   219   584
+   219   585
+   219   586
+   219   587
+   219   588
+   219   589
+   219   590
+   219   591
+   219   592
+   219   593
+   219   594
+   219   595
+   219   596
+   219   597
+   219   598
+   219   599
+   219   600
+   219   601
+   219   602
+   219   603
+   219   604
+   219   605
+   219   617
+   219   618
+   219   619
+   219   620
+   219   621
+   219   622
+   219   623
+   219   624
+   219   630
+   219   635
+   220   560
+   220   561
+   220   562
+   220   563
+   220   565
+   220   566
+   220   567
+   220   568
+   220   569
+   220   570
+   220   571
+   220   572
+   220   573
+   220   574
+   220   575
+   220   576
+   220   577
+   220   578
+   220   579
+   220   580
+   220   581
+   220   582
+   220   583
+   220   584
+   220   585
+   220   586
+   220   587
+   220   588
+   220   589
+   220   590
+   220   591
+   220   592
+   220   593
+   220   594
+   220   595
+   220   596
+   220   597
+   220   598
+   220   599
+   220   600
+   220   620
+   220   621
+   220   622
+   220   623
+   220   624
+   220   631
+   220   632
+   220   633
+   220   634
+   220   635
+   220   636
+   221   561
+   221   562
+   221   565
+   221   566
+   221   567
+   221   568
+   221   569
+   221   570
+   221   571
+   221   572
+   221   573
+   221   574
+   221   575
+   221   576
+   221   577
+   221   578
+   221   579
+   221   580
+   221   581
+   221   582
+   221   583
+   221   584
+   221   585
+   221   586
+   221   587
+   221   588
+   221   589
+   221   590
+   221   591
+   221   592
+   221   593
+   221   594
+   221   595
+   221   596
+   221   597
+   221   598
+   221   599
+   221   600
+   221   621
+   221   622
+   221   623
+   221   631
+   221   632
+   221   633
+   221   634
+   221   635
+   222   566
+   222   567
+   222   568
+   222   569
+   222   570
+   222   571
+   222   572
+   222   573
+   222   574
+   222   575
+   222   576
+   222   577
+   222   578
+   222   579
+   222   580
+   222   581
+   222   582
+   222   583
+   222   584
+   222   585
+   222   586
+   222   587
+   222   588
+   222   589
+   222   590
+   222   593
+   222   594
+   222   595
+   222   596
+   222   597
+   222   598
+   222   599
+   222   600
+   222   621
+   222   622
+   222   623
+   222   631
+   222   632
+   222   633
+   222   634
+   223   566
+   223   567
+   223   568
+   223   569
+   223   570
+   223   571
+   223   572
+   223   573
+   223   574
+   223   575
+   223   576
+   223   577
+   223   578
+   223   579
+   223   580
+   223   581
+   223   582
+   223   583
+   223   584
+   223   585
+   223   586
+   223   587
+   223   588
+   223   589
+   223   595
+   223   596
+   223   597
+   223   598
+   223   599
+   223   621
+   223   622
+   223   623
+   223   624
+   223   625
+   223   626
+   223   631
+   223   632
+   223   633
+   223   634
+   224   567
+   224   568
+   224   569
+   224   570
+   224   571
+   224   572
+   224   573
+   224   574
+   224   575
+   224   576
+   224   577
+   224   578
+   224   579
+   224   580
+   224   581
+   224   582
+   224   583
+   224   584
+   224   585
+   224   586
+   224   587
+   224   588
+   224   596
+   224   597
+   224   598
+   224   599
+   224   620
+   224   621
+   224   622
+   224   623
+   224   624
+   224   625
+   224   626
+   224   627
+   224   628
+   225   567
+   225   568
+   225   569
+   225   570
+   225   571
+   225   572
+   225   573
+   225   574
+   225   575
+   225   576
+   225   577
+   225   578
+   225   579
+   225   580
+   225   581
+   225   582
+   225   583
+   225   584
+   225   585
+   225   586
+   225   587
+   225   597
+   225   598
+   225   599
+   225   618
+   225   619
+   225   620
+   225   621
+   225   622
+   225   623
+   225   627
+   225   628
+   225   629
+   226   566
+   226   567
+   226   568
+   226   569
+   226   570
+   226   571
+   226   572
+   226   573
+   226   574
+   226   575
+   226   576
+   226   577
+   226   578
+   226   579
+   226   580
+   226   581
+   226   582
+   226   583
+   226   584
+   226   585
+   226   586
+   226   598
+   226   599
+   226   600
+   226   616
+   226   617
+   226   618
+   226   619
+   226   620
+   226   621
+   226   628
+   226   629
+   227   565
+   227   566
+   227   567
+   227   568
+   227   569
+   227   570
+   227   571
+   227   572
+   227   573
+   227   574
+   227   575
+   227   576
+   227   577
+   227   578
+   227   579
+   227   580
+   227   581
+   227   582
+   227   583
+   227   584
+   227   585
+   227   586
+   227   598
+   227   599
+   227   600
+   227   601
+   227   616
+   227   617
+   227   618
+   227   619
+   227   620
+   227   628
+   227   629
+   227   630
+   228   564
+   228   565
+   228   566
+   228   567
+   228   568
+   228   569
+   228   570
+   228   571
+   228   572
+   228   575
+   228   576
+   228   577
+   228   578
+   228   579
+   228   580
+   228   581
+   228   582
+   228   583
+   228   584
+   228   585
+   228   586
+   228   600
+   228   601
+   228   602
+   228   616
+   228   617
+   228   618
+   228   619
+   228   620
+   228   628
+   228   629
+   228   630
+   228   631
+   229   564
+   229   565
+   229   566
+   229   567
+   229   568
+   229   569
+   229   570
+   229   576
+   229   577
+   229   578
+   229   579
+   229   580
+   229   581
+   229   582
+   229   583
+   229   584
+   229   585
+   229   586
+   229   619
+   229   620
+   229   621
+   229   628
+   229   629
+   229   630
+   229   631
+   230   565
+   230   566
+   230   567
+   230   568
+   230   569
+   230   577
+   230   578
+   230   579
+   230   580
+   230   581
+   230   582
+   230   583
+   230   584
+   230   585
+   230   586
+   230   619
+   230   620
+   230   621
+   230   622
+   230   628
+   230   629
+   230   630
+   230   631
+   231   566
+   231   567
+   231   568
+   231   578
+   231   579
+   231   580
+   231   581
+   231   582
+   231   584
+   231   585
+   231   586
+   231   587
+   231   588
+   231   619
+   231   620
+   231   621
+   231   622
+   231   623
+   231   624
+   232   567
+   232   568
+   232   579
+   232   580
+   232   585
+   232   586
+   232   587
+   232   619
+   232   620
+   232   621
+   232   622
+   232   623
+   232   624
+   232   625
+   233   584
+   233   585
+   233   586
+   233   587
+   233   619
+   233   620
+   233   621
+   233   622
+   233   623
+   233   624
+   234   580
+   234   581
+   234   582
+   234   583
+   234   584
+   234   585
+   234   586
+   234   587
+   235   580
+   235   581
+   235   582
+   235   583
+   235   584
+   235   585
+   235   586
+   236   581
+   236   582
+   236   583
+   236   584
+   236   585
+   236   586
+   236   587
+   237   587
+
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+BW_tmp = BW_bwAreaOpen;
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(regionPropsImClose(:).Area) > 300;
+largePoresRegionProps = regionPropsImClose(largePores);
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+BW_tmp = BW_imClose;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+% add the large pores again to 
+allPixels = vertcat(largePoresRegionProps(:).PixelList); 
+BW_tmp_LargePoresDeleted = BW_tmp;
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 1), allPixels(i, 2)) = 0;
+end
+toc
+Elapsed time is 281.830571 seconds.
+length(allPixels)
+
+ans =
+
+      143877
+
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.069307 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_tmp = BW_bwAreaOpen;
+%% Morphologically close image
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+
+% remember the big pores to preserve their shape 
+largePores = vertcat(regionPropsImClose(:).Area) > 150;
+largePoresRegionProps = regionPropsImClose(largePores);
+areasInit = sort(vertcat(regionPropsImClose(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterPores);
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+se = strel(app.erosionType, app.erosionValue);
+    BW_imClose = imclose(BW_tmp, se);
+% add the large pores again to 
+allPixels = vertcat(largePoresRegionProps(:).PixelList); 
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.053848 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_tmp = BW_bwAreaOpen;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+initialRegionProps = regionprops(BW_tmp);
+initialRegionProps = regionprops(BW_tmp, 'Area', 'PixelList');
+backgroundRegionPropMostDistinct = initialRegionProps(ab);
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList;
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_tmp = BW_bwAreaOpen;
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList;
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList;
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.083365 seconds.
+% add distinct background with undercuts again to image 
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+BW_tmp = BW_tmp_LargePoresDeleted;
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 644 objects remain. (-462 deleted)
+BW_tmp = BW_imOpen;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1,3,1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 2;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.826765 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 0.739447 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 0.734296 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 0.731317 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 0.722672 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen; 
+% save black background (with very distinct undercuts) for later)
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList; 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(regionPropsImClose(:).Area) > 150;
+largePoresRegionProps = regionPropsImClose(largePores); 
+% do imclose 
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% plot
+if app.doPlot
+    figure, imshow(BW_imClose)
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    ax = gca;
+    ax.Clipping = 'off'; % turn clipping off
+end
+% print results
+tic
+initialRegionProps_tmp = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.701978 seconds.
+disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+    ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 4025 objects (< 20px) 3746 have been eliminated (current size: 2)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.054815 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.144343 seconds.
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(initialRegionProps_tmp);
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 279 objects remain. (0 deleted)
+BW_tmp = BW_tmp_LargePoresDeleted;
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 3, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 3, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 3, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(app.imgBW(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('BW image filtered')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 773 objects remain. (-494 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('BW image filtered')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.774768 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 0.734189 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 0.748154 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 0.737346 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 0.724037 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen; 
+% save black background (with very distinct undercuts) for later)
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList; 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(regionPropsImClose(:).Area) > 150;
+largePoresRegionProps = regionPropsImClose(largePores); 
+% do imclose 
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% plot
+if app.doPlot
+    figure, imshow(BW_imClose)
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    ax = gca;
+    ax.Clipping = 'off'; % turn clipping off
+end
+% print results
+tic
+initialRegionProps_tmp = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.698678 seconds.
+disp(['imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+    ' have been eliminated (current size: ', num2str(app.erosionValue), ')'])
+imclose: Of 4025 objects (< 20px) 3791 have been eliminated (current size: 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.054934 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.205032 seconds.
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(initialRegionProps_tmp);
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 234 objects remain. (0 deleted)
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 644 objects remain. (-410 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('BW image filtered')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+figure, imshow(BW_tmp)
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    ax = gca;
+    ax.Clipping = 'off'; % turn clipping off
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.766934 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 0.732479 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 0.742034 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 0.739920 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 0.722922 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.781517 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    tic
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    toc
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 1.466544 seconds.
+Elapsed time is 0.740110 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 1.497617 seconds.
+Elapsed time is 0.720037 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.467361 seconds.
+Elapsed time is 0.758715 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.475000 seconds.
+Elapsed time is 0.737448 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen; 
+% save black background (with very distinct undercuts) for later)
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList; 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_tmp = BW_bwAreaOpen; 
+% save black background (with very distinct undercuts) for later)
+tic
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+toc
+Elapsed time is 2.070059 seconds.
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList; 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+regionPropsImClose = regionprops(~BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(regionPropsImClose(:).Area), max(vertcat(regionPropsImClose(:).Area)));
+regionPropsImClose(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(regionPropsImClose(:).Area) > 150;
+largePoresRegionProps = regionPropsImClose(largePores); 
+% do imclose 
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% plot
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+initialRegionProps(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(initialRegionProps(:).Area) > 150;
+largePoresRegionProps = initialRegionProps(largePores);
+% do imclose 
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+figure, imshow(BW_imClose)
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    ax = gca;
+    ax.Clipping = 'off'; % turn clipping off
+initialRegionProps_tmp = regionprops(BW_imClose, 'Area');
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.053894 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.148709 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted;
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+initialRegionProps(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(initialRegionProps(:).Area) > 150;
+largePoresRegionProps = initialRegionProps(largePores); 
+% do imclose 
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.722137 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.061694 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.159984 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% decide weather it's a normal or panorama image
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < aspectRatioTS
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.817905 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+tic
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    toc
+Elapsed time is 1.503666 seconds.
+while initialAreasSmallerTS_tmp > 1
+    tic
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    toc
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 1.520416 seconds.
+Elapsed time is 0.742405 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 1.508215 seconds.
+Elapsed time is 0.747166 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.478939 seconds.
+Elapsed time is 0.740602 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.501148 seconds.
+Elapsed time is 0.773476 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen;
+tic
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+toc
+Elapsed time is 2.148754 seconds.
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList; 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+initialRegionProps_tmp(ab) = [];
+largePores = vertcat(initialRegionProps_tmp(:).Area) > 150;
+largePoresRegionProps = initialRegionProps_tmp(largePores);
+largePoresRegionProps
+
+largePoresRegionProps = 
+
+  313×1 <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> array with fields:
+
+    Area
+
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+{Reference to non-existent field 'PixelList'.
+} 
+initialRegionProps_tmp = regionprops(BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(initialRegionProps_tmp(:).Area), max(vertcat(initialRegionProps_tmp(:).Area)));
+initialRegionProps_tmp(ab) = [];
+initialRegionProps_tmp = regionprops(BW_tmp, 'Area', 'PixelList');
+[~, ab, ~] = intersect(vertcat(initialRegionProps_tmp(:).Area), max(vertcat(initialRegionProps_tmp(:).Area)));
+initialRegionProps_tmp(ab) = [];
+% remember the big pores to preserve their shape 
+largePores = vertcat(initialRegionProps_tmp(:).Area) > 150;
+largePoresRegionProps = initialRegionProps_tmp(largePores);
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.812483 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.060561 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.188236 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted;
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 206 objects remain. (28 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% display results
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+initialRegionProps = regionprops(BW_tmp, 'Area');
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll_after = sum(areasInit(1:(quantInit-1)));
+i4 = round(((areaAll - areaAll_after) / areaAll) * 100, 1);
+disp(['Overall reduction of objects ', num2str(i3), '%'])
+Overall reduction of objects 95.4%
+disp(['Reduction in area ', num2str(i4), '%'])
+Reduction in area 82.3%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('BW image filtered')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('BW image filtered')
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.706006 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3922 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.052804 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.169793 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 56 objects remain. (178 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('Morphologically closed')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('Morphologically opened')
+BW_tmp = BW_bwAreaOpen;
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.712786 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.066709 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.149740 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 624 objects remain. (-390 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('Morphologically closed')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('Morphologically opened')
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.768911 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+figure, imshow(BW_bwAreaOpen)
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    tic
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    toc
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 1.488614 seconds.
+Elapsed time is 0.743751 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 1.478098 seconds.
+Elapsed time is 0.774937 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.519377 seconds.
+Elapsed time is 0.744812 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.503966 seconds.
+Elapsed time is 0.937262 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen;
+figure, imshow(BW_bwAreaOpen)
+tic
+initialRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+toc
+Elapsed time is 2.182426 seconds.
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = initialRegionProps(ab).PixelList;
+figure, imshow(BW_tmp)
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    ax = gca;
+    ax.Clipping = 'off'; % turn clipping off
+tic
+blackRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+toc
+Elapsed time is 2.176016 seconds.
+[~, ab, ~] = intersect(vertcat(blackRegionProps(:).Area), max(vertcat(blackRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = blackRegionProps(ab).PixelList;
+[~, ab, ~] = intersect(vertcat(blackRegionProps(:).Area), max(vertcat(blackRegionProps(:).Area)));
+blackRegionProps(ab) = [];
+largePores = vertcat(blackRegionProps(:).Area) > 150;
+largePoresRegionProps = blackRegionProps(largePores);
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.714932 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.053099 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.147035 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 619 objects remain. (-385 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('Morphologically closed')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('Morphologically opened')
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.724527 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3646 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.053864 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.141750 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterMatIslands = 3;
+    filterPores = 3;
+    P = 1;
+    interval4P = 2; 
+else
+    filterMatIslands = 100;
+    filterPores = 20;
+    P = 20;
+    interval4P = 30; 
+    app.erosionValue = 3;
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+toc
+Elapsed time is 0.806863 seconds.
+% eliminate largest area (actual material, which was detected as regionprop) 
+[~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
+initialRegionProps(ab) = [];
+% quantity of regionprops
+quantInit = length(initialRegionProps);
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remove small objects (material islands) from binary image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% find the regions smaller threshold
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit);
+initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
+% initialize image 
+BW_bwAreaOpen = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+while initialAreasSmallerTS_tmp > 1
+    tic
+    BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
+    toc
+    if app.doPlot 
+        figure, imshow(BW_bwAreaOpen)
+        set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+        ax = gca; 
+        ax.Clipping = 'off';    % turn clipping off
+    end
+    tic
+    initialRegionProps_tmp = regionprops(BW_bwAreaOpen, 'Area');
+    toc
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterMatIslands), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterMatIslands);
+    P = P + interval4P;
+end
+Elapsed time is 1.513226 seconds.
+Elapsed time is 0.758401 seconds.
+bwareaopen: Of 4025 objects (< 100px) 2662 have been eliminated (current size: 20)
+Elapsed time is 1.474684 seconds.
+Elapsed time is 0.748968 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3286 have been eliminated (current size: 50)
+Elapsed time is 1.516550 seconds.
+Elapsed time is 0.746982 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3528 have been eliminated (current size: 80)
+Elapsed time is 1.493704 seconds.
+Elapsed time is 0.758297 seconds.
+bwareaopen: Of 4025 objects (< 100px) 3622 have been eliminated (current size: 110)
+BW_tmp = BW_bwAreaOpen; 
+% save black background (with very distinct undercuts) for later)
+tic
+blackRegionProps = regionprops(~BW_tmp, 'Area', 'PixelList'); 
+toc
+Elapsed time is 2.073008 seconds.
+[~, ab, ~] = intersect(vertcat(blackRegionProps(:).Area), max(vertcat(blackRegionProps(:).Area)));
+backgroundRegionPropMostDistinct = blackRegionProps(ab).PixelList; 
+% remember the big pores to preserve their shape 
+[~, ab, ~] = intersect(vertcat(blackRegionProps(:).Area), max(vertcat(blackRegionProps(:).Area)));
+blackRegionProps(ab) = [];
+largePores = vertcat(blackRegionProps(:).Area) > 150;
+largePoresRegionProps = blackRegionProps(largePores); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.714493 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.051526 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 1;
+end
+toc
+Elapsed time is 0.145702 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 1 objects remain. (233 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('Morphologically closed')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('Morphologically opened')
+BW_tmp = BW_bwAreaOpen;
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically close image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+se = strel(app.erosionType, app.erosionValue);
+BW_imClose = imclose(BW_tmp, se);
+% print results
+tic
+initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
+toc
+Elapsed time is 0.728666 seconds.
+disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+    num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
+    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+Imclose: Of 4025 objects (< 20px) 3791 have been eliminated
+(current size (app.erosionValue): 3)
+% add the large pores again to image
+allPixels = vertcat(largePoresRegionProps(:).PixelList);
+BW_tmp_LargePoresDeleted = BW_imClose;
+tic
+for i = 1 : length(allPixels)
+    BW_tmp_LargePoresDeleted(allPixels(i, 2), allPixels(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.053710 seconds.
+% add distinct background with undercuts again to image 
+tic
+for i = 1 : length(backgroundRegionPropMostDistinct)
+    BW_tmp_LargePoresDeleted(backgroundRegionPropMostDistinct(i, 2), backgroundRegionPropMostDistinct(i, 1)) = 0;
+end
+toc
+Elapsed time is 0.149485 seconds.
+BW_tmp = BW_tmp_LargePoresDeleted; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Morphologically open image
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BW_imOpen = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_imOpen));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 644 objects remain. (-410 deleted)
+BW_tmp = BW_imOpen; 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+    set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
+    
+    subplot(1, 5, 1)
+    imshow(app.imgOriginal(:, 1:1000,  :))
+    title('RGB image original')
+    
+    subplot(1, 5, 2)
+    imshow(BW_bwAreaOpen(:, 1:1000))
+    title('BW image original')
+    
+    subplot(1, 5, 3)
+    imshow(BW_imClose(:, 1:1000))
+    title('Morphologically closed')
+  
+    subplot(1, 5, 4)
+    imshow(BW_tmp_LargePoresDeleted(:, 1:1000))
+    title('Added: Large pores & bwAreaOpen-Background')
+  
+    subplot(1, 5, 5)
+    imshow(BW_tmp(:, 1:1000))
+    title('Morphologically opened')
+if system_dependent('IsDebugMode')==1, dbquit all; end
+SLS_Oberflaechenrauheit_final_2020

@@ -1,0 +1,49 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',100,1)">100 </a>if strcmp(app.programMode, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+calculateScaleFromPreviousUserSelection(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',438,1)">438 </a>rx = app.MassstabRechtsPosX;
+if system_dependent('IsDebugMode')==1, dbcont; end
+abs(rx - lx)
+
+ans =
+
+  168.0617
+  650.8842
+
+app.MassstabLaenge
+
+ans =
+
+    50
+
+app.MassstabWert = app.MassstabLaenge/abs(rx - lx);
+pp.MassstabWert
+{Unable to resolve the name pp.MassstabWert.
+} 
+app.MassstabWert
+
+ans =
+
+         0    0.0768
+
+rx
+
+rx =
+
+   1.0e+03 *
+
+    2.1672
+    2.6500
+
+lx
+
+lx =
+
+   1.0e+03 *
+
+    1.9991
+    1.9991
+
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

@@ -1,0 +1,93 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',176,1)">176 </a>    app = convertGrayscaleToBinaryImage(app);
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',180,1)">180 </a>    app = prepareImageWithBWAreaOpenOpenCloseCtc(app); 
+app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',465,1)">465 </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+widthHeightRatio =  app.imageWidth / app.imageHeight;
+if widthHeightRatio < 1.5
+    imageType = 'normal';
+else
+    imageType = 'panorama';
+end
+
+%% count the material islands that are in the image right now
+tic
+initialRegionProps = regionprops(app.imgBWnoScale);
+toc
+Elapsed time is 0.287216 seconds.
+quantInit = length(initialRegionProps);
+%% filter all objects that are small than filterTS
+if strcmp(imageType, 'normal')
+    filterTS = 3;
+    P = 1;
+else
+    filterTS = 10;
+    P = 10;
+end
+%% Remove small objects from binary image
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll = sum(areasInit(1:(quantInit-1)));
+initialAreasSmallerTS = nnz((areasInit) <= filterTS);
+BW_tmp = app.imgBWnoScale;
+initialAreasSmallerTS_tmp = initialAreasSmallerTS;
+initialRegionProps_tmp = regionprops(BW_tmp);
+while initialAreasSmallerTS_tmp > 1
+    BW_tmp = bwareaopen(BW_tmp, P);
+    initialRegionProps_tmp = regionprops(BW_tmp);
+    disp(['bwareaopen: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
+        num2str(filterTS), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp)), ...
+        ' have been eliminated (current size: ', num2str(P), ')'])
+    initialAreasSmallerTS_tmp = nnz(sort(vertcat(initialRegionProps_tmp(:).Area)) <= filterTS);
+    P = P + 1;
+end
+bwareaopen: Of 24 objects (< 3px) -37 have been eliminated (current size: 1)
+bwareaopen: Of 24 objects (< 3px) -18 have been eliminated (current size: 2)
+bwareaopen: Of 24 objects (< 3px) -14 have been eliminated (current size: 3)
+se = strel(app.erosionType, app.erosionValue);
+%% Morphologically close image
+BW_tmp = imclose(BW_tmp, se);
+i0 = length(initialRegionProps_tmp);
+i1_tmp = length(regionprops(BW_tmp));
+i1 = i0 - i1_tmp;
+disp(['After imclose: ', num2str(i1_tmp), ' objects remain. (', num2str(i1), ' deleted)'])
+After imclose: 28 objects remain. (10 deleted)
+%% Morphologically open image
+BW_tmp = imopen(BW_tmp, se);
+i2_tmp = length(regionprops(BW_tmp));
+i2 = i1_tmp - i2_tmp;
+disp(['After imopen: ', num2str(i2_tmp), ' objects remain. (', num2str(i2), ' deleted)'])
+After imopen: 23 objects remain. (5 deleted)
+%% display results
+i3 = round(((quantInit - i2_tmp) / quantInit) * 100, 1);
+initialRegionProps = regionprops(BW_tmp);
+quantInit = length(initialRegionProps);
+areasInit = sort(vertcat(initialRegionProps(:).Area));
+areaAll_after = sum(areasInit(1:(quantInit-1)));
+i4 = round(((areaAll - areaAll_after) / areaAll) * 100, 1);
+disp(['Overall reduction of objects ', num2str(i3), '%'])
+Overall reduction of objects 62.3%
+disp(['Reduction in area ', num2str(i4), '%'])
+Reduction in area 0.2%
+if app.doPlot
+    figure
+    subplot(2,1,1)
+    imshow(app.imgBWnoScale)
+    subplot(2,1,2)
+    imshow(BW_tmp)
+end
+app.doPlot
+
+ans =
+
+     0
+
+figure
+    subplot(2,1,1)
+    imshow(app.imgBWnoScale)
+    subplot(2,1,2)
+    imshow(BW_tmp)
+app.imgEroded = BW_tmp;
+app.imgErod = app.imgEroded;
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

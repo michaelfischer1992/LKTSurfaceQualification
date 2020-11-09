@@ -1,0 +1,5 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',173,1)">173 </a>    app = calcGrayscaleThresholdInImage(app);
+app = calcGrayscaleThresholdInImage(app);
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2

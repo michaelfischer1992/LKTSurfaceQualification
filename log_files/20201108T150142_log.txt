@@ -1,0 +1,47 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\prepareImageWithBWAreaOpenOpenCloseCtc.m',15,1)">15  </a>widthHeightRatio =  app.imageWidth / app.imageHeight;
+if system_dependent('IsDebugMode')==1, dbcont; end
+Elapsed time is 0.096251 seconds.
+Elapsed time is 0.153923 seconds.
+Elapsed time is 0.064043 seconds.
+bwareaopen: Of 29 objects (< 3px) -33 have been eliminated (current size: 1)
+Elapsed time is 0.125502 seconds.
+Elapsed time is 0.058566 seconds.
+bwareaopen: Of 29 objects (< 3px) -5 have been eliminated (current size: 3)
+Elapsed time is 0.197442 seconds.
+Elapsed time is 0.057085 seconds.
+Imclose: Of 29 objects (< 3px) 4 have been eliminated
+(current size (app.erosionValue): 2)
+Elapsed time is 0.006439 seconds.
+Elapsed time is 0.037051 seconds.
+Overall reduction of objects 57.4%
+Reduction in area 0.3%
+real contour length: 850 µm / 8311.0204 px.
+picture width: 278 µm / 2716 px.
+ratio: 3.1
+For parameter "Materialinseln" 26 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 1 took 
+Elapsed time is 0.363448 seconds.
+For parameter "Materialinseln" 56 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 2 took 
+Elapsed time is 1.556193 seconds.
+For parameter "Materialinseln" 36 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 3 took 
+Elapsed time is 0.316365 seconds.
+For parameter "Roughness Areas" 54 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 4 took 
+Elapsed time is 1.772319 seconds.
+For parameter "Materialinseln" 25 objects were found.
+Ratio to image area: 1%.
+For parameter "Materialinseln" 20 objects were found.
+Ratio to image area: 1%.
+calculating surface quality parameter 5 took 
+Elapsed time is 2.906990 seconds.
+Results saved as "20201108T150225_overallResults.mat" in export folder: "C:\git\LKTSurfaceQualification\export"
+--------------------------------------------------------------------------------------------------------------------------
+-
+-

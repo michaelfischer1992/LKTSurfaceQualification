@@ -1,0 +1,68 @@
+appdesigner
+uiopen('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters.m',1)
+runAllQualityParametersWithGivenParameters2
+userSelectsImageInExplorer
+{Not enough input arguments.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>userSelectsImageInExplorer', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 65)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>userSelectsImageInExplorer</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',65,0)">line 65</a>)
+    '*.*',  'All Files (*.*)'}, 'Bitte wählen Sie ein Mikroskopiebild
+    aus', app.ImportpathEditField.Value);
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2
+userSelectsImageInExplorer()
+{Unrecognized function or variable 'app'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>userSelectsImageInExplorer', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 65)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>userSelectsImageInExplorer</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',65,0)">line 65</a>)
+    '*.*',  'All Files (*.*)'}, 'Bitte wählen Sie ein Mikroskopiebild
+    aus', app.ImportpathEditField.Value);
+} 
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2
+userSelectsImageInExplorer(app)
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+      ImportpathEditField: [1×1 struct]
+                 BildPfad: 'C:\git\LKTSurfaceQualification\images\'
+                 BildName: '11565_0011'
+    BildNamePlusExtention: '11565_0011.jpg'
+
+if system_dependent('IsDebugMode')==1, dbquit all; end
+LKTPATH        = 'C:\git\LKTSurfaceQualification';
+cd(LKTPATH)
+app.currentFolder = pwd;
+app.guiImagesPath = [app.currentFolder, '\gui_pics'];
+app.logfiles = [app.currentFolder, '\log_files'];
+app.exportPath = [app.currentFolder, '\export'];
+app.functionPath = [app.currentFolder, '\functions'];
+app.functionPath2017 = [app.currentFolder, '\functions\from2017'];
+app.imagePath = [app.currentFolder, '\images'];
+app
+
+app = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+       currentFolder: 'C:\git\LKTSurfaceQualification'
+       guiImagesPath: 'C:\git\LKTSurfaceQualification\gui_pics'
+            logfiles: 'C:\git\LKTSurfaceQualification\log_files'
+          exportPath: 'C:\git\LKTSurfaceQualification\export'
+        functionPath: 'C:\git\LKTSurfaceQualification\functions'
+    functionPath2017: 'C:\git\LKTSurfaceQualification\functions\from2017'
+           imagePath: 'C:\git\LKTSurfaceQualification\images'
+
+addpath(app.exportPath);
+addpath(app.logfiles);
+addpath(app.guiImagesPath);
+addpath(app.functionPath);
+addpath(app.functionPath2017);
+addpath(app.imagePath);
+runAllQualityParametersWithGivenParameters2

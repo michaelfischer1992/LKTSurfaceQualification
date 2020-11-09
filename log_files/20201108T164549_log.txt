@@ -1,0 +1,750 @@
+{Unrecognized method, property, or field 'icon_settings1' for class 'SLS_Oberflaechenrauheit_final_App_new'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_App_new/startupFcn', 'C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp', 771)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_App_new/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\SLS_Oberflaechenrauheit_final_App_new.mlapp',771,0)">line 771</a>)
+            app.icon_settings1.ImageSource = ([app.guiImagesPath, '\settings.png']);
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal.GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+Error while evaluating GraphicsCallbackProxy CallbackFcn.
+
+{Children may only be set to a permutation of itself.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 243)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',243,0)">line
+243</a>)
+            obj.Model.Children = arrangeChildren;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.DesignTimeGbtParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m', 20)" style="font-weight:bold">matlab.ui.internal.DesignTimeGbtParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\DesignTimeGbtParentingController.m',20,0)">line 20</a>)
+            populateView@appdesservices.internal.interfaces.controller.DesignTimeParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 37)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory.createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',37,0)">line 37</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 127)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createComponent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',127,0)">line 127</a>)
+            DesignTimeComponentFactory.createController(componentType, component, ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m', 17)" style="font-weight:bold">appdesigner.internal.componentmodel.DesignTimeComponentFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uicomponents\uicomponents\plugin\appdesigner\+appdesigner\+internal\+componentmodel\DesignTimeComponentFactory.m',17,0)">line 17</a>)
+            component = DesignTimeComponentFactory.createComponent(componentType, parentModel, peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppChildModelFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppChildModelFactory.m', 17)" style="font-weight:bold">appdesigner.internal.model.AppChildModelFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppChildModelFactory.m',17,0)">line 17</a>)
+                        factory.createModel(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 164)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processProxyView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',164,0)">line 164</a>)
+                obj.processClientCreatedPeerNode(childPeerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 59)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',59,0)">line 59</a>)
+                obj.processProxyView();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.controller.AppController/populateView', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+controller\AppController.m', 26)" style="font-weight:bold">appdesigner.internal.controller.AppController/populateView</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+controller\AppController.m',26,0)">line 26</a>)
+            populateView@appdesservices.internal.interfaces.controller.AppDesignerParentingController(obj, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel/createController', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 773)" style="font-weight:bold">appdesigner.internal.model.AppModel/createController</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',773,0)">line 773</a>)
+            controller.populateView(proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 116)" style="font-weight:bold">appdesigner.internal.model.AppModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',116,0)">line 116</a>)
+            obj.createController(obj.AppDesignerModel.Controller, proxyView);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppDesignerChildModelFactory/createModel', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppDesignerChildModelFactory.m', 29)" style="font-weight:bold">appdesigner.internal.model.AppDesignerChildModelFactory/createModel</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppDesignerChildModelFactory.m',29,0)">line 29</a>)
+                    model = appdesigner.internal.model.AppModel(parentModel, proxyView, uifigure);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 201)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/processClientCreatedPeerNode</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',201,0)">line
+201</a>)
+            child = obj.Factory.createModel(obj.getModel(),peerNode);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeAdded', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 287)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController/handlePeerNodeAdded</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',287,0)">line 287</a>)
+                obj.processClientCreatedPeerNode(peerNode);
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeAdded(varargin{:})', 'C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m', 145)" style="font-weight:bold">appdesservices.internal.interfaces.controller.DesignTimeParentingController>@(varargin)obj.handlePeerNodeAdded(varargin{:})</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\shared\appdes\services\+appdesservices\+internal\+interfaces\+controller\DesignTimeParentingController.m',145,0)">line 145</a>)
+            obj.ChildAddedListener =
+            appdesservices.internal.viewmodel.ViewModelManagerFactory.addEventListener(obj.ProxyView.PeerNode,'childAdded',
+            @obj.handlePeerNodeAdded);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('hgfeval', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m', 62)" style="font-weight:bold">hgfeval</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\graphics\hgfeval.m',62,0)">line 62</a>)
+        feval(fcn{1},varargin{:},fcn{2:end});
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>cbBridge', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 52)" style="font-weight:bold">javaaddlistener>cbBridge</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',52,0)">line 52</a>)
+    hgfeval(response, java(o), e.JavaEvent)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddlistener>@(o,e)cbBridge(o,e,response)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m', 47)" style="font-weight:bold">javaaddlistener>@(o,e)cbBridge(o,e,response)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\uitools\private\javaaddlistener.m',47,0)">line 47</a>)
+                          @(o,e) cbBridge(o,e,response));
+} 
+[Warning: Error occurred while evaluating listener callback.] 
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',117,1)">117 </a>            SLS_Oberflaechenrauheit_final_2020(app)
+            SLS_Oberflaechenrauheit_final_2020(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,1)">3   </a>app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+%% parameters
+app.doPlot = 0;
+{Unrecognized property 'doPlot' for class 'app1'.
+} 
+app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+if system_dependent('IsDebugMode')==1, dbquit; end
+            app.ConfigParams = []; 
+{Unrecognized property 'ConfigParams' for class 'app1'.
+} 
+            SLS_Oberflaechenrauheit_final_2020(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,1)">3   </a>app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+app.ConfigParams
+{Unrecognized method, property, or field 'ConfigParams' for class 'app1'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+            app.ConfigParams = []; 
+{Unrecognized property 'ConfigParams' for class 'app1'.
+} 
+            app.ConfigParams = []; 
+{Unrecognized property 'ConfigParams' for class 'app1'.
+} 
+            app.ConfigParams = []
+{Unrecognized property 'ConfigParams' for class 'app1'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',117,1)">117 </a>            app.ConfigParams = []
+            app.ConfigParams = []
+{Assignment not supported because the result of method 'ConfigParams' is a temporary value.
+} 
+            SLS_Oberflaechenrauheit_final_2020(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,1)">3   </a>app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+app.ConfigParams
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/ConfigParams')" style="font-weight:bold">app1/ConfigParams</a>
+Too many input arguments.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,1)">177 </a>            app.ConfigParams = []
+            SLS_Oberflaechenrauheit_final_2020(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,1)">3   </a>app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+app.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+app.doPlot = 0;
+app.doPlot4Debug = 0;
+{Unrecognized property 'doPlot4Debug' for class 'app1'.
+} 
+app.programMode = 'multiple images'; % 'single image', 'multiple images'
+{Unrecognized property 'programMode' for class 'app1'.
+} 
+app.LengthScaleEditField = 50; % mycrometer - Massstab
+{Error setting property 'LengthScaleEditField' of class '<a href="matlab:helpPopup app1">app1</a>'. Cannot convert double value 50 to a handle
+} 
+app.ConfigParams.plot4Debug = 0;
+app.ConfigParams.ImportpathEditField.Value = 'C:\git\LKTSurfaceQualification\images';
+
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0;
+LKTPATH        = 'C:\git\LKTSurfaceQualification';
+cd(LKTPATH)
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0; 
+% adding paths from git
+LKTPATH        = 'C:\git\LKTSurfaceQualification';
+try
+    cd(LKTPATH)
+catch
+    disp('Pull git repository "https://github.com/michaelfischer1992/LKTSurfaceQualification.git" to C:\git\')
+    web('https://github.com/michaelfischer1992/LKTSurfaceQualification')
+    error('Get git repository first. Path mentioned previously.')
+end
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+[Warning: Name is nonexistent or not a directory: C:\export] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+addpath(app.ConfigParams.logfiles);
+[Warning: Name is nonexistent or not a directory: C:\log_files] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+addpath(app.ConfigParams.guiImagesPath);
+[Warning: Name is nonexistent or not a directory: C:\gui_pics] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+addpath(app.ConfigParams.functionPath);
+[Warning: Name is nonexistent or not a directory: C:\functions] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+addpath(app.ConfigParams.functionPath2017);
+[Warning: Name is nonexistent or not a directory: C:\functions\from2017] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+addpath(app.ConfigParams.imagePath);
+[Warning: Name is nonexistent or not a directory: C:\images] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('path', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m', 109)" style="font-weight:bold">path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\path.m',109,0)">line 109</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('addpath', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m', 86)" style="font-weight:bold">addpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\general\addpath.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 3)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',3,0)">line 3</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1/startupFcn', 'C:\git\LKTSurfaceQualification\app1.mlapp', 177)" style="font-weight:bold">app1/startupFcn</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',177,0)">line 177</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/tryCallback', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 365)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/tryCallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',365,0)">line 365</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 156)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(~,~)obj.tryCallback(app,startupFcn,false,[])</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',156,0)">line 156</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m', 23)" style="font-weight:bold">matlab.apps.internal/GraphicsCallbackProxy/runCallbackFunction</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\+internal\GraphicsCallbackProxy.m',23,0)">line 23</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 157)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',157,0)">line 157</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.apps/AppBase/runStartupFcn', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m', 43)" style="font-weight:bold">matlab.apps/AppBase/runStartupFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+matlab\+apps\AppBase.m',43,0)">line 43</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('app1', 'C:\git\LKTSurfaceQualification\app1.mlapp', 697)" style="font-weight:bold">app1</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',697,0)">line 697</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runAppWithTryCatch', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 200)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runAppWithTryCatch</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',200,0)">line 200</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service/AppManagementService/runDesktopApp', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 84)" style="font-weight:bold">appdesigner.internal.service/AppManagementService/runDesktopApp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',84,0)">line 84</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model/AppModel/runAppHelper', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 670)" style="font-weight:bold">appdesigner.internal.model/AppModel/runAppHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',670,0)">line 670</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)', 'C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m', 524)" style="font-weight:bold">appdesigner.internal.model.AppModel>@()appdesigner.internal.model.AppModel.runAppHelper(obj,fullFileName,appArguments)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020b\toolbox\matlab\appdesigner\appdesigner\+appdesigner\+internal\+model\AppModel.m',524,0)">line 524</a>)] 
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.currentFolder
+
+ans =
+
+    'C:\git\LKTSurfaceQualification'
+
+app.ConfigParams.guiImagesPath = [app.currentFolder, '\gui_pics'];
+app.ConfigParams.guiImagesPath
+
+ans =
+
+    '\gui_pics'
+
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+addpath(app.ConfigParams.logfiles);
+addpath(app.ConfigParams.guiImagesPath);
+addpath(app.ConfigParams.functionPath);
+addpath(app.ConfigParams.functionPath2017);
+addpath(app.ConfigParams.imagePath);
+LKTPATH        = 'C:\git\LKTSurfaceQualification';
+try
+    cd(LKTPATH)
+catch
+    disp('Pull git repository "https://github.com/michaelfischer1992/LKTSurfaceQualification.git" to C:\git\')
+    web('https://github.com/michaelfischer1992/LKTSurfaceQualification')
+    error('Get git repository first. Path mentioned previously.')
+end
+app.ConfigParams.workingDirectory = [];
+app.ConfigParams.importDirectory = [];
+app.ConfigParams.savingDirectory = [];
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+addpath(app.ConfigParams.logfiles);
+addpath(app.ConfigParams.guiImagesPath);
+addpath(app.ConfigParams.functionPath);
+addpath(app.ConfigParams.functionPath2017);
+addpath(app.ConfigParams.imagePath);
+
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.captionFontSize = 14;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0; 
+app.ConfigParams.erosionType = []; 
+app.ConfigParams.erosionValue = []; 
+% colors
+app.ConfigParams.gruen=[0.78 0.88 0.58];
+app.ConfigParams.hellgruen=[0.73	0.88	0.48];
+app.ConfigParams.dunkelrot=[0.64	0.08	0.18];
+app.ConfigParams.hellrot=[0.93	0.41	0.50];
+app.ConfigParams.grau=[0.50	0.50	0.50];
+app.ConfigParams.schwarz=[0	0	0];
+app.ConfigParams.rosa=[1.00	0.80	0.80];
+% iamge
+app.Data.BildPfad = [];
+{Unrecognized method, property, or field 'Data' for class 'app1'.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbstep in; end
+
+app = 
+
+  <a href="matlab:helpPopup app1" style="font-weight:bold">app1</a> with properties:
+
+                                                       UIFigure: [1×1 Figure]
+                                                   ProgrammMenu: [1×1 Menu]
+                                                       OpenMenu: [1×1 Menu]
+                                                       SaveMenu: [1×1 Menu]
+                                                     ExportMenu: [1×1 Menu]
+                                            OpenInputFolderMenu: [1×1 Menu]
+                                           OpenOutputFolderMenu: [1×1 Menu]
+                                                       EditMenu: [1×1 Menu]
+                                                PreferencesMenu: [1×1 Menu]
+                                                    HeaderPhoto: [1×1 Image]
+                                                    FooterPhoto: [1×1 Image]
+                                                       TabGroup: [1×1 TabGroup]
+                                                   CalculateTab: [1×1 Tab]
+                                                LoadImageButton: [1×1 Button]
+                                             CalculateAllButton: [1×1 Button]
+                                                 icon_settings1: [1×1 Image]
+                                                   icon_folder1: [1×1 Image]
+                                                    icon_trash1: [1×1 Image]
+                                                 icon_settings2: [1×1 Image]
+                                                      icon_help: [1×1 Image]
+                                                     ScaleLabel: [1×1 Label]
+                                           LengthScaleEditField: [1×1 NumericEditField]
+                                                       DropDown: [1×1 DropDown]
+                                                         Image2: [1×1 Image]
+                                           AnalyzeResultsButton: [1×1 Button]
+                                                         Image3: [1×1 Image]
+                                                         Button: [1×1 Button]
+                                     ProgrammodeDropDown_2Label: [1×1 Label]
+                                            ProgrammodeDropDown: [1×1 DropDown]
+                                        OberflchengteGaugeLabel: [1×1 Label]
+                                             OberflchengteGauge: [1×1 Gauge]
+                                          ProgrammodeDropDown_2: [1×1 DropDown]
+                                                        UIAxes6: [1×1 UIAxes]
+                                                        UIAxes7: [1×1 UIAxes]
+                                                  SingleModeTab: [1×1 Tab]
+                                          MaterialIslandsButton: [1×1 Button]
+                                                UndercutsButton: [1×1 Button]
+                                                    PoresButton: [1×1 Button]
+                                                RoughnessButton: [1×1 Button]
+                           UndercutsbehindMaterialIslandsButton: [1×1 Button]
+                                             StartmanuallyLabel: [1×1 Label]
+                                                       Button_5: [1×1 Button]
+                                              LoadImageButton_2: [1×1 Button]
+                                                    SettingsTab: [1×1 Tab]
+                                                      TabGroup2: [1×1 TabGroup]
+                                                     ErosionTab: [1×1 Tab]
+                                               SizeSpinnerLabel: [1×1 Label]
+                                                    SizeSpinner: [1×1 Spinner]
+                                               TypDropDownLabel: [1×1 Label]
+                                                    TypDropDown: [1×1 DropDown]
+                                                       ImageTab: [1×1 Tab]
+                                         ImageTypeDropDownLabel: [1×1 Label]
+                                              ImageTypeDropDown: [1×1 DropDown]
+                                              PlotDropDownLabel: [1×1 Label]
+                                                   PlotDropDown: [1×1 DropDown]
+                                     ThresholdpixelSpinnerLabel: [1×1 Label]
+                                          ThresholdpixelSpinner: [1×1 Spinner]
+                                                       Button_2: [1×1 Button]
+                                                       Button_3: [1×1 Button]
+                                                       Button_4: [1×1 Button]
+                                                  ParametersTab: [1×1 Tab]
+                                                      TabGroup3: [1×1 TabGroup]
+                                                  MatIslandsTab: [1×1 Tab]
+                                                   UndercutsTab: [1×1 Tab]
+                                                       PoresTab: [1×1 Tab]
+                                                   RoughnessTab: [1×1 Tab]
+                                                          Label: [1×1 Label]
+                NumberofsectionsalongpicturewidthEditFieldLabel: [1×1 Label]
+                     NumberofsectionsalongpicturewidthEditField: [1×1 NumericEditField]
+                                       SpacebehindMatIslandsTab: [1×1 Tab]
+                                                       PathsTab: [1×1 Tab]
+                                                   BrowseButton: [1×1 Button]
+                                       ExportpathEditFieldLabel: [1×1 Label]
+                                            ExportpathEditField: [1×1 EditField]
+                                                 BrowseButton_2: [1×1 Button]
+                                       ImportpathEditFieldLabel: [1×1 Label]
+                                            ImportpathEditField: [1×1 EditField]
+                                                    ApplyButton: [1×1 Button]
+                                                     ResultsTab: [1×1 Tab]
+                                                    TabGroup3_2: [1×1 TabGroup]
+                                                MatIslandsTab_2: [1×1 Tab]
+                                                        UIAxes3: [1×1 UIAxes]
+                                                 UndercutsTab_2: [1×1 Tab]
+                                                      UIAxes3_2: [1×1 UIAxes]
+                                                     PoresTab_2: [1×1 Tab]
+                                                      UIAxes3_3: [1×1 UIAxes]
+                                                 RoughnessTab_2: [1×1 Tab]
+                                                      UIAxes3_4: [1×1 UIAxes]
+                                     SpacebehindMatIslandsTab_2: [1×1 Tab]
+                                                      UIAxes3_5: [1×1 UIAxes]
+     Allrightsreserved20172020LehrstuhlfrKunststofftechnikLabel: [1×1 Label]
+     AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeLabel: [1×1 Label]
+    AnsprechpartnerDiplIngTobiasKleffeltobiaskleffelfaudeButton: [1×1 Button]
+                                                        UITable: [1×1 Table]
+                                                          Panel: [1×1 Panel]
+                                                       BildPfad: []
+                                                       BildName: 0
+                                          BildNamePlusExtention: 0
+                                                          imgBW: 0
+                                                   imgBWnoScale: 0
+                                                      imgEroded: 0
+                                                        imgErod: 0
+                                                    imgOriginal: 0
+                                                        imgOrig: 0
+                                                 overallResults: []
+                                                         doPlot: 0
+                                                captionFontSize: 14
+                                                   realeKonturX: 0
+                                                   realeKonturY: 0
+                                                      aufKontur: 0
+                                        FlaecheHinterschneidung: 0
+                                                        Pz_Wert: 0
+                                              MassstabLinksPosX: 0
+                                              MassstabLinksPosY: 0
+                                             MassstabRechtsPosX: 0
+                                             MassstabRechtsPosY: 0
+                                                   MassstabWert: 1
+                                                MassstabEinheit: 'px'
+                                                           hfig: 0
+                                                 ExcelKennwerte: 0
+                                                     ExcelDaten: 0
+                                          AnzahlErzeugteDateien: 1
+                                                ErzeugteDateien: [100×2 string]
+                                                          gruen: [0.7800 0.8800 0.5800]
+                                                      hellgruen: [0.7300 0.8800 0.4800]
+                                                      dunkelrot: [0.6400 0.0800 0.1800]
+                                                        hellrot: [0.9300 0.4100 0.5000]
+                                                           grau: [0.5000 0.5000 0.5000]
+                                                        schwarz: [0 0 0]
+                                                           rosa: [1 0.8000 0.8000]
+                                                hintergrundwert: []
+                                                   materialwert: []
+                                                    schwellwert: []
+                                                     imageWidth: []
+                                                    imageHeight: []
+                                                    erosionType: []
+                                                   erosionValue: []
+                                                  currentFolder: []
+                                                  guiImagesPath: []
+                                                     exportPath: []
+                                                       logfiles: []
+                                                   functionPath: []
+                                               functionPath2017: []
+                                                      imagePath: []
+                                               workingDirectory: []
+                                                importDirectory: []
+                                                savingDirectory: []
+                                                          state: []
+                                                   initialState: []
+                                                     ImagesData: []
+                                                 yValsRectScale: []
+                                                 xValsRectScale: []
+                                                   ConfigParams: []
+
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\app1.mlapp',116,1)">116 </a>            app.ConfigParams = []
+            SLS_Oberflaechenrauheit_final_2020(app)
+{Reference to non-existent field 'hintergrundwert'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('SLS_Oberflaechenrauheit_final_2020', 'C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m', 65)" style="font-weight:bold">SLS_Oberflaechenrauheit_final_2020</a> (<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',65,0)">line 65</a>)
+app.Data.hintergrundwert;
+} 
+            SLS_Oberflaechenrauheit_final_2020(app)
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\SLS_Oberflaechenrauheit_final_2020.m',6,1)">6   </a>try
+try
+    cd(LKTPATH)
+catch
+    disp('Pull git repository "https://github.com/michaelfischer1992/LKTSurfaceQualification.git" to C:\git\')
+    web('https://github.com/michaelfischer1992/LKTSurfaceQualification')
+    error('Get git repository first. Path mentioned previously.')
+end
+app.ConfigParams.workingDirectory = [];
+app.ConfigParams.importDirectory = [];
+app.ConfigParams.savingDirectory = [];
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+addpath(app.ConfigParams.logfiles);
+addpath(app.ConfigParams.guiImagesPath);
+addpath(app.ConfigParams.functionPath);
+addpath(app.ConfigParams.functionPath2017);
+addpath(app.ConfigParams.imagePath);
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.captionFontSize = 14;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0; 
+app.ConfigParams.erosionType = []; 
+app.ConfigParams.erosionValue = []; 
+% colors
+app.ConfigParams.gruen=[0.78 0.88 0.58];
+app.ConfigParams.hellgruen=[0.73	0.88	0.48];
+app.ConfigParams.dunkelrot=[0.64	0.08	0.18];
+app.ConfigParams.hellrot=[0.93	0.41	0.50];
+app.ConfigParams.grau=[0.50	0.50	0.50];
+app.ConfigParams.schwarz=[0	0	0];
+app.ConfigParams.rosa=[1.00	0.80	0.80];
+% iamge
+app.Data.BildPfad = [];
+app.Data.BildName = 0;
+app.Data.BildNamePlusExtention = 0;
+app.Data.imgBW = 0;
+app.Data.imgBWnoScale = 0;
+app.Data.imgEroded = 0;
+app.Data.imgErod = 0; % ausgerichtetes Erodiertes Bild
+app.Data.imgOriginal = 0;
+app.Data.imgOrig = 0; % ausgerichtetes Originalbild
+app.Data.overallResults = [];
+app.Data.hintergrundwert;
+{Reference to non-existent field 'hintergrundwert'.
+} 
+app.Data.BildNamePlusExtention = 0;
+app.Data.imgBW = 0;
+app.Data.imgBWnoScale = 0;
+app.Data.imgEroded = 0;
+app.Data.imgErod = 0; % ausgerichtetes Erodiertes Bild
+app.Data.imgOriginal = 0;
+app.Data.imgOrig = 0; % ausgerichtetes Originalbild
+app.Data.overallResults = [];
+app.Data.hintergrundwert = [];
+app.Data.materialwert = [];
+app.Data.schwellwert = [];
+app.Data.imageWidth = [];
+app.Data.imageHeight = [];
+app.Data.yValsRectScale = [];
+app.Data.xValsRectScale = [];
+% surface
+app.Data.realeKonturX = 0;
+app.Data.realeKonturY = 0;
+app.Data.aufKontur = 0;
+app.Data.FlaecheHinterschneidung = 0;
+app.Data.Pz_Wert = 0;
+% scale
+app.Data.MassstabLinksPosX = 0;
+app.Data.MassstabLinksPosY = 0;
+app.Data.MassstabRechtsPosX = 0;
+app.Data.MassstabRechtsPosY = 0;
+app.Data.MassstabWert = 1;
+app.Data.MassstabEinheit = 'px';
+try
+    cd(LKTPATH)
+catch
+    disp('Pull git repository "https://github.com/michaelfischer1992/LKTSurfaceQualification.git" to C:\git\')
+    web('https://github.com/michaelfischer1992/LKTSurfaceQualification')
+    error('Get git repository first. Path mentioned previously.')
+end
+app.ConfigParams.workingDirectory = [];
+app.ConfigParams.importDirectory = [];
+app.ConfigParams.savingDirectory = [];
+app.ConfigParams.currentFolder = pwd;
+app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
+app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
+app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
+app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
+app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
+app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
+addpath(app.ConfigParams.exportPath);
+addpath(app.ConfigParams.logfiles);
+addpath(app.ConfigParams.guiImagesPath);
+addpath(app.ConfigParams.functionPath);
+addpath(app.ConfigParams.functionPath2017);
+addpath(app.ConfigParams.imagePath);
+
+%% parameters
+app.ConfigParams.doPlot = 0;
+app.ConfigParams.captionFontSize = 14;
+app.ConfigParams.doPlot4Debug = 0;
+app.ConfigParams.programMode = 'multiple images'; % 'single image', 'multiple images'
+app.ConfigParams.LengthScaleEditField = 50; % mycrometer - Massstab
+app.ConfigParams.MassstabLaenge = 50; % mycrometer - Massstab
+app.ConfigParams.erosionType = 'diamond';
+app.ConfigParams.erosionValue = 2;
+app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
+app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.ConfigParams.fastMode = 0; % scaling down, if image is too big
+app.ConfigParams.plot4Debug = 0; 
+app.ConfigParams.erosionType = []; 
+app.ConfigParams.erosionValue = []; 
+% colors
+app.ConfigParams.gruen=[0.78 0.88 0.58];
+app.ConfigParams.hellgruen=[0.73	0.88	0.48];
+app.ConfigParams.dunkelrot=[0.64	0.08	0.18];
+app.ConfigParams.hellrot=[0.93	0.41	0.50];
+app.ConfigParams.grau=[0.50	0.50	0.50];
+app.ConfigParams.schwarz=[0	0	0];
+app.ConfigParams.rosa=[1.00	0.80	0.80];
+% iamge
+app.Data.BildPfad = [];
+app.Data.BildName = 0;
+app.Data.BildNamePlusExtention = 0;
+app.Data.imgBW = 0;
+app.Data.imgBWnoScale = 0;
+app.Data.imgEroded = 0;
+app.Data.imgErod = 0; % ausgerichtetes Erodiertes Bild
+app.Data.imgOriginal = 0;
+app.Data.imgOrig = 0; % ausgerichtetes Originalbild
+app.Data.overallResults = [];
+app.Data.hintergrundwert = [];
+app.Data.materialwert = [];
+app.Data.schwellwert = [];
+app.Data.imageWidth = [];
+app.Data.imageHeight = [];
+app.Data.yValsRectScale = [];
+app.Data.xValsRectScale = [];
+% surface
+app.Data.realeKonturX = 0;
+app.Data.realeKonturY = 0;
+app.Data.aufKontur = 0;
+app.Data.FlaecheHinterschneidung = 0;
+app.Data.Pz_Wert = 0;
+% scale
+app.Data.MassstabLinksPosX = 0;
+app.Data.MassstabLinksPosY = 0;
+app.Data.MassstabRechtsPosX = 0;
+app.Data.MassstabRechtsPosY = 0;
+app.Data.MassstabWert = 1;
+app.Data.MassstabEinheit = 'px';
+% diary
+diaryFile = fullfile(app.logfiles, [datestr8601, '_log.txt']);
+{Unrecognized method, property, or field 'logfiles' for class 'app1'.
+} 
+diaryFile = fullfile(app.logfiles, [datestr8601, '_log.txt']);
+{Unrecognized method, property, or field 'logfiles' for class 'app1'.
+} 
+diaryFile = fullfile(app.ConfigParams.logfiles, [datestr8601, '_log.txt']);
+diary(diaryFile)

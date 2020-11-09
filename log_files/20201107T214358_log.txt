@@ -1,0 +1,40 @@
+User selected C:\git\LKTSurfaceQualification\images\11565_0011.jpg
+<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',100,1)">100 </a>if strcmp(app.programMode, 'multiple images')
+if system_dependent('IsDebugMode')==1, dbcont; end
+calculateScaleFromPreviousUserSelection(app)
+{Unrecognized function or variable 'lx'.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection', 'C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m', 439)" style="font-weight:bold">runAllQualityParametersWithGivenParameters2>calculateScaleFromPreviousUserSelection</a>
+(<a href="matlab: opentoline('C:\git\LKTSurfaceQualification\functions\runAllQualityParametersWithGivenParameters2.m',439,0)">line 439</a>)
+app.MassstabWert = app.MassstabLaenge/abs(rx - lx);
+} 
+if system_dependent('IsDebugMode')==1, dbcont; end
+rx = app.MassstabXVals;
+rx
+
+rx =
+
+   1.0e+03 *
+
+    2.1702
+    2.6620
+
+rx = app.MassstabXVals;
+app.MassstabWert = app.MassstabLaenge/abs(rx(1) - (rx(2));
+ app.MassstabWert = app.MassstabLaenge/abs(rx(1) - (rx(2));
+                                                          ↑
+{Error: Invalid expression. When calling a function or indexing a
+variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+app.MassstabWert = app.MassstabLaenge/abs(rx(1) - (rx(2)));
+ app.MassstabWert
+
+ans =
+
+    0.1017
+
+app.MassstabWert = app.MassstabLaenge/abs(rx(1) - (rx(2)));
+if system_dependent('IsDebugMode')==1, dbquit all; end
+runAllQualityParametersWithGivenParameters2
