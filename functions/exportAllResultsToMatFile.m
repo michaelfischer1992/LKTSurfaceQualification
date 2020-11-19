@@ -7,13 +7,14 @@ function exportAllResultsToMatFile(app, imgName)
 
 %% Parameters
 %
-
-filename = fullfile(app.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
-overallResults = app.overallResults;
+[app.Data.overallResults.imgOriginal] = app.Data.imgOriginal;
+[app.Data.overallResults.imgEroded] = app.Data.imgEroded;
+filename = fullfile(app.Data.exportPath, [datestr8601, '_', imgName, '_overallResults.mat']);
+overallResults = app.Data.overallResults;
 save(filename, 'overallResults')
-disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.exportPath, '"'])
+disp(['Results saved as "', [datestr8601, '_overallResults.mat'], '" in export folder: "', app.Data.exportPath, '"'])
 disp('--------------------------------------------------------------------------------------------------------------------------')
 disp('-')
 disp('-')
-winopen(app.exportPath);
+winopen(app.Data.exportPath);
 end

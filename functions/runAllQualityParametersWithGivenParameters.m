@@ -22,27 +22,27 @@ disp('calculating surface quality parameter 5 took ')
 toc
 end
 
-function handles = CalcQualityParam1(handles)
-[results] = calculateSurfaceParameters(handles, handles.imgEroded, 'matIslands', 'Materialinseln');
-% visualUpdateOfGUIAfterFirstParameter(handles)
-% defineKennwertAsCompleted(handles, results, '1') 
+function app = CalcQualityParam1(app)
+[results] = calculateSurfaceParameters(app, app.Data.imgEroded, 'matIslands', 'Materialinseln');
+% visualUpdateOfGUIAfterFirstParameter(app)
+% defineKennwertAsCompleted(app, results, '1') 
 %% save results
-[handles.overallResults.Kennwert1] = results; 
+[app.Data.overallResults.Kennwert1] = results; 
 end
 
-function handles = CalcQualityParam2(handles)
+function app = CalcQualityParam2(app)
 %% find material islands and eliminate
-[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+[originalImageNoMatIslands] = eliminateBlobsFromImage(app.Data.imgEroded);
 %% find pores and eliminate 
 [originalImageBothEliminated] = eliminateBlobsFromImage(~originalImageNoMatIslands);
 %% draw vertical lines around undercuts
 [thirdStepImage] = drawVerticalLinesForUndercuts(~originalImageBothEliminated);
 %% detect undercuts ( = detect pores) 
-[results] = calculateSurfaceParameters(handles, thirdStepImage, 'pores', 'Materialinseln');
-if handles.doPlot
+[results] = calculateSurfaceParameters(app, thirdStepImage, 'pores', 'Materialinseln');
+if app.Data.doPlot
     figure
     subplot(2, 3, 1)
-    imshow(handles.imgEroded)
+    imshow(app.Data.imgEroded)
     title('1: Original SW-Image')
     subplot(2, 3, 2)
     imshow(originalImageNoMatIslands)
@@ -58,18 +58,18 @@ if handles.doPlot
     title('5. Detected Undercuts')
 end
 %% save results
-[handles.overallResults.Kennwert2] = results; 
+[app.Data.overallResults.Kennwert2] = results; 
 end
 
-function handles = CalcQualityParam3(handles)
-[results] = calculateSurfaceParameters(handles, handles.imgEroded, 'pores', 'Materialinseln');
+function app = CalcQualityParam3(app)
+[results] = calculateSurfaceParameters(app, app.Data.imgEroded, 'pores', 'Materialinseln');
 %% save results
-[handles.overallResults.Kennwert3] = results; 
+[app.Data.overallResults.Kennwert3] = results; 
 end
 
-function handles = CalcQualityParam4(handles)
+function app = CalcQualityParam4(app)
 %% find material islands and eliminate
-[originalImageNoMatIslands] = eliminateBlobsFromImage(handles.imgEroded);
+[originalImageNoMatIslands] = eliminateBlobsFromImage(app.Data.imgEroded);
 %% find pores and eliminate 
 [originalImageBothEliminated] = eliminateBlobsFromImage(~originalImageNoMatIslands);
 %% draw vertical lines around undercuts
@@ -77,18 +77,18 @@ function handles = CalcQualityParam4(handles)
 %% fill out undercuts
 [undercutsEliminated] = eliminateBlobsFromImage(~vertLinesForUndercuts); 
 %% detect hills and valleys
-[roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated);
+[roughnessImage] = calcSurfaceRoughness(app, undercutsEliminated);
 %% find roughness areas
-[results] = calculateSurfaceParameters(handles, roughnessImage, 'pores', 'Roughness Areas');
+[results] = calculateSurfaceParameters(app, roughnessImage, 'pores', 'Roughness Areas');
 %% save results
-[handles.overallResults.Kennwert4] = results; 
+[app.Data.overallResults.Kennwert4] = results; 
 end
 
-function handles = CalcQualityParam5(handles)
+function app = CalcQualityParam5(app)
 %% find pores and eliminate 
-[poresEliminated] = eliminateBlobsFromImage(~handles.imgEroded);
+[poresEliminated] = eliminateBlobsFromImage(~app.Data.imgEroded);
 %% store matIslands data
-[resultsMatIslands] = calculateSurfaceParameters(handles, ~poresEliminated, 'matIslands', 'Materialinseln');
+[resultsMatIslands] = calculateSurfaceParameters(app, ~poresEliminated, 'matIslands', 'Materialinseln');
 %% detect matIslands data and delete
 [matIslandsEliminated] = eliminateBlobsFromImage(~poresEliminated);
 %% draw vertical lines around undercuts
@@ -108,8 +108,8 @@ end
 %% draw vertical lines around matIslands
 [imageUndercutsBehindMatIslands] = drawVerticalLinesForUndercuts(~againWithMatIslands);
 %% detect undercuts ( = detect pores) 
-[results] = calculateSurfaceParameters(handles, imageUndercutsBehindMatIslands, 'pores', 'Materialinseln'); 
+[results] = calculateSurfaceParameters(app, imageUndercutsBehindMatIslands, 'pores', 'Materialinseln'); 
 %% save results
-[handles.overallResults.Kennwert5] = results; 
+[app.Data.overallResults.Kennwert5] = results; 
 end
 

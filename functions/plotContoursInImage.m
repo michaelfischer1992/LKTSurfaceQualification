@@ -8,8 +8,8 @@ function app = plotContoursInImage(app)
 %% Parameters
 %
 
-Massstab = app.MassstabWert;
-img = app.imgErod;
+Massstab = app.Data.MassstabWert;
+img = app.Data.imgErod;
 boundary = realeKontur(img);
 [heightBoundary,~] = size(boundary);
 [height,width,~] = size(img);
@@ -19,8 +19,8 @@ laengeOberfl=0;
 for i =2:heightBoundary
     laengeOberfl = laengeOberfl + sqrt((boundary(i,1)-boundary(i-1,1))^2 + (boundary(i,2)-boundary(i-1,2))^2);
 end
-app.realeKonturY = boundary(:,1);
-app.realeKonturX = boundary(:,2);
+app.Data.realeKonturY = boundary(:,1);
+app.Data.realeKonturX = boundary(:,2);
 disp(['real contour length: ', num2str(round(laengeOberfl*Massstab)), ' µm / ', ...
     num2str(laengeOberfl), ' px.']);
 disp(['picture width: ', num2str(round(width*Massstab)), ' µm / ', ...
@@ -57,31 +57,31 @@ for i = 1:(width*5)
 end
 
 zWerte = [zWerte((1:iZeile),1),zWerte((1:iZeile),2)];
-app.aufKontur = zWerte;
-Mittel = mean2(app.realeKonturY); % Bild bereits ausgerichtet, deshalb Mittelwertberechnung nun trivial
+app.Data.aufKontur = zWerte;
+Mittel = mean2(app.Data.realeKonturY); % Bild bereits ausgerichtet, deshalb Mittelwertberechnung nun trivial
 
-if app.doPlot
+if app.Data.doPlot
     figure
-    imshow(app.imgErod);
+    imshow(app.Data.imgErod);
     hold on;
-    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
-    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot(app.Data.realeKonturX, app.Data.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.Data.aufKontur(:,2), app.Data.aufKontur(:,1),'r','Linewidth',2);
     plot([1 width],[Mittel Mittel],'b','Linewidth',2);
     
-    app.hfig = imshow(app.imgOrig);
+    app.Data.hfig = imshow(app.Data.imgOrig);
     hold on;
-    plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2);
-    plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2);
+    plot(app.Data.realeKonturX, app.Data.realeKonturY, 'g', 'Linewidth', 2);
+    plot(app.Data.aufKontur(:,2), app.Data.aufKontur(:,1),'r','Linewidth',2);
     plot([1 width],[Mittel Mittel],'b','Linewidth',2);
     ax = gca;
     ax.Clipping = 'off';
 end
 
-% imshow(app.imgOrig, 'Parent', app.UIAxes_2);
-% hold(app.UIAxes_2,'on')
-% plot(app.realeKonturX, app.realeKonturY, 'g', 'Linewidth', 2, 'Parent', app.UIAxes_2); % g: gruen; Linewidth: 2 Pixel (breite Linie)
-% plot(app.aufKontur(:,2), app.aufKontur(:,1),'r','Linewidth',2, 'Parent', app.UIAxes_2);
-% plot([1 width],[Mittel Mittel],'b','Linewidth', 2, 'Parent', app.UIAxes_2);
-% hold(app.UIAxes_2,'off')
-% set(app.CalculateButton, 'BackgroundColor', 'green');
+% imshow(app.Data.imgOrig, 'Parent', app.Data.UIAxes_2);
+% hold(app.Data.UIAxes_2,'on')
+% plot(app.Data.realeKonturX, app.Data.realeKonturY, 'g', 'Linewidth', 2, 'Parent', app.Data.UIAxes_2); % g: gruen; Linewidth: 2 Pixel (breite Linie)
+% plot(app.Data.aufKontur(:,2), app.Data.aufKontur(:,1),'r','Linewidth',2, 'Parent', app.Data.UIAxes_2);
+% plot([1 width],[Mittel Mittel],'b','Linewidth', 2, 'Parent', app.Data.UIAxes_2);
+% hold(app.Data.UIAxes_2,'off')
+% set(app.Data.CalculateButton, 'BackgroundColor', 'green');
 end

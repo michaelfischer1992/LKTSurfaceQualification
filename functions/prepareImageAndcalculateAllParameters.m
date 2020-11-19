@@ -24,15 +24,15 @@ if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
     %% Part II: Calculate parameters and export
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     app = runAllQualityParametersWithGivenParameters(app);
-    exportAllResultsToMatFile(app, app.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
+    exportAllResultsToMatFile(app, app.Data.ImagesData(1).name); %% muss nicht zwingend das erste Bild das mit Scale sein.. Aber dann stimmt sowieso mehr nicht
     
-    for i = 2 : numel(app.ImagesData)
+    for i = 2 : numel(app.Data.ImagesData)
         
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% Part 0: Load this image
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        imgPath = app.ImagesData(i).filename;
-        app.imgOriginal = imread(imgPath);
+        imgPath = app.Data.ImagesData(i).filename;
+        app.Data.imgOriginal = imread(imgPath);
         %         showFigureInGUI(app)
         
         %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,8 +41,8 @@ if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
         %% calculate threshold
         app = calcGrayscaleThresholdInImage(app);
         %% remove scale
-        app.imgBWnoScale = app.imgBW;
-        app.imgBWnoScale(app.yValsRectScale, app.xValsRectScale) = 1;
+        app.Data.imgBWnoScale = app.Data.imgBW;
+        app.Data.imgBWnoScale(app.Data.yValsRectScale, app.Data.xValsRectScale) = 1;
         %% prepare image (erode, dilate, etc.)
         app = prepareImageWithBWAreaOpenOpenCloseCtc(app);
         %% align image horizontally, cut off edges
@@ -57,8 +57,8 @@ if strcmp(app.ProgrammodeDropDown.Value, 'multiple images')
         disp('-')
         disp('-')
         disp('--------------------------------------------------------------------------------------------------------------------------')
-        disp(['Image ', app.ImagesData(i).name])
-        exportAllResultsToMatFile(app, app.ImagesData(i).name)
+        disp(['Image ', app.Data.ImagesData(i).name])
+        exportAllResultsToMatFile(app, app.Data.ImagesData(i).name)
     end
     
 else
@@ -80,12 +80,11 @@ else
     %% Part II: Calculate parameters and export
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     app = runAllQualityParametersWithGivenParameters(app);
-    exportAllResultsToMatFile(app, app.BildName)
+    exportAllResultsToMatFile(app, app.Data.BildName)
 end
 
 
-[app.overallResults.imgOriginal] = app.imgOriginal;
-[app.overallResults.imgEroded] = app.imgEroded;
+
 end
 
 function app = calculateScaleFromPreviousUserSelection(app)

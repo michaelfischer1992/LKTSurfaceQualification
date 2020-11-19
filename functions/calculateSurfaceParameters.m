@@ -61,7 +61,7 @@ elseif nnz(labeledImage == 2) > (0.2*height*width)
 end
 
 %% Plot
-if app.doPlot
+if app.Data.doPlot
     coloredLabels = label2rgb(labeledImage, colors);
     sqrtBlobs = sqrt(quantLabels);
     prozent = 0.5;
@@ -91,8 +91,8 @@ if app.doPlot
     outputArg.coloredLabels = coloredLabels;
 end
 %% plot overlay image with colored blobs 
-if app.doPlot
-    imOrig = app.imgOriginal;
+if app.Data.doPlot
+    imOrig = app.Data.imgOriginal;
     for j = 1 : length(allBlobsSorted)
         currentBlob = allBlobsSorted(j, 1);
         thisBlob = blobMeasurements(currentBlob);

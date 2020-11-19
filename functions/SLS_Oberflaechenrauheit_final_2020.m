@@ -10,45 +10,45 @@ catch
     web('https://github.com/michaelfischer1992/LKTSurfaceQualification')
     error('Get git repository first. Path mentioned previously.')
 end
-app.ConfigParams.workingDirectory = [];
-app.ConfigParams.importDirectory = [];
-app.ConfigParams.savingDirectory = [];
-app.ConfigParams.currentFolder = pwd;
-app.ConfigParams.guiImagesPath = [app.ConfigParams.currentFolder, '\gui_pics'];
-app.ConfigParams.logfiles = [app.ConfigParams.currentFolder, '\log_files'];
-app.ConfigParams.exportPath = [app.ConfigParams.currentFolder, '\export'];
-app.ConfigParams.functionPath = [app.ConfigParams.currentFolder, '\functions'];
-app.ConfigParams.functionPath2017 = [app.ConfigParams.currentFolder, '\functions\from2017'];
-app.ConfigParams.imagePath = [app.ConfigParams.currentFolder, '\images'];
-addpath(app.ConfigParams.exportPath);
-addpath(app.ConfigParams.logfiles);
-addpath(app.ConfigParams.guiImagesPath);
-addpath(app.ConfigParams.functionPath);
-addpath(app.ConfigParams.functionPath2017);
-addpath(app.ConfigParams.imagePath);
+app.Data.workingDirectory = [];
+app.Data.importDirectory = [];
+app.Data.savingDirectory = [];
+app.Data.currentFolder = pwd;
+app.Data.guiImagesPath = [app.Data.currentFolder, '\gui_pics'];
+app.Data.logfiles = [app.Data.currentFolder, '\log_files'];
+app.Data.exportPath = [app.Data.currentFolder, '\export'];
+app.Data.functionPath = [app.Data.currentFolder, '\functions'];
+app.Data.functionPath2017 = [app.Data.currentFolder, '\functions\from2017'];
+app.Data.imagePath = [app.Data.currentFolder, '\images'];
+addpath(app.Data.exportPath);
+addpath(app.Data.logfiles);
+addpath(app.Data.guiImagesPath);
+addpath(app.Data.functionPath);
+addpath(app.Data.functionPath2017);
+addpath(app.Data.imagePath);
 
 %% parameters
-app.ConfigParams.doPlot = 0;
-app.ConfigParams.captionFontSize = 14;
-app.ConfigParams.doPlot4Debug = 0;
-app.ConfigParams.programMode = 'single image'; % 'single image', 'multiple images'
-app.ConfigParams.erosionType = 'diamond';
-app.ConfigParams.erosionValue = 2;
-app.ConfigParams.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
-app.ConfigParams.SurfaceRoughnessSections = 50; % surface Roughness
-app.ConfigParams.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
-app.ConfigParams.fastMode = 0; % scaling down, if image is too big
-app.ConfigParams.plot4Debug = 0; 
-app.ConfigParams.erosionType = []; 
-app.ConfigParams.erosionValue = []; 
+app.Data.doPlot = 0;
+app.Data.captionFontSize = 14;
+app.Data.doPlot4Debug = 0;
+app.Data.programMode = 'single image'; % 'single image', 'multiple images'
+app.Data.erosionType = 'diamond';
+app.Data.erosionValue = 2;
+app.Data.pixelsWidthCheckIfPore = 40; % just to make sure that no hard coded vals in code
+app.Data.SurfaceRoughnessSections = 50; % surface Roughness
+app.Data.maxSizeOfImage = 4000000; % equals size of 2000 x 2000 pixel -- everything larger get's scaled down when in fastMode
+app.Data.fastMode = 0; % scaling down, if image is too big
+app.Data.plot4Debug = 0; 
+app.Data.erosionType = []; 
+app.Data.erosionValue = []; 
 % colors
-app.ConfigParams.gruen=[0.78 0.88 0.58];
-app.ConfigParams.hellgruen=[0.73	0.88	0.48];
-app.ConfigParams.dunkelrot=[0.64	0.08	0.18];
-app.ConfigParams.hellrot=[0.93	0.41	0.50];
-app.ConfigParams.grau=[0.50	0.50	0.50];
-app.ConfigParams.schwarz=[0	0	0];
-app.ConfigParams.rosa=[1.00	0.80	0.80];
+app.Data.gruen=[0.78 0.88 0.58];
+app.Data.hellgruen=[0.73	0.88	0.48];
+app.Data.dunkelrot=[0.64	0.08	0.18];
+app.Data.hellrot=[0.93	0.41	0.50];
+app.Data.grau=[0.50	0.50	0.50];
+app.Data.schwarz=[0	0	0];
+app.Data.rosa=[1.00	0.80	0.80];
 % iamge
 app.Data.BildPfad = [];
 app.Data.BildName = 0;
@@ -87,7 +87,7 @@ app.Data.LengthScaleEditField = 50; % mycrometer - Massstab
 app.Data.MassstabLaenge = 50; % mycrometer - Massstab
 
 % diary
-diaryFile = fullfile(app.ConfigParams.logfiles, [datestr8601, '_log.txt']);
+diaryFile = fullfile(app.Data.logfiles, [datestr8601, '_log.txt']);
 diary(diaryFile)
 diary on
 

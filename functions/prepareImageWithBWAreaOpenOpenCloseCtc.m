@@ -30,12 +30,12 @@ else
     filterPores = 20;
     P = 20;
     interval4P = 30; 
-    app.erosionValue = 3;
+    app.Data.erosionValue = 3;
 end
 
 %% count the material islands that are in the image right now
 tic
-initialRegionProps = regionprops(app.imgBWnoScale, 'Area');
+initialRegionProps = regionprops(app.Data.imgBWnoScale, 'Area');
 toc
 % eliminate largest area (actual material, which was detected as regionprop) 
 [~, ab, ~] = intersect(vertcat(initialRegionProps(:).Area), max(vertcat(initialRegionProps(:).Area)));
@@ -52,13 +52,13 @@ areasInit = sort(vertcat(initialRegionProps(:).Area));
 areaAll = sum(areasInit);
 initialAreasSmallerTS = nnz((areasInit) <= filterMatIslands);
 % initialize image 
-BW_bwAreaOpen = app.imgBWnoScale;
+BW_bwAreaOpen = app.Data.imgBWnoScale;
 initialAreasSmallerTS_tmp = initialAreasSmallerTS;
 while initialAreasSmallerTS_tmp > 1
     tic
     BW_bwAreaOpen = bwareaopen(BW_bwAreaOpen, P);
     toc
-    if app.doPlot 
+    if app.Data.doPlot 
         figure, imshow(BW_bwAreaOpen)
         set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
         ax = gca; 
@@ -91,7 +91,7 @@ largePoresRegionProps = blackRegionProps(largePores);
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Morphologically close image
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-se = strel(app.erosionType, app.erosionValue);
+se = strel(app.TypDropDown.Value, app.SizeSpinner.Value);
 BW_imClose = imclose(BW_tmp, se);
 % print results
 tic
@@ -99,7 +99,7 @@ initialRegionProps_tmp2 = regionprops(BW_imClose, 'Area');
 toc
 disp(['Imclose: Of ', num2str(initialAreasSmallerTS), ' objects (< ', ...
     num2str(filterPores), 'px) ', num2str(initialAreasSmallerTS - length(initialRegionProps_tmp2)), ...
-    ' have been eliminated', newline, '(current size (app.erosionValue): ', num2str(app.erosionValue), ')'])
+    ' have been eliminated', newline, '(current size (app.Data.erosionValue): ', num2str(app.Data.erosionValue), ')'])
 % add the large pores again to image
 allPixels = vertcat(largePoresRegionProps(:).PixelList);
 BW_tmp_LargePoresDeleted = BW_imClose;
@@ -128,7 +128,7 @@ BW_tmp = BW_imOpen;
 
 % 
 % %% remove again the last pores (still a lot of small pores included 
-% se = strel(app.erosionType, app.erosionValue);
+% se = strel(app.Data.erosionType, app.Data.erosionValue);
 % BW_imClose = imclose(BW_tmp, se);
 
 %% display results
@@ -142,7 +142,7 @@ disp(['Overall reduction of objects ', num2str(i3), '%'])
 disp(['Reduction in area ', num2str(i4), '%'])
 
 %% final overview plot (Original image vs. BW vs. filtered image) 
-if app.ConfigParams.doPlot
+if app.Data.doPlot
     figure
     set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
     
@@ -166,12 +166,12 @@ if app.ConfigParams.doPlot
     imshow(BW_tmp(:, 1:1000))
     title('Morphologically opened')
 end
-if app.doPlot
+if app.Data.doPlot
     figure, imshow(BW_tmp)
     set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
     ax = gca;
     ax.Clipping = 'off'; % turn clipping off
 end
-app.imgEroded = BW_tmp;
-app.imgErod = app.imgEroded;
+app.Data.imgEroded = BW_tmp;
+app.Data.imgErod = app.Data.imgEroded;
 end

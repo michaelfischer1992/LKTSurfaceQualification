@@ -19,13 +19,13 @@ materialwert = NaN(length(positionsOfSamples), 1);
 
 %% 
 % convert rgb to grayscale 
-if size(app.imgOriginal, 3)==3
-    img = rgb2gray(app.imgOriginal);
+if size(app.Data.imgOriginal, 3)==3
+    img = rgb2gray(app.Data.imgOriginal);
 else
-    img = app.imgOriginal;
+    img = app.Data.imgOriginal;
 end
 % plot imgOriginal
-if app.doPlot
+if app.Data.doPlot
     figure, imshow(img)
     ax = gca;
     ax.Clipping = 'off';    % turn clipping off
@@ -46,7 +46,7 @@ schwellwert = (min(hintergrundwert) + max(materialwert))/2;
 
 % convert grayscale image to binary image
 imgBW = img > schwellwert;
-if app.doPlot
+if app.Data.doPlot
     figure, imshow(imgBW)
     ax = gca;
     ax.Clipping = 'off';    % turn clipping off
@@ -77,7 +77,7 @@ if (imageHeight - critHeight) > 0
     for i = 1 : length(relevantPixelList)
         imgBW_tmp( relevantPixelList(i, 2) + critHeight - 1, relevantPixelList(i, 1)) = 1;
     end
-    if app.doPlot
+    if app.Data.doPlot
         figure, imshow(imgBW_tmp)
         ax = gca;
         ax.Clipping = 'off';    % turn clipping off
@@ -90,10 +90,10 @@ else
 end
 
 %% output 
-app.imageHeight = imageHeight;
-app.imageWidth = imageWidth;
-app.schwellwert = schwellwert;
-app.imgBW = imgBW_tmp;
+app.Data.imageHeight = imageHeight;
+app.Data.imageWidth = imageWidth;
+app.Data.schwellwert = schwellwert;
+app.Data.imgBW = imgBW_tmp;
 
 %% 
 %% EOF 

@@ -1,6 +1,6 @@
-function [roughnessImage] = calcSurfaceRoughness(handles, undercutsEliminated)
+function [roughnessImage] = calcSurfaceRoughness(app, undercutsEliminated)
 [width] = size(undercutsEliminated, 2);
-faktor = handles.SurfaceRoughnessSections;
+faktor = app.Data.SurfaceRoughnessSections;
 aufteilung = width/faktor;
 boundary = realeKontur(~undercutsEliminated);
 roughnessImage = ~undercutsEliminated;
@@ -14,7 +14,7 @@ for i = 1 : length(ab) - 1
     roughnessImage(punktLinie:(MinSection + 1), faktorArray(i+1)) = 1;
     roughnessImage(punktLinie:(MinSection + 1), faktorArray(i)) = 1;
 end
-if handles.doPlot
+if app.Data.doPlot
     figure
     imshow(roughnessImage)
     hold on
